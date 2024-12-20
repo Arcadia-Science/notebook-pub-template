@@ -1,0 +1,48 @@
+project:
+  type: website
+execute:
+  freeze: auto
+website:
+  favicon: site/logo_black_small.png # https://quarto.org/docs/websites/website-tools.html#favicon
+  twitter-card: true # https://quarto.org/docs/websites/website-tools.html#twitter-cards
+  open-graph: true # https://quarto.org/docs/websites/website-tools.html#open-graph
+  title: "Arcadia Science"
+  navbar:
+    title: false
+    tools:
+      - icon: twitter
+        href: https://x.com/arcadiascience
+      - icon: github
+        menu:
+          - text: Publication Source Code
+            href: https://github.com/Arcadia-Science/2024-paired-token-masking
+          - text: Arcadia Science GitHub
+            href: https://github.com/Arcadia-Science
+    logo: site/logo_white.png
+    background: "#4D635E"
+    search: true
+  page-footer:
+    background: "#484B50"
+    border: false
+    left: |
+      [![](site/logo_white_small.png){fig-alt="Arcadia-Science" width=65px}](https://www.arcadiascience.com/)
+      Copyright 2024, Arcadia Science
+    right:
+      - icon: twitter
+        href: https://x.com/arcadiascience
+      - icon: github
+        menu:
+          - text: Publication Source Code
+            href: https://github.com/Arcadia-Science/2024-paired-token-masking
+          - text: Arcadia Science GitHub
+            href: https://github.com/Arcadia-Science
+format:
+  html:
+    theme: default
+    css: site/styles.css
+    toc: true
+
+comments:
+  giscus:
+    repo: Arcadia-Science/notebook-pub-template
+    input-position: top

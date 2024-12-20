@@ -1,0 +1,12 @@
+{
+  "hash": "a9482d8624cff0b053cfcadc3b28dc7e",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Paired Token Prediction\nauthor:\n  - name: Evan Kiefl\n    orcid: 0000-0002-6473-0921\n    corresponding: true\n    email: evan.kiefl@arcadiascience.com\ndate: 'December 17, 2024'\nreference-location: margin\nbibliography: ref.bib\ncsl: arcadia.csl\ncode-annotations: hover\n---\n\n::: {#fd16dbb3-74f2-45d9-9cfc-6dbee0a773c6 .cell execution_count=1}\n``` {.python .cell-code}\nprint(\"hi\")\n```\n\n::: {.cell-output .cell-output-stdout}\n```\nhi\n```\n:::\n:::\n\n\n::: {#a4ae00c6-6a3c-4a1b-9a8c-3c5eae8c4808 .cell execution_count=2}\n``` {.python .cell-code}\nx = 52\n```\n:::\n\n\n::: {#b256deee-ac8b-410e-96ba-90991a7e502d .cell execution_count=3}\n``` {.python .cell-code}\nimport matplotlib.pyplot as plt\nplt.plot([0,1,10,3])\n```\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-4-output-1.png){width=566 height=411}\n:::\n:::\n\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
