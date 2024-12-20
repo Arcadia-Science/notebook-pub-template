@@ -9,20 +9,31 @@ website:
   title: "Arcadia Science"
   navbar:
     title: false
+
+    left:
+      - text: "Version"
+        menu:
+          - text: latest
+            href: index.ipynb
+      - text: Residue prediction dependencies in ESM2
+        href: index.ipynb
     right:
       - text: FAQ
         href: faq.qmd
     tools:
-      - icon: twitter
-        href: https://x.com/arcadiascience
+      - icon: fa-x-twitter
+        href: https://twitter.com/arcadiascience
+      - icon: fa-bluesky 
+        href: https://bsky.app/profile/arcadiascience.com
       - icon: github
         menu:
           - text: Publication Source Code
             href: https://github.com/Arcadia-Science/2024-paired-token-masking
           - text: Arcadia Science GitHub
             href: https://github.com/Arcadia-Science
-    logo: site/logo_white.png
-    background: "#4D635E"
+    logo: site/arcadia_notebook_pub_logo.png
+    logo-href: https://www.arcadiascience.com/
+    background: white
     search: true
   page-footer:
     background: "#484B50"
@@ -41,8 +52,10 @@ website:
             href: https://github.com/Arcadia-Science
 format:
   html:
-    theme: default
+    theme: dark
     css: site/styles.css
+    page-layout: article
+    title-block-banner: true
     toc: true
 
 comments:
