@@ -53,6 +53,7 @@ website:
 format:
   html:
     theme: dark
+    css: site/styles.css
     page-layout: article
     title-block-banner: true
     toc: true
