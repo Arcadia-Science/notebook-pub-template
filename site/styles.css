@@ -1,0 +1,69 @@
+:root {
+    --arcadia-black: #09090a;
+    --arcadia-black-50: #09090a7f;
+    --arcadia-black-20: #09090a33;
+    --arcadia-white: #ffffff;
+    --arcadia-white-50: #ffffff7f;
+    --arcadia-white-20: #ffffff33;
+    --arcadia-charcoal: #484b50;
+    --arcadia-dawn: #f8f4f1;
+    --arcadia-forest: #4d635e;
+    --arcadia-light-grey: #ebede8;
+    --arcadia-marine-blue: #37394a;
+    --arcadia-orange: #ffa35c;
+    --arcadia-seafoam: #f9fcf0;
+    --arcadia-shell: #ede0d6;
+    --banner-height: 180px;
+    --banner-height-small: 80px;
+}
+
+/* italicize title on navbar */
+.nav-link[href$="index.html"] .menu-text,
+.nav-link[data-original-href$="index.html"] .menu-text {
+    font-style: italic;
+}
+
+.navbar-logo {
+    max-height: 44px;
+    padding: 0;
+    margin-left: 1rem;
+}
+
+.navbar {
+    background-color: var(--arcadia-white) !important;
+}
+
+.menu-text {
+    color: var(--arcadia-black) !important;
+}
+
+.title-block-header {
+    background-color: var(--arcadia-white) !important;
+}
+
+.quarto-title-banner {
+    background-color: var(--arcadia-forest) !important;
+}
+
+.quarto-title-banner h1 {
+    color: var(--arcadia-white) !important;
+    font-family: 'Inter', sans-serif; 
+    font-weight: 200 !important; 
+    font-size: 2.5rem;
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Section headers */
+h2 {
+    font-family: 'Crimson Text', serif;
+    font-size: 2rem;
+    color: var(--arcadia-black);
+}
+
+/* Footer styling */
+.footer {
+    background-color: var(--arcadia-charcoal) !important;
+    padding: 2rem;
+    margin-top: 4rem;
+}
