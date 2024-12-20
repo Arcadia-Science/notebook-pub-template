@@ -9,6 +9,9 @@ website:
   title: "Arcadia Science"
   navbar:
     title: false
+    right:
+      - text: FAQ
+        href: faq.qmd
     tools:
       - icon: twitter
         href: https://x.com/arcadiascience
