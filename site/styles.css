@@ -13,8 +13,10 @@
     --arcadia-orange: #ffa35c;
     --arcadia-seafoam: #f9fcf0;
     --arcadia-shell: #ede0d6;
-    --banner-height: 180px;
-    --banner-height-small: 80px;
+}
+
+.navbar {
+    background-color: var(--arcadia-white) !important;
 }
 
 /* italicize title on navbar */
@@ -23,14 +25,38 @@
     font-style: italic;
 }
 
-.navbar-logo {
-    max-height: 44px;
-    padding: 0;
-    margin-left: 1rem;
+.navbar-brand {
+  position: relative;
+  display: inline-block;
 }
 
-.navbar {
-    background-color: var(--arcadia-white) !important;
+.navbar-logo {
+  max-height: 40px;
+  width: auto;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.3s linear;
+}
+
+.navbar-logo.visible {
+  opacity: 1;
+}
+
+.navbar-logo.video-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  inset: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  opacity: 0;
+  display: block;
+  opacity: 0;
+  transition: opacity 1.0s linear;
+}
+
+.navbar-logo.video-logo.ready {
+  opacity: 1;
 }
 
 .menu-text {

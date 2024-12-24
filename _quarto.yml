@@ -1,5 +1,7 @@
 project:
   type: website
+  resources: 
+    - "site/*"
 execute:
   freeze: auto
 website:
@@ -9,7 +11,6 @@ website:
   title: "Arcadia Science"
   navbar:
     title: false
-
     left:
       - text: "Version"
         menu:
@@ -23,7 +24,7 @@ website:
     tools:
       - icon: fa-x-twitter
         href: https://twitter.com/arcadiascience
-      - icon: fa-bluesky 
+      - icon: fa-bluesky
         href: https://bsky.app/profile/arcadiascience.com
       - icon: github
         menu:
@@ -31,7 +32,7 @@ website:
             href: https://github.com/Arcadia-Science/2024-paired-token-masking
           - text: Arcadia Science GitHub
             href: https://github.com/Arcadia-Science
-    logo: site/arcadia_notebook_pub_logo.png
+    logo: site/logo_static.png
     logo-href: https://www.arcadiascience.com/
     background: white
     search: true
@@ -52,12 +53,13 @@ website:
             href: https://github.com/Arcadia-Science
 format:
   html:
+    include-in-header:
+      file: site/logo-animation.html
     theme: dark
     css: site/styles.css
     page-layout: article
     title-block-banner: true
     toc: true
-
 comments:
   giscus:
     repo: Arcadia-Science/notebook-pub-template
