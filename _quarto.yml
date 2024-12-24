@@ -22,12 +22,10 @@ website:
       - text: FAQ
         href: faq.qmd
     tools:
-      - icon: fa-x-twitter
+      - icon: twitter-x
         href: https://twitter.com/arcadiascience
-      - icon: fa-bluesky
-        href: https://bsky.app/profile/arcadiascience.com
       - icon: github
-        href: https://github.com/Arcadia-Science/notebook-pub-template
+        href: https://github.com/Arcadia-Science/2024-paired-token-masking
     logo: site/logo_static.png
     logo-href: https://www.arcadiascience.com/
     background: white
