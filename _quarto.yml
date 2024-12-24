@@ -45,7 +45,6 @@ format:
   html:
     include-in-header:
       file: site/logo-animation.html
-    theme: dark
     css: site/styles.css
     page-layout: article
     title-block-banner: true
