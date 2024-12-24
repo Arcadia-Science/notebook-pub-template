@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./site/logo_black_small.png" rel="icon" type="image/png">
+<link href="./site/logo_white.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,36 +73,28 @@ ul.task-list li input[type="checkbox"] {
   document.addEventListener("DOMContentLoaded", function () {
     const brandLink = document.querySelector(".navbar-brand");
     const logoImg = brandLink.querySelector("img.navbar-logo");
-
     const video = document.createElement("video");
+
     video.classList.add("navbar-logo", "video-logo");
     video.autoplay = true;
     video.muted = true;
     video.playsInline = true;
     video.loop = false;
-    video.playbackRate = 2.0;
+    video.playbackRate = 0.8;
 
     const source = document.createElement("source");
+
     source.src = "./site/logo_movie.mp4";
     source.type = "video/mp4";
     video.appendChild(source);
 
-    // Wait for the video to be loaded before showing it
-    video.addEventListener("loadeddata", function () {
-      video.classList.add("ready");
-    });
-
-    // If the final frame of video element is chosen as logo, it looks bad because it's not
-    // anti-aliased. To solve this, we establish a cross-fade where the static
-    // image is set to visible with an opacity transition, while the video fades.
-    // out. Once the video fades out completely, it is removed.
-    video.addEventListener("ended", function () {
-      logoImg.classList.add('visible');
-      video.classList.remove("ready");
-
-      setTimeout(() => {
-        video.remove();
-      }, 1000);
+    // Add hover event listener to restart video
+    brandLink.addEventListener("mouseenter", function () {
+      if (video.ended) {
+        video.currentTime = 0;
+        video.playbackRate = 3.0;
+        video.play();
+      }
     });
 
     video.addEventListener("error", function () {
@@ -133,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="https://www.arcadiascience.com/" class="navbar-brand navbar-brand-logo">
-    <img src="./site/logo_static.png" alt="" class="navbar-logo">
+    <img src="./site/logo_text.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -620,7 +612,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><a href="https://www.arcadiascience.com/"><img src="site/logo_white_small.png" class="img-fluid" alt="Arcadia-Science" width="65"></a> Copyright 2024, Arcadia Science</p>
+<p><a href="https://www.arcadiascience.com/"><img src="site/logo_white.png" class="img-fluid" alt="Arcadia-Science" width="65"></a> Copyright 2024, Arcadia Science</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
