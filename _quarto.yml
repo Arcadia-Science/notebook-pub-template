@@ -12,7 +12,7 @@ website:
   navbar:
     title: false
     left:
-      - text: "Version"
+      - text: "{{< iconify qlementine-icons:version-control-16 >}}"
         menu:
           - text: latest
             href: index.ipynb
