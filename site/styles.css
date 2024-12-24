@@ -1,4 +1,5 @@
 :root {
+    /* Colors */
     --arcadia-black: #09090a;
     --arcadia-black-50: #09090a7f;
     --arcadia-black-20: #09090a33;
@@ -13,6 +14,12 @@
     --arcadia-orange: #ffa35c;
     --arcadia-seafoam: #f9fcf0;
     --arcadia-shell: #ede0d6;
+    /* Fonts */
+    --nb-header-font-family: "Georgia";
+    --nb-header-font-weight: 100;
+    --nb-header-font-size: 2rem;
+    --nb-main-text-font-family: "Helvetica Neue";
+    --nb-banner-title-font-family: 'Helvetica Neue'; 
 }
 
 .navbar {
@@ -20,7 +27,8 @@
 }
 
 /* italicize title on navbar */
-.nav-link[href$="index.html"] .menu-text {
+.nav-link[href$="index.html"] .menu-text,
+.nav-link[data-original-href$="index.html"] .menu-text {
     font-style: italic;
 }
 
@@ -68,23 +76,44 @@
 
 .quarto-title-banner {
     background-color: var(--arcadia-forest) !important;
+    margin: 0;
 }
 
 .quarto-title-banner h1 {
     color: var(--arcadia-white) !important;
-    font-family: 'Inter', sans-serif; 
-    font-weight: 200 !important; 
+    font-family: var(--nb-banner-title-font-family) !important;
+    font-weight: 100 !important; 
     font-size: 2.5rem;
-    -webkit-font-smoothing: antialiased; 
-    -moz-osx-font-smoothing: grayscale;
+}
+
+.quarto-title-meta {
+    background-color: var(--arcadia-light-grey);
+    padding: 2em;
+}
+
+#quarto-header.headroom--pinned,
+#quarto-header.headroom--not-top,
+#quarto-header.headroom--not-bottom {
+    border-bottom: 1px solid black;
 }
 
 /* Section headers */
 h2 {
-    font-family: 'Crimson Text', serif;
-    font-size: 2rem;
+    font-family: var(--nb-header-font-family), serif !important;
+    font-weight: var(--nb-header-font-weight) !important; 
+    font-size: var(--nb-header-font-size);
     color: var(--arcadia-black);
 }
+
+#quarto-appendix.default .quarto-appendix-heading {
+    font-size: var(--nb-header-font-size) !important;
+}
+
+body {
+    font-family: var(--nb-main-text-font-family);
+    color: var(--arcadia-black);
+}
+
 
 /* Footer styling */
 .footer {
