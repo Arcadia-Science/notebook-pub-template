@@ -27,11 +27,7 @@ website:
       - icon: fa-bluesky
         href: https://bsky.app/profile/arcadiascience.com
       - icon: github
-        menu:
-          - text: Publication Source Code
-            href: https://github.com/Arcadia-Science/2024-paired-token-masking
-          - text: Arcadia Science GitHub
-            href: https://github.com/Arcadia-Science
+        href: https://github.com/Arcadia-Science/notebook-pub-template
     logo: site/logo_static.png
     logo-href: https://www.arcadiascience.com/
     background: white
