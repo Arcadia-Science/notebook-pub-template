@@ -26,6 +26,12 @@
     background-color: var(--arcadia-white) !important;
 }
 
+.navbar-nav.navbar-nav-scroll.me-auto {
+  background-color: var(--arcadia-white);
+  border: 1px solid var(--arcadia-black);
+  border-radius: 6px;
+}
+
 /* italicize title on navbar */
 .nav-link[href$="index.html"] .menu-text,
 .nav-link[data-original-href$="index.html"] .menu-text {
