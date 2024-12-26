@@ -26,10 +26,23 @@
     background-color: var(--arcadia-white) !important;
 }
 
-.navbar-nav.navbar-nav-scroll.me-auto {
+
+li.nav-item.dropdown {
+    display: flex;
+    align-items: center;
+}
+
+[aria-labelledby="nav-menu-iconify-qlementine-iconsversion-control-16-"].dropdown-menu {
+    top: 100%;
+    transform: none;
+    margin-top: 0.3rem;  /* Add some spacing between toggle and menu */
+}
+
+#nav-menu-iconify-qlementine-iconsversion-control-16- {
   background-color: var(--arcadia-white);
-  border: 1px solid var(--arcadia-black);
-  border-radius: 6px;
+  border: 2px solid var(--arcadia-black-50);
+  border-radius: 8px;
+  padding: 0.2rem 0.2rem 0.2rem 0.2rem;
 }
 
 /* italicize title on navbar */

@@ -1,11 +1,11 @@
 project:
   type: website
   resources: 
-    - "site/*"
+    - "assets/*"
 execute:
   freeze: auto
 website:
-  favicon: site/logo_white.png # https://quarto.org/docs/websites/website-tools.html#favicon
+  favicon: assets/logo_white.png # https://quarto.org/docs/websites/website-tools.html#favicon
   twitter-card: true # https://quarto.org/docs/websites/website-tools.html#twitter-cards
   open-graph: true # https://quarto.org/docs/websites/website-tools.html#open-graph
   title: "Arcadia Science"
@@ -26,7 +26,7 @@ website:
         href: https://twitter.com/arcadiascience
       - icon: github
         href: https://github.com/Arcadia-Science/notebook-pub-template
-    logo: site/logo_text.png
+    logo: assets/logo_text.png
     logo-href: https://www.arcadiascience.com/
     background: white
     search: true
@@ -34,7 +34,7 @@ website:
     background: "#484B50"
     border: false
     left: |
-      [![](site/logo_white.png){fig-alt="Arcadia-Science" width=65px}](https://www.arcadiascience.com/)
+      [![](assets/logo_white.png){fig-alt="Arcadia-Science" width=65px}](https://www.arcadiascience.com/)
       Copyright 2024, Arcadia Science
     right:
       - icon: twitter-x
@@ -44,8 +44,8 @@ website:
 format:
   html:
     include-in-header:
-      file: site/logo-animation.html
-    css: site/styles.css
+      file: assets/logo-animation.html
+    css: assets/styles.css
     page-layout: article
     title-block-banner: true
     toc: true
