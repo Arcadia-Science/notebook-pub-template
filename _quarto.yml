@@ -16,7 +16,7 @@ website:
         menu:
           - text: latest
             href: index.ipynb
-      - text: Residue prediction dependencies in ESM2
+      - text: Paired residue prediction dependencies in ESM2
         href: index.ipynb
     right:
       - text: FAQ
