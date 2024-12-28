@@ -80,13 +80,13 @@ li.nav-item.dropdown {
 }
 
 .navbar-logo {
-  max-height: 40px;
+  max-height: var(--arcadia-logo-size);
   width: auto;
   display: block;
 }
 
 .navbar-logo.video-logo {
-  max-height: 40px;
+  max-height: var(--arcadia-logo-size);
   position: absolute;
   top: 0;
   left: 0;
