@@ -17,7 +17,8 @@
     /* Fonts */
     --nb-header-font-family: "Georgia";
     --nb-header-font-weight: 100;
-    --nb-header-font-size: 2rem;
+    --nb-h1-font-size: 2.5rem;
+    --nb-h2-font-size: 2rem;
     --nb-main-text-font-family: "Helvetica Neue";
     --nb-banner-title-font-family: 'Helvetica Neue'; 
 }
@@ -103,15 +104,22 @@ li.nav-item.dropdown {
 }
 
 /* Section headers */
-h2 {
+h1, h2, h3 {
     font-family: var(--nb-header-font-family), serif !important;
     font-weight: var(--nb-header-font-weight) !important; 
-    font-size: var(--nb-header-font-size);
     color: var(--arcadia-black);
 }
 
+h2 {
+    font-size: var(--nb-h2-font-size);
+}
+
+h1 {
+    font-size: var(--nb-h1-font-size);
+}
+
 #quarto-appendix.default .quarto-appendix-heading {
-    font-size: var(--nb-header-font-size) !important;
+    font-size: var(--nb-h2-font-size) !important;
 }
 
 body {

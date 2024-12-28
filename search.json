@@ -1,5 +1,82 @@
 [
   {
+    "objectID": "CONTRIBUTING.html",
+    "href": "CONTRIBUTING.html",
+    "title": "Contributing",
+    "section": "",
+    "text": "If you want to improve, extend, or experiment with this publication or its underlying analysis, you’ll find useful information in this document.\n\n\nAll the code necessary to reproduce this publication is hosted on GitHub at this URL.\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe publication is rendered with Quarto. If you don’t have it installed (check with quarto --version), you can install it here.\n\n\nThis repository uses conda to manage the computational and build environment. If you don’t have it installed (check with conda --version), you can find operating system-specific instructions for installing miniconda here. After installing, run the following commands to create and activate the environment.\nconda env create -n [ENV-NAME] --file env.yml\nconda activate [ENV-NAME]\nNow, install any internal packages in the repository:\npip install -e .\nAnd finally, if you plan to submit a pull request, install the pre-commit hooks:\npre-commit install\n\n\n\nThe analysis, and therefore the publication itself, can be reproduced with the following command:\nmake execute\nThis will generate the directory _site/. Open _site/index.html to view your local copy of the publication.\n\n\n\nTo modify or extend any analyses, open up index.ipynb with Jupyter or your favorite IDE:\njupyter-lab index.ipynb\n\n\n\nTo create a live preview of your pub, run the following:\nmake preview\nThis will open a local copy of the publication in your default browser. The command watches for changes such that whenever index.ipynb is saved, the publication is re-rendered.\n\n\n\nPublishing is handled automatically with a GitHub Action that triggers whenever a pull request is merged into the main branch. So once you’re happy with your changes, please open a pull request for us to review. Once the changes are approved and the pull request is merged, your changes will be live.\nBefore opening a pull request, there’s a few required tasks.\n\nAdd yourself to the authors list in the front matter of index.ipynb.\nexecute the notebook locally using make execute. This command will update index.ipynb with the latest execution results. Importantly, it will also generate any runtime artifacts in the _freeze/ directory. Commit index.ipynb and all files in the _freeze/ directory.\n\nAfter this, feel free to open a pull request. We look forward to collaborating with you."
+  },
+  {
+    "objectID": "CONTRIBUTING.html#source-code",
+    "href": "CONTRIBUTING.html#source-code",
+    "title": "Contributing",
+    "section": "",
+    "text": "All the code necessary to reproduce this publication is hosted on GitHub at this URL."
+  },
+  {
+    "objectID": "CONTRIBUTING.html#installation",
+    "href": "CONTRIBUTING.html#installation",
+    "title": "Contributing",
+    "section": "",
+    "text": "Note\n\n\n\nThe publication is rendered with Quarto. If you don’t have it installed (check with quarto --version), you can install it here.\n\n\nThis repository uses conda to manage the computational and build environment. If you don’t have it installed (check with conda --version), you can find operating system-specific instructions for installing miniconda here. After installing, run the following commands to create and activate the environment.\nconda env create -n [ENV-NAME] --file env.yml\nconda activate [ENV-NAME]\nNow, install any internal packages in the repository:\npip install -e .\nAnd finally, if you plan to submit a pull request, install the pre-commit hooks:\npre-commit install"
+  },
+  {
+    "objectID": "CONTRIBUTING.html#reproduce",
+    "href": "CONTRIBUTING.html#reproduce",
+    "title": "Contributing",
+    "section": "",
+    "text": "The analysis, and therefore the publication itself, can be reproduced with the following command:\nmake execute\nThis will generate the directory _site/. Open _site/index.html to view your local copy of the publication."
+  },
+  {
+    "objectID": "CONTRIBUTING.html#modify",
+    "href": "CONTRIBUTING.html#modify",
+    "title": "Contributing",
+    "section": "",
+    "text": "To modify or extend any analyses, open up index.ipynb with Jupyter or your favorite IDE:\njupyter-lab index.ipynb"
+  },
+  {
+    "objectID": "CONTRIBUTING.html#preview",
+    "href": "CONTRIBUTING.html#preview",
+    "title": "Contributing",
+    "section": "",
+    "text": "To create a live preview of your pub, run the following:\nmake preview\nThis will open a local copy of the publication in your default browser. The command watches for changes such that whenever index.ipynb is saved, the publication is re-rendered."
+  },
+  {
+    "objectID": "CONTRIBUTING.html#publish-a-revision",
+    "href": "CONTRIBUTING.html#publish-a-revision",
+    "title": "Contributing",
+    "section": "",
+    "text": "Publishing is handled automatically with a GitHub Action that triggers whenever a pull request is merged into the main branch. So once you’re happy with your changes, please open a pull request for us to review. Once the changes are approved and the pull request is merged, your changes will be live.\nBefore opening a pull request, there’s a few required tasks.\n\nAdd yourself to the authors list in the front matter of index.ipynb.\nexecute the notebook locally using make execute. This command will update index.ipynb with the latest execution results. Importantly, it will also generate any runtime artifacts in the _freeze/ directory. Commit index.ipynb and all files in the _freeze/ directory.\n\nAfter this, feel free to open a pull request. We look forward to collaborating with you."
+  },
+  {
+    "objectID": "faq.html",
+    "href": "faq.html",
+    "title": "Arcadia Science",
+    "section": "",
+    "text": "This notebook publication (or “notebook pub”) is an experimental format we’re testing that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. This approach reduces publication burden by avoiding format translation, promotes sharing of early-stage work, and gives readers direct access to interact with and build upon the analysis. For more information about this experimental format, see our commentary on notebook publications."
+  },
+  {
+    "objectID": "faq.html#what-is-this",
+    "href": "faq.html#what-is-this",
+    "title": "Arcadia Science",
+    "section": "",
+    "text": "This notebook publication (or “notebook pub”) is an experimental format we’re testing that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. This approach reduces publication burden by avoiding format translation, promotes sharing of early-stage work, and gives readers direct access to interact with and build upon the analysis. For more information about this experimental format, see our commentary on notebook publications."
+  },
+  {
+    "objectID": "faq.html#how-can-i-comment",
+    "href": "faq.html#how-can-i-comment",
+    "title": "Arcadia Science",
+    "section": "2. How can I comment?",
+    "text": "2. How can I comment?\nThere is a comment section at the bottom of the pub, where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget."
+  },
+  {
+    "objectID": "faq.html#can-i-join",
+    "href": "faq.html#can-i-join",
+    "title": "Arcadia Science",
+    "section": "3. Can I join?",
+    "text": "3. Can I join?\nWe welcome improvements to this publication! Please see our guide for contributing."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Paired residue prediction dependencies in ESM2",
@@ -103,12 +180,5 @@
     "title": "Paired residue prediction dependencies in ESM2",
     "section": "Conclusion",
     "text": "Conclusion\nThe contrast between these two models is quite interesting. The 15B parameter model has a 90% single-mask reconstruction accuracy, whereas for the 150M parameter model the reconstruction accuracy is only 50%. Given this, we expected that the 150M parameter model would perhaps struggle to create residue pair dependencies that are biologically interpretable and that perhaps the 15B parameter model might provide more interpretable answers. However, the above results show the opposite.\nWe’re having trouble interpreting this result and we’re seeking your opinion. So our question to you is: Why do you think the contact map pattern diminishes in the JS-divergence for the larger models?"
-  },
-  {
-    "objectID": "faq.html",
-    "href": "faq.html",
-    "title": "What is this?",
-    "section": "",
-    "text": "What is this?\nThis notebook publication (or “notebook pub”) is an experimental format we’re testing that treats a scientist’s working computational analysis as the publication itself, effectively dissolving the separation that exists between code and publication. This approach reduces publication burden by avoiding format translation, promotes sharing of early-stage work, and gives readers direct access to interact with and build upon the analysis. For more information about this experimental format, see our commentary on notebook publications."
   }
 ]

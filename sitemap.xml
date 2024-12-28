@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://Arcadia-Science.github.io/notebook-pub-template/index.html</loc>
-    <lastmod>2024-12-27T00:59:51.952Z</lastmod>
+    <loc>https://Arcadia-Science.github.io/notebook-pub-template/CONTRIBUTING.html</loc>
+    <lastmod>2024-12-28T02:21:16.383Z</lastmod>
   </url>
   <url>
     <loc>https://Arcadia-Science.github.io/notebook-pub-template/faq.html</loc>
-    <lastmod>2024-12-27T00:59:51.816Z</lastmod>
+    <lastmod>2024-12-28T02:21:16.523Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Arcadia-Science.github.io/notebook-pub-template/index.html</loc>
+    <lastmod>2024-12-28T02:21:16.659Z</lastmod>
   </url>
 </urlset>
