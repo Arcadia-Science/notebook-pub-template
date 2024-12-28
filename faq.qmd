@@ -2,6 +2,14 @@
 comments: false
 ---
 
-# What is this?
+## 1. What is this?
 
-This notebook publication (or "notebook pub") is an experimental format we're testing that treats a scientist's working computational analysis as the publication itself, effectively dissolving the separation that exists between code and publication. This approach reduces publication burden by avoiding format translation, promotes sharing of early-stage work, and gives readers direct access to interact with and build upon the analysis. For more information about this experimental format, see [our commentary on notebook publications](FIXME).
+This notebook publication (or "notebook pub") is an experimental format we're testing that treats a scientist's working computational analysis as the publication itself, dissolving the separation that exists between code and publication. This approach reduces publication burden by avoiding format translation, promotes sharing of early-stage work, and gives readers direct access to interact with and build upon the analysis. For more information about this experimental format, see [our commentary](FIXME) on notebook publications.
+
+## 2. How can I comment?
+
+There is a comment section at the bottom of the [pub](index.ipynb), where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget.
+
+## 3. Can I join?
+
+We welcome improvements to this publication! Please see our guide for [contributing](CONTRIBUTING.qmd).

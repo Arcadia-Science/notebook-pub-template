@@ -20,7 +20,9 @@ website:
         href: index.ipynb
     right:
       - text: FAQ
-        href: faq.qmd
+        href: FAQ.qmd
+      - text: Contributing
+        href: CONTRIBUTING.qmd
     tools:
       - icon: twitter-x
         href: https://twitter.com/arcadiascience
