@@ -6,7 +6,7 @@ comments: false
 
 ## What is this?
 
-This notebook publication (or "notebook pub") is an experimental format we're testing that treats a scientist's working computational analysis as the publication itself, dissolving the separation that exists between code and publication. This approach reduces publication burden by avoiding format translation, promotes sharing of early-stage work, and gives readers direct access to interact with and build upon the analysis. For more information about this experimental format, see [our commentary](FIXME) on notebook publications.
+This *notebook publication* uses a format we're experimenting with that treats a scientist's working computational analysis as the publication itself, dissolving the separation that exists between code and publication. Our hypothesis is that this lets us publish faster, promote early-stage work, and increase reproducibility. For details, see [our commentary](FIXME) on notebook publications.
 
 ## Where is the data/code?
 
