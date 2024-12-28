@@ -10,6 +10,6 @@ This notebook publication (or "notebook pub") is an experimental format we're te
 
 There is a comment section at the bottom of the [pub](index.ipynb), where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget.
 
-## 3. Can I join?
+## 3. How can I contribute?
 
 We welcome improvements to this publication! Please see our guide for [contributing](CONTRIBUTING.qmd).

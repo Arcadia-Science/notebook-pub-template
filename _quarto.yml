@@ -8,7 +8,6 @@ website:
   favicon: assets/logo_white.png # https://quarto.org/docs/websites/website-tools.html#favicon
   twitter-card: true # https://quarto.org/docs/websites/website-tools.html#twitter-cards
   open-graph: true # https://quarto.org/docs/websites/website-tools.html#open-graph
-  title: "Arcadia Science"
   navbar:
     title: false
     left:
@@ -16,7 +15,7 @@ website:
         menu:
           - text: latest
             href: index.ipynb
-      - text: Paired residue prediction dependencies in ESM2
+      - text: "{{< var pub.title >}}"
         href: index.ipynb
     right:
       - text: FAQ
@@ -27,7 +26,7 @@ website:
       - icon: twitter-x
         href: https://twitter.com/arcadiascience
       - icon: github
-        href: https://github.com/Arcadia-Science/notebook-pub-template
+        href: https://github.com/{{< var pub.repo >}}
     logo: assets/logo_text.png
     logo-href: https://www.arcadiascience.com/
     background: white
@@ -42,7 +41,7 @@ website:
       - icon: twitter-x
         href: https://twitter.com/arcadiascience
       - icon: github
-        href: https://github.com/Arcadia-Science/notebook-pub-template
+        href: https://github.com/{{< var pub.repo >}}
 format:
   html:
     include-in-header:
@@ -53,5 +52,5 @@ format:
     toc: true
 comments:
   giscus:
-    repo: Arcadia-Science/notebook-pub-template
+    repo: "{{< var pub.repo >}}"
     input-position: top
