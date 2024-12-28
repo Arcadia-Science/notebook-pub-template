@@ -10,7 +10,7 @@ website:
   open-graph: true # https://quarto.org/docs/websites/website-tools.html#open-graph
 
   navbar:
-    pinned: true
+    pinned: false
     title: false
     left:
       - text: Publication
