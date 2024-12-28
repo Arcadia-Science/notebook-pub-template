@@ -8,19 +8,22 @@ website:
   favicon: assets/logo_white.png # https://quarto.org/docs/websites/website-tools.html#favicon
   twitter-card: true # https://quarto.org/docs/websites/website-tools.html#twitter-cards
   open-graph: true # https://quarto.org/docs/websites/website-tools.html#open-graph
+
   navbar:
+    pinned: true
     title: false
     left:
+      - text: Publication
+        href: index.ipynb
       - text: "{{< iconify qlementine-icons:version-control-16 >}}"
         menu:
           - text: latest
             href: index.ipynb
-      - text: "{{< var pub.title >}}"
-        href: index.ipynb
-    right:
       - text: FAQ
         href: FAQ.qmd
-      - text: Contributing
+      - text: Reproduce
+        href: REPRODUCING.qmd
+      - text: Contribute
         href: CONTRIBUTING.qmd
     tools:
       - icon: twitter-x
@@ -31,6 +34,7 @@ website:
     logo-href: https://www.arcadiascience.com/
     background: white
     search: true
+
   page-footer:
     background: "#484B50"
     border: false
