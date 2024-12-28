@@ -46,6 +46,7 @@ website:
         href: https://twitter.com/arcadiascience
       - icon: github
         href: https://github.com/{{< var pub.repo >}}
+
 format:
   html:
     include-in-header:
@@ -54,7 +55,11 @@ format:
     page-layout: article
     title-block-banner: true
     toc: true
+
 comments:
   giscus:
-    repo: "{{< var pub.repo >}}"
+    # It seems to be a bug that giscus is passed the repo value prior to the
+    # evaluation of the variable {{< var pub.repo >}}. Regretably, this means this
+    # repo name must be hard-coded.
+    repo: Arcadia-Science/notebook-pub-template
     input-position: top
