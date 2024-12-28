@@ -177,29 +177,43 @@
   {
     "objectID": "FAQ.html",
     "href": "FAQ.html",
-    "title": "",
+    "title": "FAQ",
     "section": "",
-    "text": "This notebook publication (or “notebook pub”) is an experimental format we’re testing that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. This approach reduces publication burden by avoiding format translation, promotes sharing of early-stage work, and gives readers direct access to interact with and build upon the analysis. For more information about this experimental format, see our commentary on notebook publications."
+    "text": "This notebook publication (or “notebook pub”) is an experimental format we’re testing that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. This approach reduces publication burden by avoiding format translation, promotes sharing of early-stage work, and gives readers direct access to interact with and build upon the analysis. For more information about this experimental format, see our commentary on notebook publications.\n\n\n\n…\n\n\n\n… (guide for reproduce)\n\n\n\nThere is a comment section at the bottom of the pub, where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget.\n\n\n\nWe welcome improvements to this publication! Please see our guide for contributing."
   },
   {
     "objectID": "FAQ.html#what-is-this",
     "href": "FAQ.html#what-is-this",
-    "title": "",
+    "title": "FAQ",
     "section": "",
     "text": "This notebook publication (or “notebook pub”) is an experimental format we’re testing that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. This approach reduces publication burden by avoiding format translation, promotes sharing of early-stage work, and gives readers direct access to interact with and build upon the analysis. For more information about this experimental format, see our commentary on notebook publications."
   },
   {
+    "objectID": "FAQ.html#where-is-the-datacode",
+    "href": "FAQ.html#where-is-the-datacode",
+    "title": "FAQ",
+    "section": "",
+    "text": "…"
+  },
+  {
+    "objectID": "FAQ.html#how-can-i-reproduce-this",
+    "href": "FAQ.html#how-can-i-reproduce-this",
+    "title": "FAQ",
+    "section": "",
+    "text": "… (guide for reproduce)"
+  },
+  {
     "objectID": "FAQ.html#how-can-i-comment",
     "href": "FAQ.html#how-can-i-comment",
-    "title": "",
-    "section": "2. How can I comment?",
-    "text": "2. How can I comment?\nThere is a comment section at the bottom of the pub, where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget."
+    "title": "FAQ",
+    "section": "",
+    "text": "There is a comment section at the bottom of the pub, where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget."
   },
   {
     "objectID": "FAQ.html#how-can-i-contribute",
     "href": "FAQ.html#how-can-i-contribute",
-    "title": "",
-    "section": "3. How can I contribute?",
-    "text": "3. How can I contribute?\nWe welcome improvements to this publication! Please see our guide for contributing."
+    "title": "FAQ",
+    "section": "",
+    "text": "We welcome improvements to this publication! Please see our guide for contributing."
   }
 ]
