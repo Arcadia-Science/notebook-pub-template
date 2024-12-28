@@ -179,14 +179,14 @@
     "href": "FAQ.html",
     "title": "FAQ",
     "section": "",
-    "text": "This notebook publication (or “notebook pub”) is an experimental format we’re testing that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. This approach reduces publication burden by avoiding format translation, promotes sharing of early-stage work, and gives readers direct access to interact with and build upon the analysis. For more information about this experimental format, see our commentary on notebook publications.\n\n\n\n…\n\n\n\n… (guide for reproduce)\n\n\n\nThere is a comment section at the bottom of the pub, where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget.\n\n\n\nWe welcome improvements to this publication! Please see our guide for contributing."
+    "text": "This notebook publication uses a format we’re experimenting with that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. Our hypothesis is that this lets us publish faster, promote early-stage work, and increase reproducibility. For details, see our commentary on notebook publications.\n\n\n\n…\n\n\n\n… (guide for reproduce)\n\n\n\nThere is a comment section at the bottom of the pub, where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget.\n\n\n\nWe welcome improvements to this publication! Please see our guide for contributing."
   },
   {
     "objectID": "FAQ.html#what-is-this",
     "href": "FAQ.html#what-is-this",
     "title": "FAQ",
     "section": "",
-    "text": "This notebook publication (or “notebook pub”) is an experimental format we’re testing that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. This approach reduces publication burden by avoiding format translation, promotes sharing of early-stage work, and gives readers direct access to interact with and build upon the analysis. For more information about this experimental format, see our commentary on notebook publications."
+    "text": "This notebook publication uses a format we’re experimenting with that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. Our hypothesis is that this lets us publish faster, promote early-stage work, and increase reproducibility. For details, see our commentary on notebook publications."
   },
   {
     "objectID": "FAQ.html#where-is-the-datacode",
