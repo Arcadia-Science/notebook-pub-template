@@ -49,34 +49,6 @@
     "text": "Publishing is handled automatically with a GitHub Action that triggers whenever a pull request is merged into the main branch. So once you’re happy with your changes, please open a pull request for us to review. Once the changes are approved and the pull request is merged, your changes will be live.\nBefore opening a pull request, there’s a few required tasks.\n\nAdd yourself to the authors list in the front matter of index.ipynb.\nexecute the notebook locally using make execute. This command will update index.ipynb with the latest execution results. Importantly, it will also generate any runtime artifacts in the _freeze/ directory. Commit index.ipynb and all files in the _freeze/ directory.\n\nAfter this, feel free to open a pull request. We look forward to collaborating with you."
   },
   {
-    "objectID": "faq.html",
-    "href": "faq.html",
-    "title": "Arcadia Science",
-    "section": "",
-    "text": "This notebook publication (or “notebook pub”) is an experimental format we’re testing that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. This approach reduces publication burden by avoiding format translation, promotes sharing of early-stage work, and gives readers direct access to interact with and build upon the analysis. For more information about this experimental format, see our commentary on notebook publications."
-  },
-  {
-    "objectID": "faq.html#what-is-this",
-    "href": "faq.html#what-is-this",
-    "title": "Arcadia Science",
-    "section": "",
-    "text": "This notebook publication (or “notebook pub”) is an experimental format we’re testing that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. This approach reduces publication burden by avoiding format translation, promotes sharing of early-stage work, and gives readers direct access to interact with and build upon the analysis. For more information about this experimental format, see our commentary on notebook publications."
-  },
-  {
-    "objectID": "faq.html#how-can-i-comment",
-    "href": "faq.html#how-can-i-comment",
-    "title": "Arcadia Science",
-    "section": "2. How can I comment?",
-    "text": "2. How can I comment?\nThere is a comment section at the bottom of the pub, where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget."
-  },
-  {
-    "objectID": "faq.html#can-i-join",
-    "href": "faq.html#can-i-join",
-    "title": "Arcadia Science",
-    "section": "3. Can I join?",
-    "text": "3. Can I join?\nWe welcome improvements to this publication! Please see our guide for contributing."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Paired residue prediction dependencies in ESM2",
@@ -180,5 +152,33 @@
     "title": "Paired residue prediction dependencies in ESM2",
     "section": "Conclusion",
     "text": "Conclusion\nThe contrast between these two models is quite interesting. The 15B parameter model has a 90% single-mask reconstruction accuracy, whereas for the 150M parameter model the reconstruction accuracy is only 50%. Given this, we expected that the 150M parameter model would perhaps struggle to create residue pair dependencies that are biologically interpretable and that perhaps the 15B parameter model might provide more interpretable answers. However, the above results show the opposite.\nWe’re having trouble interpreting this result and we’re seeking your opinion. So our question to you is: Why do you think the contact map pattern diminishes in the JS-divergence for the larger models?"
+  },
+  {
+    "objectID": "FAQ.html",
+    "href": "FAQ.html",
+    "title": "Arcadia Science",
+    "section": "",
+    "text": "This notebook publication (or “notebook pub”) is an experimental format we’re testing that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. This approach reduces publication burden by avoiding format translation, promotes sharing of early-stage work, and gives readers direct access to interact with and build upon the analysis. For more information about this experimental format, see our commentary on notebook publications."
+  },
+  {
+    "objectID": "FAQ.html#what-is-this",
+    "href": "FAQ.html#what-is-this",
+    "title": "Arcadia Science",
+    "section": "",
+    "text": "This notebook publication (or “notebook pub”) is an experimental format we’re testing that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. This approach reduces publication burden by avoiding format translation, promotes sharing of early-stage work, and gives readers direct access to interact with and build upon the analysis. For more information about this experimental format, see our commentary on notebook publications."
+  },
+  {
+    "objectID": "FAQ.html#how-can-i-comment",
+    "href": "FAQ.html#how-can-i-comment",
+    "title": "Arcadia Science",
+    "section": "2. How can I comment?",
+    "text": "2. How can I comment?\nThere is a comment section at the bottom of the pub, where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget."
+  },
+  {
+    "objectID": "FAQ.html#can-i-join",
+    "href": "FAQ.html#can-i-join",
+    "title": "Arcadia Science",
+    "section": "3. Can I join?",
+    "text": "3. Can I join?\nWe welcome improvements to this publication! Please see our guide for contributing."
   }
 ]
