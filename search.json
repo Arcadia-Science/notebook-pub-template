@@ -4,49 +4,119 @@
     "href": "CONTRIBUTING.html",
     "title": "Contributing",
     "section": "",
-    "text": "If you want to improve, extend, or experiment with this publication or its underlying analysis, you’ll find useful information in this document.\n\n\nAll the code necessary to reproduce this publication is hosted on GitHub at this URL.\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe publication is rendered with Quarto. If you don’t have it installed (check with quarto --version), you can install it here.\n\n\nThis repository uses conda to manage the computational and build environment. If you don’t have it installed (check with conda --version), you can find operating system-specific instructions for installing miniconda here. After installing, run the following commands to create and activate the environment.\nconda env create -n [ENV-NAME] --file env.yml\nconda activate [ENV-NAME]\nNow, install any internal packages in the repository:\npip install -e .\nAnd finally, if you plan to submit a pull request, install the pre-commit hooks:\npre-commit install\n\n\n\nThe analysis, and therefore the publication itself, can be reproduced with the following command:\nmake execute\nThis will generate the directory _site/. Open _site/index.html to view your local copy of the publication.\n\n\n\nTo modify or extend any analyses, open up index.ipynb with Jupyter or your favorite IDE:\njupyter-lab index.ipynb\n\n\n\nTo create a live preview of your pub, run the following:\nmake preview\nThis will open a local copy of the publication in your default browser. The command watches for changes such that whenever index.ipynb is saved, the publication is re-rendered.\n\n\n\nPublishing is handled automatically with a GitHub Action that triggers whenever a pull request is merged into the main branch. So once you’re happy with your changes, please open a pull request for us to review. Once the changes are approved and the pull request is merged, your changes will be live.\nBefore opening a pull request, there’s a few required tasks.\n\nAdd yourself to the authors list in the front matter of index.ipynb.\nexecute the notebook locally using make execute. This command will update index.ipynb with the latest execution results. Importantly, it will also generate any runtime artifacts in the _freeze/ directory. Commit index.ipynb and all files in the _freeze/ directory.\n\nAfter this, feel free to open a pull request. We look forward to collaborating with you."
+    "text": "We welcome improvements to this publication! If you would like to improve or extend the publication, please submit a pull request. We’ll collaborate with you to incorporate your revisions.\n\nDid you spot any mistakes?\nDo you think an analysis is missing?\nDo you think the wording could be improved?\nDid you spot a typo or grammatical mistake?\n\nThese are just a few examples of revisions that we would be happy to receive from you.\n\n\nIf you haven’t already, follow our setup guide to create a local copy of the code and compute environment.\n\n\n\nBefore making any changes, we need to preserve the current state of the publication by creating a versioned snapshot. This ensures we maintain an archive of all previous versions alongside the latest one. To create this snapshot, run:\nFIXME: this doesn’t exist\nmake bump-version\nCommit the changes introduced by this version snapshot before proceeding with your changes.\n\n\n\nPublishing is handled automatically with a GitHub Action that triggers whenever changes are pushed to the main branch. This means the task of publishing your revision is equivalent to the task of merging a pull request. To merge your pull request, here’s what we’ll need from you in addition to your content changes.\n\n\n\nAdd yourself to the authors list in the front matter of index.ipynb.\n\n\n\nWhen you’re happy with your changes, it’s time to do a final run through of the notebook.\nBegin with a clean branch (no uncommitted changes). Then run the notebook:\nmake execute\nThis command will update index.ipynb with the latest execution results. Importantly, it may generate runtime artifacts in the _freeze/ directory.\nThen run make preview to see how the publication is rendering. Verify that your changes appear how you intend them to appear. If not, make the necessary changes and re-run make execute.\nOnce happy, commit index.ipynb and all files in the _freeze/ directory.\nFinally, submit a pull request and we’ll work with you to merge the changes.\nOnce your pull request is approved, we will merge your changes into the main branch. This will trigger a GitHub Action that will automatically update the hosted URL. Please give a few minutes for the changes to go live."
   },
   {
-    "objectID": "CONTRIBUTING.html#source-code",
-    "href": "CONTRIBUTING.html#source-code",
+    "objectID": "CONTRIBUTING.html#getting-started",
+    "href": "CONTRIBUTING.html#getting-started",
     "title": "Contributing",
     "section": "",
-    "text": "All the code necessary to reproduce this publication is hosted on GitHub at this URL."
+    "text": "If you haven’t already, follow our setup guide to create a local copy of the code and compute environment."
   },
   {
-    "objectID": "CONTRIBUTING.html#installation",
-    "href": "CONTRIBUTING.html#installation",
+    "objectID": "CONTRIBUTING.html#version-stamping-the-current",
+    "href": "CONTRIBUTING.html#version-stamping-the-current",
     "title": "Contributing",
     "section": "",
-    "text": "Note\n\n\n\nThe publication is rendered with Quarto. If you don’t have it installed (check with quarto --version), you can install it here.\n\n\nThis repository uses conda to manage the computational and build environment. If you don’t have it installed (check with conda --version), you can find operating system-specific instructions for installing miniconda here. After installing, run the following commands to create and activate the environment.\nconda env create -n [ENV-NAME] --file env.yml\nconda activate [ENV-NAME]\nNow, install any internal packages in the repository:\npip install -e .\nAnd finally, if you plan to submit a pull request, install the pre-commit hooks:\npre-commit install"
+    "text": "Before making any changes, we need to preserve the current state of the publication by creating a versioned snapshot. This ensures we maintain an archive of all previous versions alongside the latest one. To create this snapshot, run:\nFIXME: this doesn’t exist\nmake bump-version\nCommit the changes introduced by this version snapshot before proceeding with your changes."
   },
   {
-    "objectID": "CONTRIBUTING.html#reproduce",
-    "href": "CONTRIBUTING.html#reproduce",
+    "objectID": "CONTRIBUTING.html#steps-before-publishing-a-revision",
+    "href": "CONTRIBUTING.html#steps-before-publishing-a-revision",
     "title": "Contributing",
     "section": "",
-    "text": "The analysis, and therefore the publication itself, can be reproduced with the following command:\nmake execute\nThis will generate the directory _site/. Open _site/index.html to view your local copy of the publication."
+    "text": "Publishing is handled automatically with a GitHub Action that triggers whenever changes are pushed to the main branch. This means the task of publishing your revision is equivalent to the task of merging a pull request. To merge your pull request, here’s what we’ll need from you in addition to your content changes."
   },
   {
-    "objectID": "CONTRIBUTING.html#modify",
-    "href": "CONTRIBUTING.html#modify",
+    "objectID": "CONTRIBUTING.html#authorship",
+    "href": "CONTRIBUTING.html#authorship",
     "title": "Contributing",
     "section": "",
-    "text": "To modify or extend any analyses, open up index.ipynb with Jupyter or your favorite IDE:\njupyter-lab index.ipynb"
+    "text": "Add yourself to the authors list in the front matter of index.ipynb."
   },
   {
-    "objectID": "CONTRIBUTING.html#preview",
-    "href": "CONTRIBUTING.html#preview",
+    "objectID": "CONTRIBUTING.html#final-checks",
+    "href": "CONTRIBUTING.html#final-checks",
     "title": "Contributing",
     "section": "",
-    "text": "To create a live preview of your pub, run the following:\nmake preview\nThis will open a local copy of the publication in your default browser. The command watches for changes such that whenever index.ipynb is saved, the publication is re-rendered."
+    "text": "When you’re happy with your changes, it’s time to do a final run through of the notebook.\nBegin with a clean branch (no uncommitted changes). Then run the notebook:\nmake execute\nThis command will update index.ipynb with the latest execution results. Importantly, it may generate runtime artifacts in the _freeze/ directory.\nThen run make preview to see how the publication is rendering. Verify that your changes appear how you intend them to appear. If not, make the necessary changes and re-run make execute.\nOnce happy, commit index.ipynb and all files in the _freeze/ directory.\nFinally, submit a pull request and we’ll work with you to merge the changes.\nOnce your pull request is approved, we will merge your changes into the main branch. This will trigger a GitHub Action that will automatically update the hosted URL. Please give a few minutes for the changes to go live."
   },
   {
-    "objectID": "CONTRIBUTING.html#publish-a-revision",
-    "href": "CONTRIBUTING.html#publish-a-revision",
-    "title": "Contributing",
+    "objectID": "README_TEMPLATE.html",
+    "href": "README_TEMPLATE.html",
+    "title": "[PUB-TITLE]",
     "section": "",
-    "text": "Publishing is handled automatically with a GitHub Action that triggers whenever a pull request is merged into the main branch. So once you’re happy with your changes, please open a pull request for us to review. Once the changes are approved and the pull request is merged, your changes will be live.\nBefore opening a pull request, there’s a few required tasks.\n\nAdd yourself to the authors list in the front matter of index.ipynb.\nexecute the notebook locally using make execute. This command will update index.ipynb with the latest execution results. Importantly, it will also generate any runtime artifacts in the _freeze/ directory. Commit index.ipynb and all files in the _freeze/ directory.\n\nAfter this, feel free to open a pull request. We look forward to collaborating with you."
+    "text": "This code repository contains all materials required for creating and hosting the publication entitled, “[PUB-TITLE]”.\nThe publication is hosted at this URL.\n\n\n[DESCRIPTION OF THE DATA]\n\n\n\nPlease see REPRODUCING.qmd.\n\n\n\nPlease see CONTRIBUTING.qmd."
+  },
+  {
+    "objectID": "README_TEMPLATE.html#data-description",
+    "href": "README_TEMPLATE.html#data-description",
+    "title": "[PUB-TITLE]",
+    "section": "",
+    "text": "[DESCRIPTION OF THE DATA]"
+  },
+  {
+    "objectID": "README_TEMPLATE.html#reproduce",
+    "href": "README_TEMPLATE.html#reproduce",
+    "title": "[PUB-TITLE]",
+    "section": "",
+    "text": "Please see REPRODUCING.qmd."
+  },
+  {
+    "objectID": "README_TEMPLATE.html#contribute",
+    "href": "README_TEMPLATE.html#contribute",
+    "title": "[PUB-TITLE]",
+    "section": "",
+    "text": "Please see CONTRIBUTING.qmd."
+  },
+  {
+    "objectID": "SETUP.html",
+    "href": "SETUP.html",
+    "title": "Setup",
+    "section": "",
+    "text": "This document details how to create a local copy of this pub’s codebase and setup your compute environment. This is a prerequisite for reproducing this publication, experimenting with the analysis, or contributing a revision of this publication.\n\n\nThe codebase is hosted on GitHub and can be found here.\nTo obtain a local copy, you have the option of either cloning or forking the repository. If you aren’t sure what’s best, our suggestion is to clone unless you both (1) want to propose a revision for the publication and (2) are not an employee of Arcadia Science.\nTo clone:\ngit clone https://github.com/Arcadia-Science/notebook-pub-template.git\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe publication is rendered with Quarto. If you don’t have it installed (check with quarto --version), you can install it here.\n\n\nThis repository uses conda to manage the computational and build environment. If you don’t have it installed (check with conda --version), you can find operating system-specific instructions for installing miniconda here. After installing, run the following commands to create and activate the environment.\nconda env create -n notebook-pub-template --file env.yml\nconda activate notebook-pub-template\nNow, install any internal packages in the repository:\npip install -e .\nAnd finally, if you plan to submit a pull request, install the pre-commit hooks:\npre-commit install"
+  },
+  {
+    "objectID": "SETUP.html#obtain-local-copy",
+    "href": "SETUP.html#obtain-local-copy",
+    "title": "Setup",
+    "section": "",
+    "text": "The codebase is hosted on GitHub and can be found here.\nTo obtain a local copy, you have the option of either cloning or forking the repository. If you aren’t sure what’s best, our suggestion is to clone unless you both (1) want to propose a revision for the publication and (2) are not an employee of Arcadia Science.\nTo clone:\ngit clone https://github.com/Arcadia-Science/notebook-pub-template.git"
+  },
+  {
+    "objectID": "SETUP.html#installation",
+    "href": "SETUP.html#installation",
+    "title": "Setup",
+    "section": "",
+    "text": "Note\n\n\n\nThe publication is rendered with Quarto. If you don’t have it installed (check with quarto --version), you can install it here.\n\n\nThis repository uses conda to manage the computational and build environment. If you don’t have it installed (check with conda --version), you can find operating system-specific instructions for installing miniconda here. After installing, run the following commands to create and activate the environment.\nconda env create -n notebook-pub-template --file env.yml\nconda activate notebook-pub-template\nNow, install any internal packages in the repository:\npip install -e .\nAnd finally, if you plan to submit a pull request, install the pre-commit hooks:\npre-commit install"
+  },
+  {
+    "objectID": "SETUP.html#reproduce",
+    "href": "SETUP.html#reproduce",
+    "title": "Setup",
+    "section": "Reproduce",
+    "text": "Reproduce\nThe best way to ensure you’ve correctly set up your code and compute environment is to reproduce this work. Fortunately, the analysis, and therefore the publication itself, can be reproduced with the following command:\nmake execute\nThis will execute and render the notebook index.ipynb, then build the publication site HTML, generating the directory _site/. Open _site/index.html to view your local copy of the publication."
+  },
+  {
+    "objectID": "SETUP.html#modify",
+    "href": "SETUP.html#modify",
+    "title": "Setup",
+    "section": "Modify",
+    "text": "Modify\nTo modify or extend any analyses, open up index.ipynb with Jupyter or your favorite IDE:\njupyter-lab index.ipynb"
+  },
+  {
+    "objectID": "SETUP.html#preview",
+    "href": "SETUP.html#preview",
+    "title": "Setup",
+    "section": "Preview",
+    "text": "Preview\nTo create a live preview of your pub, run the following:\nmake preview\nThis will open a local copy of the publication in your default browser. The command watches for changes such that whenever index.ipynb is saved, the publication is re-rendered."
+  },
+  {
+    "objectID": "SETUP.html#publish",
+    "href": "SETUP.html#publish",
+    "title": "Setup",
+    "section": "Publish",
+    "text": "Publish\nIf you’ve improved the publication, consider contributing so we can update the hosted publication with your edits (big or small!). To get started, see our contributing guide."
   },
   {
     "objectID": "index.html",
@@ -179,7 +249,7 @@
     "href": "FAQ.html",
     "title": "FAQ",
     "section": "",
-    "text": "This notebook publication uses a format we’re experimenting with that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. Our hypothesis is that this lets us publish faster, promote early-stage work, and increase reproducibility. For details, see our commentary on notebook publications.\n\n\n\n…\n\n\n\n… (guide for reproduce)\n\n\n\nThere is a comment section at the bottom of the pub, where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget.\n\n\n\nWe welcome improvements to this publication! Please see our guide for contributing."
+    "text": "This notebook publication uses a format we’re experimenting with that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. Our hypothesis is that this lets us publish faster, promote early-stage work, and increase reproducibility. For details, see our commentary on notebook publications.\n\n\n\nThere is a comment section at the bottom of the pub, where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget.\n\n\n\nAll the code and data necessary to reproduce this publication is hosted on GitHub at this URL.\n\n\n\nReproducing this publication is easy. Follow this setup guide to get started.\n\n\n\nWe welcome improvements to this publication! Please see our guide for contributing."
   },
   {
     "objectID": "FAQ.html#what-is-this",
@@ -189,25 +259,25 @@
     "text": "This notebook publication uses a format we’re experimenting with that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. Our hypothesis is that this lets us publish faster, promote early-stage work, and increase reproducibility. For details, see our commentary on notebook publications."
   },
   {
+    "objectID": "FAQ.html#how-can-i-comment",
+    "href": "FAQ.html#how-can-i-comment",
+    "title": "FAQ",
+    "section": "",
+    "text": "There is a comment section at the bottom of the pub, where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget."
+  },
+  {
     "objectID": "FAQ.html#where-is-the-datacode",
     "href": "FAQ.html#where-is-the-datacode",
     "title": "FAQ",
     "section": "",
-    "text": "…"
+    "text": "All the code and data necessary to reproduce this publication is hosted on GitHub at this URL."
   },
   {
     "objectID": "FAQ.html#how-can-i-reproduce-this",
     "href": "FAQ.html#how-can-i-reproduce-this",
     "title": "FAQ",
     "section": "",
-    "text": "… (guide for reproduce)"
-  },
-  {
-    "objectID": "FAQ.html#how-can-i-comment",
-    "href": "FAQ.html#how-can-i-comment",
-    "title": "FAQ",
-    "section": "",
-    "text": "There is a comment section at the bottom of the pub, where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget."
+    "text": "Reproducing this publication is easy. Follow this setup guide to get started."
   },
   {
     "objectID": "FAQ.html#how-can-i-contribute",

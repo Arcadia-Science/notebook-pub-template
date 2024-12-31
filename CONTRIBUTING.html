@@ -182,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">FAQ</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./REPRODUCING.qmd"> 
+    <a class="nav-link" href="./SETUP.html"> 
 <span class="menu-text">Reproduce</span></a>
   </li>  
   <li class="nav-item">
@@ -209,12 +209,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#contributing" id="toc-contributing" class="nav-link active" data-scroll-target="#contributing">Contributing</a>
   <ul class="collapse">
-  <li><a href="#source-code" id="toc-source-code" class="nav-link" data-scroll-target="#source-code">Source Code</a></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#reproduce" id="toc-reproduce" class="nav-link" data-scroll-target="#reproduce">Reproduce</a></li>
-  <li><a href="#modify" id="toc-modify" class="nav-link" data-scroll-target="#modify">Modify</a></li>
-  <li><a href="#preview" id="toc-preview" class="nav-link" data-scroll-target="#preview">Preview</a></li>
-  <li><a href="#publish-a-revision" id="toc-publish-a-revision" class="nav-link" data-scroll-target="#publish-a-revision">Publish a Revision</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  <li><a href="#version-stamping-the-current" id="toc-version-stamping-the-current" class="nav-link" data-scroll-target="#version-stamping-the-current">Version stamping the current</a></li>
+  <li><a href="#steps-before-publishing-a-revision" id="toc-steps-before-publishing-a-revision" class="nav-link" data-scroll-target="#steps-before-publishing-a-revision">Steps before publishing a revision</a></li>
+  <li><a href="#authorship" id="toc-authorship" class="nav-link" data-scroll-target="#authorship">Authorship</a></li>
+  <li><a href="#final-checks" id="toc-final-checks" class="nav-link" data-scroll-target="#final-checks">Final checks</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -227,60 +226,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="contributing" class="level1">
 <h1>Contributing</h1>
-<p>If you want to improve, extend, or experiment with this publication or its underlying analysis, you’ll find useful information in this document.</p>
-<section id="source-code" class="level2">
-<h2 class="anchored" data-anchor-id="source-code">Source Code</h2>
-<p>All the code necessary to reproduce this publication is hosted on GitHub at <a href="FIXME">this URL</a>.</p>
+<p>We welcome improvements to this publication! If you would like to improve or extend the publication, please submit a pull request. We’ll collaborate with you to incorporate your revisions.</p>
+<ul>
+<li>Did you spot any mistakes?</li>
+<li>Do you think an analysis is missing?</li>
+<li>Do you think the wording could be improved?</li>
+<li>Did you spot a typo or grammatical mistake?</li>
+</ul>
+<p>These are just a few examples of revisions that we would be happy to receive from you.</p>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<p>If you haven’t already, follow our <a href="./SETUP.html">setup guide</a> to create a local copy of the code and compute environment.</p>
 </section>
-<section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">Installation</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The publication is rendered with <a href="https://quarto.org/">Quarto</a>. If you don’t have it installed (check with <code>quarto --version</code>), you can install it <a href="https://quarto.org/docs/get-started/">here</a>.</p>
-</div>
-</div>
-<p>This repository uses conda to manage the computational and build environment. If you don’t have it installed (check with <code>conda --version</code>), you can find operating system-specific instructions for installing miniconda <a href="https://docs.conda.io/projects/miniconda/en/latest/">here</a>. After installing, run the following commands to create and activate the environment.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-n</span> <span class="pp">[</span><span class="ss">ENV</span><span class="pp">-</span><span class="ss">NAME</span><span class="pp">]</span> <span class="at">--file</span> env.yml</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate <span class="pp">[</span><span class="ss">ENV</span><span class="pp">-</span><span class="ss">NAME</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Now, install any internal packages in the repository:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>And finally, if you plan to submit a pull request, install the <a href="https://pre-commit.com/">pre-commit</a> hooks:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pre-commit</span> install</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="version-stamping-the-current" class="level2">
+<h2 class="anchored" data-anchor-id="version-stamping-the-current">Version stamping the current</h2>
+<p>Before making any changes, we need to preserve the current state of the publication by creating a versioned snapshot. This ensures we maintain an archive of all previous versions alongside the latest one. To create this snapshot, run:</p>
+<p>FIXME: this doesn’t exist</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> bump-version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Commit the changes introduced by this version snapshot before proceeding with your changes.</p>
 </section>
-<section id="reproduce" class="level2">
-<h2 class="anchored" data-anchor-id="reproduce">Reproduce</h2>
-<p>The analysis, and therefore the publication itself, can be reproduced with the following command:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> execute</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This will generate the directory <code>_site/</code>. Open <code>_site/index.html</code> to view your local copy of the publication.</p>
+<section id="steps-before-publishing-a-revision" class="level2">
+<h2 class="anchored" data-anchor-id="steps-before-publishing-a-revision">Steps before publishing a revision</h2>
+<p>Publishing is handled automatically with a GitHub Action that triggers whenever changes are pushed to the <code>main</code> branch. This means the task of publishing your revision is equivalent to the task of merging a pull request. To merge your pull request, here’s what we’ll need from you in addition to your content changes.</p>
 </section>
-<section id="modify" class="level2">
-<h2 class="anchored" data-anchor-id="modify">Modify</h2>
-<p>To modify or extend any analyses, open up <code>index.ipynb</code> with Jupyter or your favorite IDE:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter-lab</span> index.ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="authorship" class="level2">
+<h2 class="anchored" data-anchor-id="authorship">Authorship</h2>
+<p>Add yourself to the authors list in the front matter of <code>index.ipynb</code>.</p>
 </section>
-<section id="preview" class="level2">
-<h2 class="anchored" data-anchor-id="preview">Preview</h2>
-<p>To create a live preview of your pub, run the following:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This will open a local copy of the publication in your default browser. The command watches for changes such that whenever <code>index.ipynb</code> is saved, the publication is re-rendered.</p>
-</section>
-<section id="publish-a-revision" class="level2">
-<h2 class="anchored" data-anchor-id="publish-a-revision">Publish a Revision</h2>
-<p>Publishing is handled automatically with a GitHub Action that triggers whenever a pull request is merged into the <code>main</code> branch. So once you’re happy with your changes, please open a pull request for us to review. Once the changes are approved and the pull request is merged, your changes will be live.</p>
-<p>Before opening a pull request, there’s a few required tasks.</p>
-<ol type="1">
-<li>Add yourself to the authors list in the front matter of <code>index.ipynb</code>.</li>
-<li>execute the notebook locally using <code>make execute</code>. This command will update <code>index.ipynb</code> with the latest execution results. Importantly, it will also generate any runtime artifacts in the <code>_freeze/</code> directory. Commit <code>index.ipynb</code> and all files in the <code>_freeze/</code> directory.</li>
-</ol>
-<p>After this, feel free to open a pull request. We look forward to collaborating with you.</p>
+<section id="final-checks" class="level2">
+<h2 class="anchored" data-anchor-id="final-checks">Final checks</h2>
+<p>When you’re happy with your changes, it’s time to do a final run through of the notebook.</p>
+<p>Begin with a clean branch (no uncommitted changes). Then run the notebook:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> execute</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This command will update <code>index.ipynb</code> with the latest execution results. Importantly, it may generate runtime artifacts in the <code>_freeze/</code> directory.</p>
+<p>Then run <code>make preview</code> to see how the publication is rendering. Verify that your changes appear how you intend them to appear. If not, make the necessary changes and re-run <code>make execute</code>.</p>
+<p>Once happy, commit <code>index.ipynb</code> and all files in the <code>_freeze/</code> directory.</p>
+<p>Finally, submit a pull request and we’ll work with you to merge the changes.</p>
+<p>Once your pull request is approved, we will merge your changes into the main branch. This will trigger a GitHub Action that will automatically update the <a href="https://Arcadia-Science.github.io/notebook-pub-template/">hosted URL</a>. Please give a few minutes for the changes to go live.</p>
 
 
 </section>
@@ -722,7 +704,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/{{< var pub.repo >}}">
+    <a class="nav-link" href="https://github.com/{{< var pub.org >}}/{{< var pub.repo >}}">
       <i class="bi bi-github" role="img">
 </i> 
     </a>

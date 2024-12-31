@@ -148,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">FAQ</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./REPRODUCING.qmd"> 
+    <a class="nav-link" href="./SETUP.html"> 
 <span class="menu-text">Reproduce</span></a>
   </li>  
   <li class="nav-item">
@@ -176,9 +176,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#faq" id="toc-faq" class="nav-link active" data-scroll-target="#faq">FAQ</a>
   <ul class="collapse">
   <li><a href="#what-is-this" id="toc-what-is-this" class="nav-link" data-scroll-target="#what-is-this">What is this?</a></li>
+  <li><a href="#how-can-i-comment" id="toc-how-can-i-comment" class="nav-link" data-scroll-target="#how-can-i-comment">How can I comment?</a></li>
   <li><a href="#where-is-the-datacode" id="toc-where-is-the-datacode" class="nav-link" data-scroll-target="#where-is-the-datacode">Where is the data/code?</a></li>
   <li><a href="#how-can-i-reproduce-this" id="toc-how-can-i-reproduce-this" class="nav-link" data-scroll-target="#how-can-i-reproduce-this">How can I reproduce this?</a></li>
-  <li><a href="#how-can-i-comment" id="toc-how-can-i-comment" class="nav-link" data-scroll-target="#how-can-i-comment">How can I comment?</a></li>
   <li><a href="#how-can-i-contribute" id="toc-how-can-i-contribute" class="nav-link" data-scroll-target="#how-can-i-contribute">How can I contribute?</a></li>
   </ul></li>
   </ul>
@@ -196,17 +196,17 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="what-is-this">What is this?</h2>
 <p>This <em>notebook publication</em> uses a format we’re experimenting with that treats a scientist’s working computational analysis as the publication itself, dissolving the separation that exists between code and publication. Our hypothesis is that this lets us publish faster, promote early-stage work, and increase reproducibility. For details, see <a href="FIXME">our commentary</a> on notebook publications.</p>
 </section>
-<section id="where-is-the-datacode" class="level2">
-<h2 class="anchored" data-anchor-id="where-is-the-datacode">Where is the data/code?</h2>
-<p>…</p>
-</section>
-<section id="how-can-i-reproduce-this" class="level2">
-<h2 class="anchored" data-anchor-id="how-can-i-reproduce-this">How can I reproduce this?</h2>
-<p>… (guide for reproduce)</p>
-</section>
 <section id="how-can-i-comment" class="level2">
 <h2 class="anchored" data-anchor-id="how-can-i-comment">How can I comment?</h2>
 <p>There is a comment section at the bottom of the <a href="./index.html">pub</a>, where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget.</p>
+</section>
+<section id="where-is-the-datacode" class="level2">
+<h2 class="anchored" data-anchor-id="where-is-the-datacode">Where is the data/code?</h2>
+<p>All the code and data necessary to reproduce this publication is hosted on GitHub at <a href="https://github.com/Arcadia-Science/notebook-pub-template">this URL</a>.</p>
+</section>
+<section id="how-can-i-reproduce-this" class="level2">
+<h2 class="anchored" data-anchor-id="how-can-i-reproduce-this">How can I reproduce this?</h2>
+<p>Reproducing this publication is easy. Follow this <a href="./SETUP.html">setup guide</a> to get started.</p>
 </section>
 <section id="how-can-i-contribute" class="level2">
 <h2 class="anchored" data-anchor-id="how-can-i-contribute">How can I contribute?</h2>
@@ -652,7 +652,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/{{< var pub.repo >}}">
+    <a class="nav-link" href="https://github.com/{{< var pub.org >}}/{{< var pub.repo >}}">
       <i class="bi bi-github" role="img">
 </i> 
     </a>
