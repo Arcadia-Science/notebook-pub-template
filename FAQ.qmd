@@ -8,17 +8,17 @@ comments: false
 
 This *notebook publication* uses a format we're experimenting with that treats a scientist's working computational analysis as the publication itself, dissolving the separation that exists between code and publication. Our hypothesis is that this lets us publish faster, promote early-stage work, and increase reproducibility. For details, see [our commentary](FIXME) on notebook publications.
 
-## Where is the data/code?
-
-...
-
-## How can I reproduce this?
-
-... (guide for reproduce)
-
 ## How can I comment?
 
 There is a comment section at the bottom of the [pub](index.ipynb), where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget.
+
+## Where is the data/code?
+
+All the code and data necessary to reproduce this publication is hosted on GitHub at [this URL](https://github.com/{{< var pub.org >}}/{{< var pub.repo >}}).
+
+## How can I reproduce this?
+
+Reproducing this publication is easy. Follow this [setup guide](SETUP.qmd) to get started.
 
 ## How can I contribute?
 

@@ -4,72 +4,55 @@ comments: false
 
 # Contributing
 
-If you want to improve, extend, or experiment with this publication or its underlying analysis, you'll find useful information in this document.
+We welcome improvements to this publication! If you would like to improve or extend the publication, please submit a pull request. We'll collaborate with you to incorporate your revisions.
 
-## Source Code
+* Did you spot any mistakes?
+* Do you think an analysis is missing?
+* Do you think the wording could be improved?
+* Did you spot a typo or grammatical mistake?
 
-All the code necessary to reproduce this publication is hosted on GitHub at [this URL](FIXME).
+These are just a few examples of revisions that we would be happy to receive from you.
 
-## Installation
+## Getting Started
 
-::: {.callout-note}
-The publication is rendered with [Quarto](https://quarto.org/). If you don't have it installed (check with `quarto --version`), you can install it [here](https://quarto.org/docs/get-started/).
-:::
+If you haven't already, follow our [setup guide](SETUP.qmd) to create a local copy of the code and compute environment.
 
-This repository uses conda to manage the computational and build environment. If you don't have it installed (check with `conda --version`), you can find operating system-specific instructions for installing miniconda [here](https://docs.conda.io/projects/miniconda/en/latest/). After installing, run the following commands to create and activate the environment.
+## Version stamping the current
 
-```bash
-conda env create -n [ENV-NAME] --file env.yml
-conda activate [ENV-NAME]
-```
+Before making any changes, we need to preserve the current state of the publication by creating a versioned snapshot. This ensures we maintain an archive of all previous versions alongside the latest one. To create this snapshot, run:
 
-Now, install any internal packages in the repository:
+FIXME: this doesn't exist
 
 ```bash
-pip install -e .
+make bump-version
 ```
 
-And finally, if you plan to submit a pull request, install the [pre-commit](https://pre-commit.com/) hooks:
+Commit the changes introduced by this version snapshot before proceeding with your changes.
 
-```bash
-pre-commit install
-```
+## Steps before publishing a revision
 
-## Reproduce
+Publishing is handled automatically with a GitHub Action that triggers whenever changes are pushed to the `main` branch. This means the task of publishing your revision is equivalent to the task of merging a pull request. To merge your pull request, here's what we'll need from you in addition to your content changes.
 
-The analysis, and therefore the publication itself, can be reproduced with the following command:
+## Authorship
+
+Add yourself to the authors list in the front matter of `index.ipynb`.
+
+## Final checks
+
+When you're happy with your changes, it's time to do a final run through of the notebook.
+
+Begin with a clean branch (no uncommitted changes). Then run the notebook:
 
 ```bash
 make execute
 ```
 
-This will generate the directory `_site/`. Open `_site/index.html` to view your local copy of the publication.
+This command will update `index.ipynb` with the latest execution results. Importantly, it may generate runtime artifacts in the `_freeze/` directory.
 
-## Modify
+Then run `make preview` to see how the publication is rendering. Verify that your changes appear how you intend them to appear. If not, make the necessary changes and re-run `make execute`.
 
-To modify or extend any analyses, open up `index.ipynb` with Jupyter or your favorite IDE:
+Once happy, commit `index.ipynb` and all files in the `_freeze/` directory.
 
-```bash
-jupyter-lab index.ipynb
-```
+Finally, submit a pull request and we'll work with you to merge the changes.
 
-## Preview
-
-To create a live preview of your pub, run the following:
-
-```bash
-make preview
-```
-
-This will open a local copy of the publication in your default browser. The command watches for changes such that whenever `index.ipynb` is saved, the publication is re-rendered.
-
-## Publish a Revision
-
-Publishing is handled automatically with a GitHub Action that triggers whenever a pull request is merged into the `main` branch. So once you're happy with your changes, please open a pull request for us to review. Once the changes are approved and the pull request is merged, your changes will be live.
-
-Before opening a pull request, there's a few required tasks.
-
-1. Add yourself to the authors list in the front matter of `index.ipynb`.
-2. execute the notebook locally using `make execute`. This command will update `index.ipynb` with the latest execution results. Importantly, it will also generate any runtime artifacts in the `_freeze/` directory. Commit `index.ipynb` and all files in the `_freeze/` directory.
-
-After this, feel free to open a pull request. We look forward to collaborating with you.
+Once your pull request is approved, we will merge your changes into the main branch. This will trigger a GitHub Action that will automatically update the [hosted URL](https://{{< var pub.org >}}.github.io/{{< var pub.repo >}}/). Please give a few minutes for the changes to go live.

@@ -1,3 +1,4 @@
 pub:
-  repo: "Arcadia-Science/notebook-pub-template"
+  org: "Arcadia-Science"
+  repo: "notebook-pub-template"
   title: "Notebook pub template demo"
