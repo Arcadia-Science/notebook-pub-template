@@ -44,6 +44,10 @@ Publishing is handled automatically with a GitHub Action that triggers whenever 
     > [!NOTE]  
     > The content you're reading now is the current `README.md`, which is to be replaced with `README_TEMPLATE.md`.
 
+1. Remove placeholder package, `src/analysis`
+
+    If you did not populate `src/analysis` with your own content, remove it (`rm -rf src/analysis`).
+
 1. Make the repository public
 
     In order for this pub to be open and reproducible, make the [repo public](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).
