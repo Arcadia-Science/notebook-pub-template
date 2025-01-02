@@ -11,15 +11,15 @@ This repo is a template for notebook publications. The publication rendered and 
     > [!IMPORTANT]  
     > When creating your repo from this template, you need to **check the box** that says, "*Include all branches*"
 
+1. Config edits 
+
+    * Replace the variables in `_variables.yml`
+
 1. Setup the code environment
 
     Setup the codebase and compute environment by following the relevant steps in [SETUP.qmd](SETUP.qmd).
 
     Afterwards, create a branch to work on (don't commit to `main` directly).
-
-1. Edit `_variables.yml`
-
-    Replace the values in `_variables.yml`.
 
 1. Create your pub
 
