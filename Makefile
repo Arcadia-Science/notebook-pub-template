@@ -29,3 +29,7 @@ execute:
 .PHONY: preview
 preview:
 	quarto preview
+
+.PHONY: bump-version
+bump-version:
+	python _bump_version.py

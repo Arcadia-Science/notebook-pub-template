@@ -1,0 +1,12 @@
+{
+  "hash": "9b44842502d052d555caac607ed643e2",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"{{< var pub.title >}}\"\nauthor:\n  - name: Evan Kiefl\n    orcid: 0000-0002-6473-0921\n    corresponding: true\n    email: evan.kiefl@arcadiascience.com\ndate: 'January 1, 2025'\n---\n\n## Introduction\n\nThis is a placeholder page to demonstrate that pubs are versionable. For instructions on how to revise a publication, see [CONTRIBUTING.qmd](CONTRIBUTING.qmd).\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

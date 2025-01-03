@@ -21,13 +21,11 @@ If you haven't already, follow our [setup guide](SETUP.qmd) to create a local co
 
 Before making any changes, we need to preserve the current state of the publication by creating a versioned snapshot. This ensures we maintain an archive of all previous versions alongside the latest one. To create this snapshot, run:
 
-FIXME: this doesn't exist
-
 ```bash
 make bump-version
 ```
 
-Commit the changes introduced by this version snapshot before proceeding with your changes.
+Commit the  changes and untracked files (`_freeze/*`, `_quarto.yml`, `index_*.ipynb`) introduced by this version snapshot before proceeding with your changes.
 
 ## Steps before publishing a revision
 
