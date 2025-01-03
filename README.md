@@ -44,9 +44,13 @@ Publishing is handled automatically with a GitHub Action that triggers whenever 
     > [!NOTE]  
     > The content you're reading now is the current `README.md`, which is to be replaced with `README_TEMPLATE.md`.
 
-1. Remove placeholder package, `src/analysis`
+1. Remove placeholder package
 
     If you did not populate `src/analysis` with your own content, remove it (`rm -rf src/analysis`).
+
+1. Remove placeholder version
+
+    Remove `index_v00.ipynb`.
 
 1. Make the repository public
 

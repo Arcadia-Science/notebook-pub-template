@@ -20,7 +20,7 @@ website:
         href: index.ipynb
       - text: "{{< iconify qlementine-icons:version-control-16 >}}"
         menu:
-          - text: latest
+          - text: v00 (latest)
             href: index.ipynb
       - text: FAQ
         href: FAQ.qmd
