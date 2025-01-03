@@ -77,4 +77,4 @@ This will open a local copy of the publication in your default browser. The comm
 
 ## Publish
 
-If you've improved the publication, consider contributing so we can update the hosted publication with your edits (big or small!). To get started, see our [contributing](CONTRIBUTING.qmd) guide.
+If you've improved the publication, consider contributing so we can update the hosted publication with your edits (big or small!). To get started, see our [contributing guide](CONTRIBUTING.qmd).

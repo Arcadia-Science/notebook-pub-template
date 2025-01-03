@@ -27,6 +27,10 @@ make bump-version
 
 Commit the  changes and untracked files (`_freeze/*`, `_quarto.yml`, `index_*.ipynb`) introduced by this version snapshot before proceeding with your changes.
 
+## Make your changes
+
+Edit `index.ipynb` to your liking.
+
 ## Steps before publishing a revision
 
 Publishing is handled automatically with a GitHub Action that triggers whenever changes are pushed to the `main` branch. This means the task of publishing your revision is equivalent to the task of merging a pull request. To merge your pull request, here's what we'll need from you in addition to your content changes.
