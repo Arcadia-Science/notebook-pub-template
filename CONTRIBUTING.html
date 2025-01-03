@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,7 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-71061858a794c050722a20aca0ddcabd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -173,7 +173,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-iconify-qlementine-iconsversion-control-16-">    
         <li>
     <a class="dropdown-item" href="./index.html">
- <span class="dropdown-text">latest</span></a>
+ <span class="dropdown-text">v01 (latest)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./index_v00.html">
+ <span class="dropdown-text">v00</span></a>
   </li>  
     </ul>
   </li>
@@ -211,6 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
   <li><a href="#version-stamping-the-current" id="toc-version-stamping-the-current" class="nav-link" data-scroll-target="#version-stamping-the-current">Version stamping the current</a></li>
+  <li><a href="#make-your-changes" id="toc-make-your-changes" class="nav-link" data-scroll-target="#make-your-changes">Make your changes</a></li>
   <li><a href="#steps-before-publishing-a-revision" id="toc-steps-before-publishing-a-revision" class="nav-link" data-scroll-target="#steps-before-publishing-a-revision">Steps before publishing a revision</a></li>
   <li><a href="#authorship" id="toc-authorship" class="nav-link" data-scroll-target="#authorship">Authorship</a></li>
   <li><a href="#final-checks" id="toc-final-checks" class="nav-link" data-scroll-target="#final-checks">Final checks</a></li>
@@ -241,9 +246,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="version-stamping-the-current" class="level2">
 <h2 class="anchored" data-anchor-id="version-stamping-the-current">Version stamping the current</h2>
 <p>Before making any changes, we need to preserve the current state of the publication by creating a versioned snapshot. This ensures we maintain an archive of all previous versions alongside the latest one. To create this snapshot, run:</p>
-<p>FIXME: this doesn’t exist</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> bump-version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Commit the changes introduced by this version snapshot before proceeding with your changes.</p>
+<p>Commit the changes and untracked files (<code>_freeze/*</code>, <code>_quarto.yml</code>, <code>index_*.ipynb</code>) introduced by this version snapshot before proceeding with your changes.</p>
+</section>
+<section id="make-your-changes" class="level2">
+<h2 class="anchored" data-anchor-id="make-your-changes">Make your changes</h2>
+<p>Edit <code>index.ipynb</code> to your liking.</p>
 </section>
 <section id="steps-before-publishing-a-revision" class="level2">
 <h2 class="anchored" data-anchor-id="steps-before-publishing-a-revision">Steps before publishing a revision</h2>
