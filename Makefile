@@ -8,10 +8,6 @@ format:
 	ruff check --fix .
 	ruff format .
 
-.PHONY: typecheck
-typecheck:
-	pyright --project pyproject.toml .
-
 .PHONY: pre-commit
 pre-commit:
 	pre-commit run --all-files

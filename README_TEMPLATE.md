@@ -10,7 +10,7 @@ The publication is hosted at [this URL]([PUB-URL]).
 
 ## Reproduce
 
-Please see [REPRODUCING.qmd](REPRODUCING.qmd).
+Please see [SETUP.qmd](SETUP.qmd).
 
 ## Contribute
 

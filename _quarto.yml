@@ -1,5 +1,8 @@
 project:
   type: website
+  render:
+    - "*.qmd"
+    - "*.ipynb"
   resources: 
     - "assets/*"
 execute:
@@ -55,6 +58,8 @@ format:
     page-layout: article
     title-block-banner: true
     toc: true
+    toc-expand: 2
+
 
 comments:
   giscus:
@@ -63,3 +68,9 @@ comments:
     # repo name must be hard-coded.
     repo: Arcadia-Science/notebook-pub-template
     input-position: top
+
+reference-location: margin
+bibliography: ref.bib
+csl: assets/arcadia.csl
+code-annotations: hover
+html-table-processing: none

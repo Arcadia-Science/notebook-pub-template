@@ -24,7 +24,15 @@
     --nb-main-text-font-family: "Helvetica Neue";
     --nb-banner-title-font-family: 'Helvetica Neue'; 
     --bs-code-color: var(--arcadia-forest);
+    --bs-code-bg-color: #f6f6f6;
+    --bs-code-border-color: #e6e6e6;
+    --bs-code-left-border-color: #003B4F99;
     --bs-link-color-rgb: var(--arcadia-forest);
+}
+
+/* match striped table off-color with code background color */
+.table {
+    --bs-table-striped-bg: var(--bs-code-bg-color);
 }
 
 .navbar {
@@ -119,7 +127,7 @@ li.nav-item.dropdown {
 }
 
 .quarto-title-meta {
-    background-color: var(--arcadia-light-grey);
+    background-color: var(--arcadia-white);
     padding: 2em;
 }
 
@@ -150,11 +158,16 @@ li.nav-item.dropdown {
     transition: all 0.2s ease;  /* Smooth transition */
 }
 
-h1, h2, h3 {
+h1, h2 {
     font-family: var(--nb-header-font-family) !important;
     font-weight: var(--nb-header-font-weight) !important; 
     color: var(--arcadia-black);
 }
+
+h3 {
+    font-family: var(--nb-main-text-font-family) !important;
+    font-weight: 400 !important; 
+} 
 
 h2 {
     font-size: var(--nb-h2-font-size);
@@ -170,12 +183,47 @@ h1 {
 
 /* Add small vspace between paragraphs of a multi-paragraph footnote */
 .column-margin.column-container [id^="fn"] > p + p {
-  margin-top: 0.2em !important;
+  margin-top: 0.5em !important;
+}
+/* Space after last paragraph */
+.column-margin.column-container [id^="fn"] > p:last-child {
+  margin-bottom: 1.5em !important;
 }
 
 body {
     font-family: var(--nb-main-text-font-family);
     color: var(--arcadia-black);
+}
+
+/* Defines code background */
+.code-annotation-gutter, .code-annotation-gutter-bg {
+    background-color: var(--bs-code-bg-color) !important;
+}
+div.sourceCode {
+    background-color: var(--bs-code-bg-color) !important;
+    border-radius: 4px;
+    border-style: inset;
+    border: 1px solid var(--bs-code-border-color);
+    padding: 0.6em;
+    padding-left: 0.2em;
+    position: relative;  /* For absolute positioning of pseudo-element */
+}
+
+div.sourceCode::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: var(--bs-code-border-color);
+    transition: width 0.2s ease,
+                background-color 0.2s ease;
+}
+
+div.sourceCode:hover::before {
+    width: 5px;
+    background-color: var(--bs-code-left-border-color);
 }
 
 /* Footer styling */
