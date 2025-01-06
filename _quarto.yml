@@ -50,7 +50,7 @@ website:
     - icon: twitter-x
       href: https://twitter.com/arcadiascience
     - icon: github
-      href: https://github.com/{{< var pub.org >}}/{{< var pub.repo >}}
+      href: https://github.com/Arcadia-Science
 format:
   html:
     include-in-header:
