@@ -213,8 +213,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#contributing" id="toc-contributing" class="nav-link active" data-scroll-target="#contributing">Contributing</a>
   <ul class="collapse">
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
-  <li><a href="#version-stamping-the-current" id="toc-version-stamping-the-current" class="nav-link" data-scroll-target="#version-stamping-the-current">Version stamping the current</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  <li><a href="#snapshot-current-version" id="toc-snapshot-current-version" class="nav-link" data-scroll-target="#snapshot-current-version">Snapshot current version</a></li>
   <li><a href="#make-your-changes" id="toc-make-your-changes" class="nav-link" data-scroll-target="#make-your-changes">Make your changes</a></li>
   <li><a href="#steps-before-publishing-a-revision" id="toc-steps-before-publishing-a-revision" class="nav-link" data-scroll-target="#steps-before-publishing-a-revision">Steps before publishing a revision</a></li>
   <li><a href="#authorship" id="toc-authorship" class="nav-link" data-scroll-target="#authorship">Authorship</a></li>
@@ -240,11 +240,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>These are just a few examples of revisions that we would be happy to receive from you.</p>
 <section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
 <p>If you haven’t already, follow our <a href="./SETUP.html">setup guide</a> to create a local copy of the code and compute environment.</p>
 </section>
-<section id="version-stamping-the-current" class="level2">
-<h2 class="anchored" data-anchor-id="version-stamping-the-current">Version stamping the current</h2>
+<section id="snapshot-current-version" class="level2">
+<h2 class="anchored" data-anchor-id="snapshot-current-version">Snapshot current version</h2>
 <p>Before making any changes, we need to preserve the current state of the publication by creating a versioned snapshot. This ensures we maintain an archive of all previous versions alongside the latest one. To create this snapshot, run:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> bump-version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Commit the changes and untracked files (<code>_freeze/*</code>, <code>_quarto.yml</code>, <code>index_*.ipynb</code>) introduced by this version snapshot before proceeding with your changes.</p>
@@ -263,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="final-checks" class="level2">
 <h2 class="anchored" data-anchor-id="final-checks">Final checks</h2>
-<p>When you’re happy with your changes, it’s time to do a final run through of the notebook.</p>
+<p>When you’re happy with your changes, it’s time to do a final run-through of the notebook.</p>
 <p>Begin with a clean branch (no uncommitted changes). Then run the notebook:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> execute</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This command will update <code>index.ipynb</code> with the latest execution results. Importantly, it may generate runtime artifacts in the <code>_freeze/</code> directory.</p>
