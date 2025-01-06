@@ -127,9 +127,26 @@ li.nav-item.dropdown {
 }
 
 .quarto-title-meta {
-    background-color: var(--arcadia-white);
-    padding: 2em;
+    background-color: var(--bs-code-bg-color);
+    padding: 1em 2em 0em 2em;
 }
+
+.abstract {
+    background-color: var(--bs-code-bg-color);
+    padding: 1rem 2rem 1rem 2rem;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.abstract .block-title {
+  margin-bottom: 0.2rem;
+  margin-top: 0 !important;
+}
+
+.abstract p {
+  line-height: 1.6;
+  margin: 0;
+}
+
 
 #quarto-header.headroom--pinned,
 #quarto-header.headroom--not-top,
