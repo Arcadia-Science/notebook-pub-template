@@ -133,7 +133,7 @@ li.nav-item.dropdown {
 
 .abstract {
     background-color: var(--bs-code-bg-color);
-    padding: 1rem 2rem 1rem 2rem;
+    padding: 1rem 2rem 1.5rem 2rem;
     border-radius: 0px 0px 8px 8px;
 }
 
