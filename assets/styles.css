@@ -127,14 +127,24 @@ li.nav-item.dropdown {
 }
 
 .quarto-title-meta {
+    background-image: url("./seed_growth.png");
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
     background-color: var(--bs-code-bg-color);
     padding: 1em 2em 0em 2em;
+    margin-top: 2rem;
+    border-radius: 8px 8px 0px 0px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: none;
 }
 
 .abstract {
     background-color: var(--bs-code-bg-color);
     padding: 1rem 2rem 1.5rem 2rem;
     border-radius: 0px 0px 8px 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: none;
 }
 
 .abstract .block-title {
