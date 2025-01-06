@@ -13,11 +13,11 @@ We welcome improvements to this publication! If you would like to improve or ext
 
 These are just a few examples of revisions that we would be happy to receive from you.
 
-## Getting Started
+## Getting started
 
 If you haven't already, follow our [setup guide](SETUP.qmd) to create a local copy of the code and compute environment.
 
-## Version stamping the current
+## Snapshot current version
 
 Before making any changes, we need to preserve the current state of the publication by creating a versioned snapshot. This ensures we maintain an archive of all previous versions alongside the latest one. To create this snapshot, run:
 
@@ -41,7 +41,7 @@ Add yourself to the authors list in the front matter of `index.ipynb`.
 
 ## Final checks
 
-When you're happy with your changes, it's time to do a final run through of the notebook.
+When you're happy with your changes, it's time to do a final run-through of the notebook.
 
 Begin with a clean branch (no uncommitted changes). Then run the notebook:
 
