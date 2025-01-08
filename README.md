@@ -14,6 +14,7 @@ This repo is a template for notebook publications. The publication rendered and 
 1. Config edits 
 
     * Replace the variables in `_variables.yml`
+    * For `google_analytics`, provide the Pub Team your repo name and they'll provide you a Google Analytics tracking ID.
 
 1. Setup the code environment
 
