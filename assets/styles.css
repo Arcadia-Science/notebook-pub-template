@@ -125,9 +125,6 @@
     position: relative;
     display: inline-block;
     font-family: var(--nb-header-font-family);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     max-width: 40vw;
 }
 
