@@ -12,6 +12,7 @@ website:
   twitter-card: true
   open-graph: true
   navbar:
+    collapse-below: xl
     pinned: false
     title: false
     left:
