@@ -1,0 +1,81 @@
+<template id="authors-template">
+  <div class="authors-section">
+    <button class="authors-toggle">
+      <span class="authors-toggle-text">Show authors</span>
+      <i class="bi bi-chevron-down authors-toggle-icon"></i>
+    </button>
+    <div class="authors-content">
+      <span class="author-order-indicator">(sorted A-Z)</span>
+    </div>
+    <div class="authors-content"></div>
+  </div>
+</template>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Find the original authors section by looking for the heading text
+    const headings = document.querySelectorAll('.quarto-title-meta-heading');
+    const authorsHeading = Array.from(headings).find(heading => heading.textContent.trim() === 'Authors');
+
+    if (!authorsHeading) return;
+
+    // Get the parent container
+    const originalSection = authorsHeading.closest('.quarto-title-meta > div');
+
+    if (!originalSection) return;
+
+    // Get template content
+    const template = document.getElementById('authors-template');
+    const newSection = template.content.cloneNode(true);
+
+    // Get original content
+    const originalContent = originalSection.querySelector('.quarto-title-meta-contents');
+
+    // Set up new structure
+    const authorsContent = newSection.querySelector('.authors-content');
+    authorsContent.appendChild(originalContent);
+
+    // Replace original with new structure
+    originalSection.replaceWith(newSection);
+
+    // Add toggle functionality
+    const toggle = document.querySelector('.authors-toggle');
+    const content = document.querySelector('.authors-content');
+
+    toggle.addEventListener('click', () => {
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !isExpanded);
+      content.classList.toggle('is-visible');
+    });
+
+    // Initialize ARIA attributes
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', 'authors-content');
+    content.setAttribute('id', 'authors-content');
+
+    // After moving the content, let's add tooltips to author names
+    const authorParagraphs = document.querySelectorAll('.authors-content p');
+
+    authorParagraphs.forEach(p => {
+      // Get the text node (author name) before the first anchor tag
+      const textContent = p.childNodes[0].textContent.trim();
+
+      // Create a span to wrap the author name
+      const nameSpan = document.createElement('span');
+      nameSpan.className = 'author-name';
+      nameSpan.textContent = textContent;
+
+      // Replace the text node with our new span
+      p.replaceChild(nameSpan, p.childNodes[0]);
+
+      // Add tippy tooltip
+      tippy(nameSpan, {
+        content: `Roles: Conceptualization, Software, Data Analysis`,
+        allowHTML: true,
+        placement: 'bottom',
+        arrow: true,
+        theme: 'custom'
+      });
+    });
+  });
+</script>

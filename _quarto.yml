@@ -60,7 +60,8 @@ website:
 format:
   html:
     include-in-header:
-      file: assets/logo-animation.html
+      - file: assets/logo-animation.html
+      - file: assets/author-reveal.html
     css: assets/styles.css
     page-layout: article
     title-block-banner: true
