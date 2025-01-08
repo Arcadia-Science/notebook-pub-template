@@ -111,11 +111,6 @@
     --callout-caution-rgb: var(--arcadia-tumbleweed);
 }
 
-/* match striped table off-color with code background color */
-.table {
-    --bs-table-striped-bg: var(--bs-code-bg-color);
-}
-
 .navbar {
     --bs-navbar-brand-padding-y: 1rem;
     --bs-nav-link-font-size: 1.2rem;
@@ -130,9 +125,6 @@
     position: relative;
     display: inline-block;
     font-family: var(--nb-header-font-family);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     max-width: 40vw;
 }
 
@@ -172,7 +164,6 @@ li.nav-item.dropdown {
   position: relative;
   display: inline-block;
 }
-
 
 .navbar-logo {
   max-height: var(--arcadia-logo-size);
@@ -221,6 +212,13 @@ li.nav-item.dropdown {
     border-bottom: none;
 }
 
+#quarto-header.headroom--pinned,
+#quarto-header.headroom--not-top,
+#quarto-header.headroom--not-bottom,
+#quarto-header.fixed-top {
+    border-bottom: 1.5px solid black;
+}
+
 .abstract {
     background-color: var(--bs-code-bg-color);
     padding: 1rem 2rem 1.5rem 2rem;
@@ -239,13 +237,6 @@ li.nav-item.dropdown {
   margin: 0;
 }
 
-
-#quarto-header.headroom--pinned,
-#quarto-header.headroom--not-top,
-#quarto-header.headroom--not-bottom,
-#quarto-header.fixed-top {
-    border-bottom: 1.5px solid black;
-}
 
 #toc-title {
   font-family: var(--nb-header-font-family);
@@ -266,6 +257,12 @@ li.nav-item.dropdown {
     opacity: 0.8;  /* Makes it slightly faded */
     transition: all 0.2s ease;  /* Smooth transition */
 }
+
+/* match striped table off-color with code background color */
+.table {
+    --bs-table-striped-bg: var(--bs-code-bg-color);
+}
+
 
 h1, h2 {
     font-family: var(--nb-header-font-family) !important;
