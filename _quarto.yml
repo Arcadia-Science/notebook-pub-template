@@ -15,7 +15,7 @@ website:
     pinned: false
     title: false
     left:
-    - text: Publication
+    - text: "{{< var pub.title >}}"
       href: index.ipynb
     - text: '{{< iconify qlementine-icons:version-control-16 >}}'
       menu:
@@ -23,6 +23,7 @@ website:
         href: index.ipynb
       - text: v00
         href: index_v00.ipynb
+    right:
     - text: FAQ
       href: FAQ.qmd
     - text: Reproduce
@@ -35,7 +36,7 @@ website:
     - icon: github
       href: https://github.com/{{< var pub.org >}}/{{< var pub.repo >}}
     logo: assets/logo_text.png
-    logo-href: https://www.arcadiascience.com/
+    logo-href: https://research.arcadiascience.com/
     background: white
     search: true
   page-footer:
@@ -43,7 +44,7 @@ website:
     border: false
     left: '[![](assets/logo_white.png){fig-alt="Arcadia-Science" width=65px}](https://www.arcadiascience.com/)
 
-      Copyright 2024, Arcadia Science
+      Copyright 2025, Arcadia Science
 
       '
     right:

@@ -7,14 +7,89 @@
     --arcadia-white: #ffffff;
     --arcadia-white-50: #ffffff7f;
     --arcadia-white-20: #ffffff33;
-    --arcadia-charcoal: #484b50;
-    --arcadia-dawn: #f8f4f1;
-    --arcadia-forest: #4d635e;
-    --arcadia-light-grey: #ebede8;
-    --arcadia-marine-blue: #37394a;
-    --arcadia-orange: #ffa35c;
-    --arcadia-seafoam: #f9fcf0;
-    --arcadia-shell: #ede0d6;
+    --arcadia-aegean: #5088C5;
+    --arcadia-amber: #F28360;
+    --arcadia-seaweed: #3B9886;
+    --arcadia-canary: #F7B846;
+    --arcadia-aster: #7A77AB;
+    --arcadia-rose: #F898AE;
+    --arcadia-vital: #73B5E3;
+    --arcadia-tangerine: #FFB984;
+    --arcadia-lime: #97CD78;
+    --arcadia-dragon: #C85152;
+    --arcadia-oat: #F5E4BE;
+    --arcadia-wish: #BABEE0;
+    --arcadia-sky: #C6E7F4;
+    --arcadia-dress: #F8C5C1;
+    --arcadia-taupe: #DBD1C3;
+    --arcadia-denim: #B6C8D4;
+    --arcadia-sage: #B5BEA4;
+    --arcadia-marine: #8A99AD;
+    --arcadia-mars: #DA9085;
+    --arcadia-shell: #EDE0D6;
+    --arcadia-gray: #EBEDE8;
+    --arcadia-chateau: #BAB0A8;
+    --arcadia-bark: #8F8885;
+    --arcadia-slate: #43413F;
+    --arcadia-charcoal: #484B50;
+    --arcadia-crow: #292928;
+    --arcadia-forest: #596F74;
+    --arcadia-pitch: #09090A;
+    --arcadia-parchment: #FDF8F2;
+    --arcadia-zephyr: #F4FBFF;
+    --arcadia-lichen: #F7FBEF;
+    --arcadia-dawn: #F8F4F1;
+    --arcadia-concord: #341E60;
+    --arcadia-brightgray: #EAEAEA;
+    --arcadia-paper: #FCFCFC;
+    --arcadia-redwood: #52180A;
+    --arcadia-depths: #09473E;
+    --arcadia-soil: #4D2500;
+    --arcadia-umber: #A85E28;
+    --arcadia-parchment: #FDF8F2;
+    --arcadia-heather: #A96789;
+    --arcadia-tumbleweed: #E9A482;
+    --arcadia-wheat: #F5DFB2;
+    --arcadia-shire: #4E7F72;
+    --arcadia-topaz: #FFCC7B;
+    --arcadia-space: #282A49;
+    --arcadia-butter: #FFFDBD;
+    --arcadia-terracotta: #964222;
+    --arcadia-blush: #FFF3F4;
+    --arcadia-lilac: #6862AB;
+    --arcadia-ghost: #FCF7FF;
+    --arcadia-white: #FFFFFF;
+    --arcadia-red: #FF0000;
+    --arcadia-green: #00FF00;
+    --arcadia-blue: #0000FF;
+    --arcadia-cyan: #00FFFF;
+    --arcadia-magenta: #FF00FF;
+    --arcadia-yellow: #FFFF00;
+    --arcadia-black: #000000;
+    --arcadia-dusk: #094468;
+    --arcadia-lapis: #2B65A1;
+    --arcadia-cinnabar: #9E3F41;
+    --arcadia-melon: #FFD0B0;
+    --arcadia-mustard: #D68D22;
+    --arcadia-sun: #FFD364;
+    --arcadia-tanzanite: #54448C;
+    --arcadia-iris: #DCDFEF;
+    --arcadia-asparagus: #2A6B5E;
+    --arcadia-teal: #6FBCAD;
+    --arcadia-glass: #C3E2DB;
+    --arcadia-azalea: #C14C70;
+    --arcadia-candy: #E2718F;
+    --arcadia-putty: #FFE3D4;
+    --arcadia-mud: #635C5A;
+    --arcadia-stone: #EDE6DA;
+    --arcadia-steel: #687787;
+    --arcadia-cloud: #ABBAC4;
+    --arcadia-dove: #CAD4DB;
+    --arcadia-ice: #E6EAED;
+    --arcadia-yucca: #1E4812;
+    --arcadia-fern: #47784A;
+    --arcadia-matcha: #71AC5A;
+    --arcadia-edamame: #C1E1AE;
     /* Fonts */
     --nb-header-font-family: "Georgia";
     --nb-header-font-weight: 100;
@@ -23,11 +98,17 @@
     --nb-toc-title-font-size: 1.2rem; 
     --nb-main-text-font-family: "Helvetica Neue";
     --nb-banner-title-font-family: 'Helvetica Neue'; 
-    --bs-code-color: var(--arcadia-forest);
+    --bs-code-color: var(--arcadia-dusk);
     --bs-code-bg-color: #f6f6f6;
     --bs-code-border-color: #e6e6e6;
     --bs-code-left-border-color: #003B4F99;
-    --bs-link-color-rgb: var(--arcadia-forest);
+    --bs-link-color-rgb: var(--arcadia-dusk);
+    /* Callouts */
+    --callout-note-rgb: var(--arcadia-aegean);
+    --callout-warning-rgb: var(--arcadia-mustard);
+    --callout-important-rgb: var(--arcadia-dragon);
+    --callout-tip-rgb: var(--arcadia-teal);
+    --callout-caution-rgb: var(--arcadia-tumbleweed);
 }
 
 /* match striped table off-color with code background color */
@@ -49,6 +130,10 @@
     position: relative;
     display: inline-block;
     font-family: var(--nb-header-font-family);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40vw;
 }
 
 .menu-text::after {
@@ -88,6 +173,7 @@ li.nav-item.dropdown {
   display: inline-block;
 }
 
+
 .navbar-logo {
   max-height: var(--arcadia-logo-size);
   width: auto;
@@ -115,7 +201,7 @@ li.nav-item.dropdown {
 }
 
 .quarto-title-banner {
-    background-color: var(--arcadia-forest) !important;
+    background-color: var(--arcadia-dusk) !important;
     margin: 0;
 }
 
@@ -127,10 +213,6 @@ li.nav-item.dropdown {
 }
 
 .quarto-title-meta {
-    background-image: url("./seed_growth.png");
-    background-size: contain;
-    background-position: right;
-    background-repeat: no-repeat;
     background-color: var(--bs-code-bg-color);
     padding: 1em 2em 0em 2em;
     margin-top: 2rem;
@@ -172,8 +254,8 @@ li.nav-item.dropdown {
 }
 
 .sidebar nav[role=doc-toc] ul>li>a.active, .sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
-    border-left: 2px solid var(--arcadia-forest);
-    color: var(--arcadia-forest) !important;
+    border-left: 2px solid var(--arcadia-dusk);
+    color: var(--arcadia-dusk) !important;
     font-weight: 500;
 }
 
@@ -217,6 +299,10 @@ h1 {
   margin-bottom: 1.5em !important;
 }
 
+.quarto-figure-center>figure>p, .quarto-figure-center>figure>div {
+    text-align: left;
+}
+
 body {
     font-family: var(--nb-main-text-font-family);
     color: var(--arcadia-black);
@@ -251,6 +337,57 @@ div.sourceCode::before {
 div.sourceCode:hover::before {
     width: 5px;
     background-color: var(--bs-code-left-border-color);
+}
+
+/* Force CSS grid to contain figures according to their column specs */
+.page-columns .column-body,
+.page-columns .column-body-outset,
+.page-columns .column-body-inset,
+.page-columns .column-page,
+.page-columns .column-page-inset,
+.page-columns .column-page-outset,
+.page-columns .column-screen,
+.page-columns .column-screen-inset {
+    width: 100%;
+    height: auto;
+}
+
+body .page-columns {
+    display: grid;
+    gap: 0;
+    grid-template-columns: [screen-start] 1.5em [screen-start-inset] 3fr [page-start page-start-inset] min(450px, 8vw) [body-start-outset] 35px [body-start] 1.5em [body-content-start] minmax(500px, calc(850px - 3em)) [body-content-end] 1.5em [body-end] 35px [body-end-outset] minmax(75px, 145px) [page-end-inset] min(450px, 8vw) [page-end] 3fr [screen-end-inset] 1.5em [screen-end];
+}
+
+/* Callout colors */
+div.callout-note.callout {
+    border-left-color: var(--callout-note-rgb);
+}
+div.callout-note.callout-style-default>.callout-header {
+    background-color: rgb(from var(--callout-note-rgb) r g b / 0.1);
+}
+div.callout-warning.callout {
+    border-left-color: var(--callout-warning-rgb);
+}
+div.callout-warning.callout-style-default>.callout-header {
+    background-color: rgb(from var(--callout-warning-rgb) r g b / 0.1);
+}
+div.callout-important.callout {
+    border-left-color: var(--callout-important-rgb);
+}
+div.callout-important.callout-style-default>.callout-header {
+    background-color: rgb(from var(--callout-important-rgb) r g b / 0.1);
+}
+div.callout-tip.callout {
+    border-left-color: var(--callout-tip-rgb);
+}
+div.callout-tip.callout-style-default>.callout-header {
+    background-color: rgb(from var(--callout-tip-rgb) r g b / 0.1);
+}
+div.callout-caution.callout {
+    border-left-color: var(--callout-caution-rgb);
+}
+div.callout-caution.callout-style-default>.callout-header {
+    background-color: rgb(from var(--callout-caution-rgb) r g b / 0.1);
 }
 
 /* Footer styling */
