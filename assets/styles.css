@@ -251,6 +251,10 @@ li.nav-item.dropdown {
   transition: transform 0.3s ease;
 }
 
+.quarto-title-author-orcid {
+  padding-left: 0.3rem;
+}
+
 .authors-toggle[aria-expanded="true"] .authors-toggle-icon {
   transform: rotateX(180deg);
 }

@@ -14,7 +14,9 @@ This repo is a template for notebook publications. The publication rendered and 
 1. Config edits 
 
     * Replace the variables in `_variables.yml`
-    * For `google_analytics`, provide the Pub Team your repo name and they'll provide you a Google Analytics tracking ID.
+        - For `google_analytics`, provide the publishing team your repo name and they'll provide you a Google Analytics tracking ID.
+    * Replace the variables in `authors.yml`. 
+        - This can always be updated, but for now at least add yourself.
 
 1. Setup the code environment
 
@@ -27,8 +29,6 @@ This repo is a template for notebook publications. The publication rendered and 
     Edit `index.ipynb` to create your pub. As you work, render it in a live preview with `make preview`.
 
     If you already have a notebook written that you're trying to transform into a pub, replace the template `index.ipynb` with your own, but be sure to add the YAML front matter (the first cell of `index.ipynb`) to your notebook.
-
-    Fill in the authorship section appropriately.
 
 ## How to publish
 

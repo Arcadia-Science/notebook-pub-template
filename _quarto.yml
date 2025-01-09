@@ -5,6 +5,7 @@ project:
   - '*.ipynb'
   resources:
   - assets/*
+  - authors.yml
 execute:
   freeze: auto
 website:

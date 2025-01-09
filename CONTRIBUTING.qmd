@@ -37,7 +37,7 @@ Publishing is handled automatically with a GitHub Action that triggers whenever 
 
 ## Authorship
 
-Add yourself to the authors list in the front matter of `index.ipynb`.
+Add yourself to the authors list in `authors.yml`.
 
 ## Final checks
 
