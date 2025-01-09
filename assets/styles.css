@@ -116,6 +116,8 @@
     --bs-navbar-brand-padding-y: 1rem;
     --bs-nav-link-font-size: 1.2rem;
     background-color: var(--arcadia-white) !important;
+    padding-bottom: 0em;
+    padding-top: 0em;
 }
 
 .navbar-nav .nav-item {
@@ -195,8 +197,8 @@ li.nav-item.dropdown {
 .quarto-title-banner {
     background-color: var(--arcadia-pewter) !important;
     margin: 0;
-    padding-top: 4em;
-    padding-bottom: 4em;
+    padding-top: 3em;
+    padding-bottom: 3em;
 }
 
 .quarto-title-banner h1 {
@@ -215,39 +217,20 @@ li.nav-item.dropdown {
     border-bottom: none;
 }
 
+/*
 navbar navbar-expand-xl {
     border-bottom: 1.5px solid black;
 }
+*/
 
+/*
 #quarto-header.headroom--pinned,
 #quarto-header.headroom--not-top,
 #quarto-header.headroom--not-bottom,
 #quarto-header.fixed-top {
     border-bottom: 1.5px solid black;
 }
-
-#sticky-title {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: var(--arcadia-pewter);
-  visibility: hidden;
-  opacity: 0;
-}
-
-#sticky-title .sticky-title-content {
-  font-family: var(--nb-banner-title-font-family) !important;
-  font-weight: 250 !important; 
-  font-size: 1.2rem; 
-  padding: 0.75rem;
-  margin-left: min(450px, 8vw);
-}
-
-#sticky-title p {
-  margin: 0;
-  color: var(--arcadia-white);
-}
+*/
 
 .authors-toggle {
   padding-left: 0;
@@ -338,6 +321,11 @@ navbar navbar-expand-xl {
   margin: 0;
 }
 
+
+/* This should match the sticky title height */
+#quarto-margin-sidebar.sidebar-unpinned {
+  top: 3em !important;
+}
 
 #toc-title {
   font-family: var(--nb-header-font-family);

@@ -1,55 +1,136 @@
-<template id="sticky-title-template">
-  <div id="sticky-title">
-    <div class="sticky-title-content">
-      <p>{{< var pub.title>}}</p>
+<template id="persistent-element-template">
+  <div class="persistent-element">
+    <div class="persistent-element-content">
+      Always Visible
     </div>
   </div>
 </template>
+<style>
+  /* Container setup */
+  .navbar-container {
+    display: flex !important;
+    flex-direction: column !important;
+  }
 
+  /* Wrapper for existing content to preserve layout */
+  .navbar-main-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Preserve original spacing classes */
+  .navbar-main-content .mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .navbar-main-content .me-auto {
+    margin-right: auto !important;
+  }
+
+  .navbar-main-content .ms-auto {
+    margin-left: auto !important;
+  }
+
+  /* Base styling for persistent element with collapsible height */
+  .persistent-element {
+    color: white;
+    transform: translateY(-100%);
+    height: 0rem;
+    opacity: 1;
+    line-height: 3rem;
+    padding: 0 1rem;
+    width: 100%;
+    background-color: #3b6179;
+    order: 2;
+    /* Stretch across screen, outside its div */
+    position: relative;
+    left: 0%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    /* Add transition properties */
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .persistent-element.expanded {
+    transform: translateY(0);
+    height: 3rem;
+  }
+
+  /* Modify headroom animation for unpinned state to match exact height */
+  .headroom--unpinned.headroom {
+    transform: translateY(calc(-100% + 3rem)) !important;
+  }
+
+  /* Hide main content when unpinned */
+  .headroom--unpinned .navbar-main-content {
+    display: none !important;
+  }
+</style>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Get the title banner and template
-    const titleBanner = document.querySelector('.quarto-title-banner');
-    const template = document.getElementById('sticky-title-template');
+    const navbar = document.querySelector('.navbar-container');
+    const template = document.getElementById('persistent-element-template');
+    const titleBanner = document.querySelector('.quarto-title-banner .quarto-title .title');
+    const abstract = document.querySelector('.abstract');
 
-    if (!titleBanner || !template) return;
-
-    // Clone and insert the template
-    const stickyTitle = template.content.cloneNode(true);
-    document.body.insertBefore(stickyTitle, document.body.firstChild);
-
-    // Get the actual sticky title element after it's been inserted
-    const stickyTitleElement = document.getElementById('sticky-title');
-
-    // Get the height of the sticky title for our calculations
-    const stickyTitleHeight = stickyTitleElement.offsetHeight;
-
-    // Create the intersection observer
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          // Calculate how much of the title banner is still visible
-          const visibleHeight = entry.intersectionRect.height;
-          const totalHeight = entry.boundingClientRect.height;
-
-          // Show sticky title when the visible portion is less than or equal to sticky title height
-          if (visibleHeight <= stickyTitleHeight) {
-            stickyTitleElement.style.visibility = 'visible';
-            stickyTitleElement.style.opacity = '1';
-          } else {
-            stickyTitleElement.style.visibility = 'hidden';
-            stickyTitleElement.style.opacity = '0';
-          }
-        });
-      },
-      {
-        // Use multiple thresholds for smoother detection
-        threshold: Array.from({length: 100}, (_, i) => i / 100),
-        rootMargin: "0px"
+    if (navbar && template && titleBanner && abstract) {
+      // Create wrapper and move existing content
+      const wrapper = document.createElement('div');
+      wrapper.className = 'navbar-main-content';
+      while (navbar.firstChild) {
+        wrapper.appendChild(navbar.firstChild);
       }
-    );
+      navbar.appendChild(wrapper);
 
-    // Start observing the title banner
-    observer.observe(titleBanner);
+      // Add persistent element
+      const element = template.content.cloneNode(true);
+      navbar.appendChild(element);
+
+      // Get the persistent element after insertion
+      const persistentElement = navbar.querySelector('.persistent-element');
+      const persistentHeight = 48; // 3rem
+
+
+      // Create appear observer (triggers when abstract hits top)
+      const appearObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting && entry.boundingClientRect.top <= 0) {
+              persistentElement.classList.add('expanded');
+            }
+          });
+        },
+        {
+          threshold: [0],
+          rootMargin: "0px"
+        }
+      );
+
+      // Create disappear observer (original title banner logic)
+      const disappearObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            const visibleHeight = entry.intersectionRect.height;
+            if (visibleHeight > persistentHeight) {
+              persistentElement.classList.remove('expanded');
+            }
+          });
+        },
+        {
+          threshold: Array.from({length: 100}, (_, i) => i / 100),
+          rootMargin: "0px"
+        }
+      );
+
+      // Start observing both elements
+      appearObserver.observe(abstract);
+      disappearObserver.observe(titleBanner);
+    }
   });
 </script>
