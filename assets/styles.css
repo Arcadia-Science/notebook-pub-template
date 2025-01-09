@@ -195,6 +195,8 @@ li.nav-item.dropdown {
 .quarto-title-banner {
     background-color: var(--arcadia-pewter) !important;
     margin: 0;
+    padding-top: 4em;
+    padding-bottom: 4em;
 }
 
 .quarto-title-banner h1 {
@@ -213,11 +215,38 @@ li.nav-item.dropdown {
     border-bottom: none;
 }
 
+navbar navbar-expand-xl {
+    border-bottom: 1.5px solid black;
+}
+
 #quarto-header.headroom--pinned,
 #quarto-header.headroom--not-top,
 #quarto-header.headroom--not-bottom,
 #quarto-header.fixed-top {
     border-bottom: 1.5px solid black;
+}
+
+#sticky-title {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--arcadia-pewter);
+  visibility: hidden;
+  opacity: 0;
+}
+
+#sticky-title .sticky-title-content {
+  font-family: var(--nb-banner-title-font-family) !important;
+  font-weight: 250 !important; 
+  font-size: 1.2rem; 
+  padding: 0.75rem;
+  margin-left: min(450px, 8vw);
+}
+
+#sticky-title p {
+  margin: 0;
+  color: var(--arcadia-white);
 }
 
 .authors-toggle {

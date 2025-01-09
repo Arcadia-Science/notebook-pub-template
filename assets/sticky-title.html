@@ -1,0 +1,55 @@
+<template id="sticky-title-template">
+  <div id="sticky-title">
+    <div class="sticky-title-content">
+      <p>{{< var pub.title>}}</p>
+    </div>
+  </div>
+</template>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Get the title banner and template
+    const titleBanner = document.querySelector('.quarto-title-banner');
+    const template = document.getElementById('sticky-title-template');
+
+    if (!titleBanner || !template) return;
+
+    // Clone and insert the template
+    const stickyTitle = template.content.cloneNode(true);
+    document.body.insertBefore(stickyTitle, document.body.firstChild);
+
+    // Get the actual sticky title element after it's been inserted
+    const stickyTitleElement = document.getElementById('sticky-title');
+
+    // Get the height of the sticky title for our calculations
+    const stickyTitleHeight = stickyTitleElement.offsetHeight;
+
+    // Create the intersection observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          // Calculate how much of the title banner is still visible
+          const visibleHeight = entry.intersectionRect.height;
+          const totalHeight = entry.boundingClientRect.height;
+
+          // Show sticky title when the visible portion is less than or equal to sticky title height
+          if (visibleHeight <= stickyTitleHeight) {
+            stickyTitleElement.style.visibility = 'visible';
+            stickyTitleElement.style.opacity = '1';
+          } else {
+            stickyTitleElement.style.visibility = 'hidden';
+            stickyTitleElement.style.opacity = '0';
+          }
+        });
+      },
+      {
+        // Use multiple thresholds for smoother detection
+        threshold: Array.from({length: 100}, (_, i) => i / 100),
+        rootMargin: "0px"
+      }
+    );
+
+    // Start observing the title banner
+    observer.observe(titleBanner);
+  });
+</script>

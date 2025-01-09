@@ -63,6 +63,7 @@ format:
     include-in-header:
       - file: assets/logo-animation.html
       - file: assets/author-reveal.html
+      - file: assets/sticky-title.html
     css: assets/styles.css
     page-layout: article
     title-block-banner: true
