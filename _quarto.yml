@@ -17,8 +17,6 @@ website:
     pinned: false
     title: false
     left:
-    - text: "{{< var pub.title >}}"
-      href: index.ipynb
     - text: '{{< iconify qlementine-icons:version-control-16 >}}'
       menu:
       - text: v01 (latest)
