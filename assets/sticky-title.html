@@ -5,6 +5,7 @@
     </div>
   </div>
 </template>
+
 <style>
   /* Container setup */
   .navbar-container {
@@ -54,7 +55,7 @@
     width: 100vw;
     /* Add transition properties */
     overflow: hidden;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-out;
   }
 
   .persistent-element.expanded {
@@ -72,6 +73,7 @@
     display: none !important;
   }
 </style>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const navbar = document.querySelector('.navbar-container');
@@ -96,13 +98,69 @@
       const persistentElement = navbar.querySelector('.persistent-element');
       const persistentHeight = 48; // 3rem
 
+      // Track transition state
+      let isTransitioning = false;
+      persistentElement.addEventListener('transitionend', (e) => {
+        if (e.propertyName === 'transform') {
+          isTransitioning = false;
+        }
+      });
+
+      // Simple throttle implementation
+      function throttle(func, limit) {
+        let inThrottle;
+        return function (...args) {
+          if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+          }
+        };
+      }
+
+      const expandAndScroll = () => {
+        if (!persistentElement.classList.contains('expanded')) {
+          isTransitioning = true;
+          // First frame: add class
+          requestAnimationFrame(() => {
+            persistentElement.classList.add('expanded');
+            // Next frame: scroll
+            requestAnimationFrame(() => {
+              window.scrollBy({
+                top: persistentHeight,
+                behavior: 'instant'
+              });
+            });
+          });
+        }
+      };
+
+      const collapseAndScroll = () => {
+        if (persistentElement.classList.contains('expanded')) {
+          isTransitioning = true;
+          // First frame: scroll
+          requestAnimationFrame(() => {
+            window.scrollBy({
+              top: -persistentHeight,
+              behavior: 'instant'
+            });
+            // Next frame: remove class
+            requestAnimationFrame(() => {
+              persistentElement.classList.remove('expanded');
+            });
+          });
+        }
+      };
+
+      // Throttled version of expand function
+      const throttledExpand = throttle(expandAndScroll, 300);
 
       // Create appear observer (triggers when abstract hits top)
       const appearObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach(entry => {
-            if (!entry.isIntersecting && entry.boundingClientRect.top <= 0) {
-              persistentElement.classList.add('expanded');
+            if (!entry.isIntersecting && entry.boundingClientRect.top <= 0 && !isTransitioning) {
+              throttledExpand();
             }
           });
         },
@@ -117,8 +175,8 @@
         (entries) => {
           entries.forEach(entry => {
             const visibleHeight = entry.intersectionRect.height;
-            if (visibleHeight > persistentHeight) {
-              persistentElement.classList.remove('expanded');
+            if (visibleHeight > persistentHeight && !isTransitioning) {
+              collapseAndScroll();
             }
           });
         },
