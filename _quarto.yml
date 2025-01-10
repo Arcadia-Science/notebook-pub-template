@@ -62,7 +62,6 @@ format:
       - file: assets/logo-animation.html
       - file: assets/author-reveal.html
       - file: assets/mini-title.html
-      - file: assets/navbar-override.html
     css: assets/styles.css
     page-layout: article
     title-block-banner: true
