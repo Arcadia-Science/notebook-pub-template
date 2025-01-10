@@ -1,12 +1,10 @@
 /* Define variables in :root */
 :root {
   /* Base sizes */
-  --navbar-height-desktop: 4rem;
-  --navbar-height-mobile: max(3.5rem, 56px); /* Ensures minimum tap target size */
   --mini-title-height: 3rem;
   
   /* Computed values */
-  --navbar-height: var(--navbar-height-desktop);
+  --navbar-height: 4rem;
   --total-header-height: calc(var(--navbar-height) + var(--mini-title-height));
   
   /* Spacing/padding */
@@ -14,22 +12,13 @@
   --content-padding: 1rem;
 }
 
-/* Media query for mobile devices */
-@media screen and (max-width: 768px) {
-  :root {
-    --navbar-height: var(--navbar-height-mobile);
-  }
-}
-
 .navbar {
     --bs-navbar-brand-padding-y: 1rem;
     --bs-nav-link-font-size: 1.2rem;
     background-color: var(--arcadia-white) !important;
-    height: var(--navbar-height);
-    min-height: var(--navbar-height);
-    padding: var(--navbar-padding) var(--content-padding);
+    padding-bottom: 0em;
+    padding-top: 0em;
 }
-
 
 .navbar-nav .nav-item {
     margin: 0 0.25rem;
@@ -75,13 +64,13 @@ li.nav-item.dropdown {
 }
 
 .navbar-logo {
-  max-height: calc(var(--navbar-height) - 2 * var(--navbar-padding));
+  max-height: var(--arcadia-logo-size);
   width: auto;
   display: block;
 }
 
 .navbar-logo.video-logo {
-  max-height: calc(var(--navbar-height) - 2 * var(--navbar-padding));
+  max-height: var(--arcadia-logo-size);
   position: absolute;
   top: 0;
   left: 0;

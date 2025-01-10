@@ -19,13 +19,6 @@
     const navbar = document.querySelector('#quarto-header');
     const persistentHeight = 50;
 
-    console.log("Elements found:", {
-      template: !!template,
-      titleBanner: !!titleBanner,
-      abstract: !!abstract,
-      navbar: !!navbar
-    });
-
     if (template && titleBanner && abstract && navbar) {
       // Add the mini title to the document body
       const miniTitleContent = document.importNode(template.content, true);
