@@ -52,10 +52,8 @@ li.nav-item.dropdown {
     align-items: center;
 }
 
-[aria-labelledby="nav-menu-iconify-qlementine-iconsversion-control-16-"].dropdown-menu {
-    top: 100%;
-    transform: none;
-    margin-top: 0.3rem;  /* Add some spacing between icon and dropdown */
+.navbar-nav .nav-item.dropdown:has(iconify-icon[icon="qlementine-icons:version-control-16"]) {
+    visibility: hidden;
 }
 
 .navbar-brand {
