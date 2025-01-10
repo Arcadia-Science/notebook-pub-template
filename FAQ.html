@@ -248,12 +248,222 @@ cookieconsent.run({
     }
   });
 </script>
+<template id="sticky-mini-title-template">
+  <div class="sticky-mini-title">
+    <div class="sticky-mini-title-content">
+      <div class="logo-wrapper">
+        <img src="./logo_white.png" alt="Logo">
+      </div>
+      <p>Inducing protoplast formation in Phaeodactylum tricornutum by silica deprivation, enzymatic treatment, or cytoskeletal inhibition</p>
+      <div class="dropdown">
+        <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-three-dots-vertical"></i>
+        </button>
+        <div class="dropdown-menu">
+          <a href="#abstract" class="dropdown-item">Abstract</a>
+          <a href="#methods" class="dropdown-item">Methods</a>
+          <a href="#results" class="dropdown-item">Results</a>
+          <a href="#discussion" class="dropdown-item">Discussion</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style>
+  .sticky-mini-title-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.querySelector('.navbar-container');
+    const template = document.getElementById('sticky-mini-title-template');
+    const titleBanner = document.querySelector('.quarto-title-banner .quarto-title .title');
+    const abstract = document.querySelector('.abstract');
+
+    if (document.querySelector('.quarto-title-banner')) {
+      document.body.classList.add('has-title-banner');
+    }
+
+    if (navbar && template && titleBanner && abstract) {
+      // Create wrapper and move existing content
+      const wrapper = document.createElement('div');
+      wrapper.className = 'navbar-main-content';
+      while (navbar.firstChild) {
+        wrapper.appendChild(navbar.firstChild);
+      }
+      navbar.appendChild(wrapper);
+
+      // Add persistent element
+      const element = template.content.cloneNode(true);
+      navbar.appendChild(element);
+
+      // Get the persistent element after insertion
+      const persistentElement = navbar.querySelector('.sticky-mini-title');
+      const persistentHeight = 48; // 3rem
+
+      // Track transition state
+      let isTransitioning = false;
+      persistentElement.addEventListener('transitionend', (e) => {
+        if (e.propertyName === 'transform') {
+          isTransitioning = false;
+        }
+      });
+
+      const expandAndScroll = () => {
+        if (!persistentElement.classList.contains('expanded')) {
+          isTransitioning = true;
+          // First frame: add class
+          requestAnimationFrame(() => {
+            persistentElement.classList.add('expanded');
+            // Next frame: scroll
+            requestAnimationFrame(() => {
+              window.scrollBy({
+                top: persistentHeight,
+                behavior: 'instant'
+              });
+            });
+          });
+        }
+      };
+
+      const collapseAndScroll = () => {
+        if (persistentElement.classList.contains('expanded')) {
+          isTransitioning = true;
+          requestAnimationFrame(() => {
+            persistentElement.classList.remove('expanded');
+            window.scrollBy({
+              top: -persistentHeight,
+              behavior: 'instant'
+            });
+          });
+        }
+      };
+
+      // Create appear observer (triggers when abstract hits top)
+      const appearObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting && entry.boundingClientRect.top <= persistentHeight && !isTransitioning) {
+              expandAndScroll();
+            }
+          });
+        },
+        {
+          threshold: [0],
+          rootMargin: "0px"
+        }
+      );
+
+      // Create disappear observer (original title banner logic)
+      const disappearObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            const visibleHeight = entry.intersectionRect.height;
+            if (visibleHeight > persistentHeight && !isTransitioning) {
+              collapseAndScroll();
+            }
+          });
+        },
+        {
+          threshold: Array.from({length: 100}, (_, i) => i / 100),
+          rootMargin: "0px"
+        }
+      );
+
+      // Start observing both elements
+      appearObserver.observe(abstract);
+      disappearObserver.observe(titleBanner);
+    }
+  });
+</script>
+<!-- version-dropdown.html -->
+<style>
+  #title-version-control {
+    display: inline-flex;
+    align-items: baseline;
+    margin-left: 0.5rem;
+  }
+
+  .title-version-menu {
+    display: inline-block;
+  }
+
+  .title-version-menu .nav-link {
+    color: white;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .title-version-menu .nav-link:hover {
+    transform: scale(1.05);
+  }
+
+  .title-version-menu .dropdown-toggle::after {
+    color: white;
+    margin-left: 0.25rem;
+    vertical-align: baseline;
+  }
+
+  .title-version-menu iconify-icon {
+    font-size: 0.7em;
+  }
+
+  .title-version-menu .dropdown-menu {
+    min-width: 8rem;
+  }
+</style>
+
+</head><body class="nav-fixed"><div id="title-version-control"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Find the original version control dropdown
+    const originalDropdown = document.querySelector('.navbar-nav .nav-item.dropdown:has(iconify-icon[icon="qlementine-icons:version-control-16"])');
+
+    if (originalDropdown && document.querySelector('.quarto-title')) {
+      // Clone the dropdown structure
+      const clonedDropdown = originalDropdown.cloneNode(true);
+
+      // Update classes
+      clonedDropdown.className = 'title-version-menu dropdown';
+
+      // Remove the menu-text class but keep the span and its contents
+      const menuTextSpan = clonedDropdown.querySelector('.menu-text');
+      if (menuTextSpan) {
+        menuTextSpan.classList.remove('menu-text');
+      }
+
+      // Find the title element
+      const titleElement = document.querySelector('.quarto-title .title');
+
+      if (titleElement) {
+        // Add the version control to the container
+        const versionContainer = document.getElementById('title-version-control');
+        versionContainer.appendChild(clonedDropdown);
+        titleElement.appendChild(versionContainer);
+
+        // Ensure Bootstrap dropdown functionality works on the clone
+        if (typeof bootstrap !== 'undefined') {
+          const dropdownElement = clonedDropdown.querySelector('.dropdown-toggle');
+          if (dropdownElement) {
+            new bootstrap.Dropdown(dropdownElement);
+          }
+        }
+      }
+    }
+  });
+</script>
 
 
 <link rel="stylesheet" href="assets/styles.css">
-</head>
 
-<body class="nav-fixed">
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -270,10 +480,6 @@ cookieconsent.run({
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Inducing protoplast formation in Phaeodactylum tricornutum by silica deprivation, enzymatic treatment, or cytoskeletal inhibition</span></a>
-  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-iconify-qlementine-iconsversion-control-16-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text"><iconify-icon role="img" inline="" icon="qlementine-icons:version-control-16" aria-label="Icon version-control-16 from qlementine-icons Iconify.design set." title="Icon version-control-16 from qlementine-icons Iconify.design set."></iconify-icon></span>

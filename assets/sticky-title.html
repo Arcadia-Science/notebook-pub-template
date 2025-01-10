@@ -1,0 +1,133 @@
+<template id="sticky-mini-title-template">
+  <div class="sticky-mini-title">
+    <div class="sticky-mini-title-content">
+      <div class="logo-wrapper">
+        <img src="./logo_white.png" alt="Logo">
+      </div>
+      <p>{{< var pub.title>}}</p>
+      <div class="dropdown">
+        <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-three-dots-vertical"></i>
+        </button>
+        <div class="dropdown-menu">
+          <a href="#abstract" class="dropdown-item">Abstract</a>
+          <a href="#methods" class="dropdown-item">Methods</a>
+          <a href="#results" class="dropdown-item">Results</a>
+          <a href="#discussion" class="dropdown-item">Discussion</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style>
+  .sticky-mini-title-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.querySelector('.navbar-container');
+    const template = document.getElementById('sticky-mini-title-template');
+    const titleBanner = document.querySelector('.quarto-title-banner .quarto-title .title');
+    const abstract = document.querySelector('.abstract');
+
+    if (document.querySelector('.quarto-title-banner')) {
+      document.body.classList.add('has-title-banner');
+    }
+
+    if (navbar && template && titleBanner && abstract) {
+      // Create wrapper and move existing content
+      const wrapper = document.createElement('div');
+      wrapper.className = 'navbar-main-content';
+      while (navbar.firstChild) {
+        wrapper.appendChild(navbar.firstChild);
+      }
+      navbar.appendChild(wrapper);
+
+      // Add persistent element
+      const element = template.content.cloneNode(true);
+      navbar.appendChild(element);
+
+      // Get the persistent element after insertion
+      const persistentElement = navbar.querySelector('.sticky-mini-title');
+      const persistentHeight = 48; // 3rem
+
+      // Track transition state
+      let isTransitioning = false;
+      persistentElement.addEventListener('transitionend', (e) => {
+        if (e.propertyName === 'transform') {
+          isTransitioning = false;
+        }
+      });
+
+      const expandAndScroll = () => {
+        if (!persistentElement.classList.contains('expanded')) {
+          isTransitioning = true;
+          // First frame: add class
+          requestAnimationFrame(() => {
+            persistentElement.classList.add('expanded');
+            // Next frame: scroll
+            requestAnimationFrame(() => {
+              window.scrollBy({
+                top: persistentHeight,
+                behavior: 'instant'
+              });
+            });
+          });
+        }
+      };
+
+      const collapseAndScroll = () => {
+        if (persistentElement.classList.contains('expanded')) {
+          isTransitioning = true;
+          requestAnimationFrame(() => {
+            persistentElement.classList.remove('expanded');
+            window.scrollBy({
+              top: -persistentHeight,
+              behavior: 'instant'
+            });
+          });
+        }
+      };
+
+      // Create appear observer (triggers when abstract hits top)
+      const appearObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting && entry.boundingClientRect.top <= persistentHeight && !isTransitioning) {
+              expandAndScroll();
+            }
+          });
+        },
+        {
+          threshold: [0],
+          rootMargin: "0px"
+        }
+      );
+
+      // Create disappear observer (original title banner logic)
+      const disappearObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            const visibleHeight = entry.intersectionRect.height;
+            if (visibleHeight > persistentHeight && !isTransitioning) {
+              collapseAndScroll();
+            }
+          });
+        },
+        {
+          threshold: Array.from({length: 100}, (_, i) => i / 100),
+          rootMargin: "0px"
+        }
+      );
+
+      // Start observing both elements
+      appearObserver.observe(abstract);
+      disappearObserver.observe(titleBanner);
+    }
+  });
+</script>

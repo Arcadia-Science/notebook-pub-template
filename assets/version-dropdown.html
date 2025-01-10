@@ -1,0 +1,77 @@
+<!-- version-dropdown.html -->
+<style>
+  #title-version-control {
+    display: inline-flex;
+    align-items: baseline;
+    margin-left: 0.5rem;
+  }
+
+  .title-version-menu {
+    display: inline-block;
+  }
+
+  .title-version-menu .nav-link {
+    color: white;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .title-version-menu .nav-link:hover {
+    transform: scale(1.05);
+  }
+
+  .title-version-menu .dropdown-toggle::after {
+    color: white;
+    margin-left: 0.25rem;
+    vertical-align: baseline;
+  }
+
+  .title-version-menu iconify-icon {
+    font-size: 0.7em;
+  }
+
+  .title-version-menu .dropdown-menu {
+    min-width: 8rem;
+  }
+</style>
+
+<div id="title-version-control"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Find the original version control dropdown
+    const originalDropdown = document.querySelector('.navbar-nav .nav-item.dropdown:has(iconify-icon[icon="qlementine-icons:version-control-16"])');
+
+    if (originalDropdown && document.querySelector('.quarto-title')) {
+      // Clone the dropdown structure
+      const clonedDropdown = originalDropdown.cloneNode(true);
+
+      // Update classes
+      clonedDropdown.className = 'title-version-menu dropdown';
+
+      // Remove the menu-text class but keep the span and its contents
+      const menuTextSpan = clonedDropdown.querySelector('.menu-text');
+      if (menuTextSpan) {
+        menuTextSpan.classList.remove('menu-text');
+      }
+
+      // Find the title element
+      const titleElement = document.querySelector('.quarto-title .title');
+
+      if (titleElement) {
+        // Add the version control to the container
+        const versionContainer = document.getElementById('title-version-control');
+        versionContainer.appendChild(clonedDropdown);
+        titleElement.appendChild(versionContainer);
+
+        // Ensure Bootstrap dropdown functionality works on the clone
+        if (typeof bootstrap !== 'undefined') {
+          const dropdownElement = clonedDropdown.querySelector('.dropdown-toggle');
+          if (dropdownElement) {
+            new bootstrap.Dropdown(dropdownElement);
+          }
+        }
+      }
+    }
+  });
+</script>

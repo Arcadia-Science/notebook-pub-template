@@ -105,7 +105,7 @@
     --bs-code-left-border-color: #003B4F99;
     --bs-link-color-rgb: var(--arcadia-dusk);
     /* Callouts */
-    --callout-note-rgb: var(--arcadia-aegean);
+    --callout-note-rgb: var(--arcadia-pewter);
     --callout-warning-rgb: var(--arcadia-mustard);
     --callout-important-rgb: var(--arcadia-dragon);
     --callout-tip-rgb: var(--arcadia-teal);
@@ -116,7 +116,10 @@
     --bs-navbar-brand-padding-y: 1rem;
     --bs-nav-link-font-size: 1.2rem;
     background-color: var(--arcadia-white) !important;
+    padding-bottom: 0em;
+    padding-top: 0em;
 }
+
 
 .navbar-nav .nav-item {
     margin: 0 0.25rem;
@@ -156,11 +159,6 @@ li.nav-item.dropdown {
     margin-top: 0.3rem;  /* Add some spacing between icon and dropdown */
 }
 
-/* Padding around version icon */
-#nav-menu-iconify-qlementine-iconsversion-control-16- {
-  padding: 0.2rem 0.2rem 0.2rem 0.2rem;
-}
-
 .navbar-brand {
   position: relative;
   display: inline-block;
@@ -195,6 +193,8 @@ li.nav-item.dropdown {
 .quarto-title-banner {
     background-color: var(--arcadia-pewter) !important;
     margin: 0;
+    padding-top: 3em;
+    padding-bottom: 3em;
 }
 
 .quarto-title-banner h1 {
@@ -213,11 +213,81 @@ li.nav-item.dropdown {
     border-bottom: none;
 }
 
-#quarto-header.headroom--pinned,
-#quarto-header.headroom--not-top,
-#quarto-header.headroom--not-bottom,
-#quarto-header.fixed-top {
-    border-bottom: 1.5px solid black;
+body.has-title-banner #quarto-header {
+  border-bottom: none;
+}
+
+body.has-title-banner .navbar-container {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Wrapper for existing content to preserve layout */
+body.has-title-banner .navbar-main-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Preserve original spacing classes */
+body.has-title-banner .navbar-main-content .mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+body.has-title-banner .navbar-main-content .me-auto {
+  margin-right: auto !important;
+}
+
+body.has-title-banner .navbar-main-content .ms-auto {
+  margin-left: auto !important;
+}
+
+/* Base styling for persistent element with collapsible height */
+body.has-title-banner .sticky-mini-title {
+  color: var(--arcadia-white) !important;
+  font-family: var(--nb-banner-title-font-family) !important;
+  font-weight: 250 !important; 
+  font-size: 1.0rem;
+  transform: translateY(-100%);
+  height: 0rem;
+  opacity: 1;
+  line-height: 3rem;
+  padding: 0 1rem;
+  width: 100%;
+  background-color: #3b6179;
+  order: 2;
+  /* Stretch across screen, outside its div */
+  position: relative;
+  left: 0%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  /* Transition only transform for smoother animation */
+  overflow: hidden;
+  transition: transform 0.3s ease-out;
+}
+
+body.has-title-banner .sticky-mini-title.expanded {
+  transform: translateY(0);
+  height: 3rem;
+  transition: transform 0.3s ease-out;
+}
+
+/* Modify headroom animation for unpinned state to match exact height */
+body.has-title-banner .headroom--unpinned.headroom {
+  transform: translateY(calc(-100% + 3rem)) !important;
+}
+
+/* Hide main content when unpinned */
+body.has-title-banner .headroom--unpinned .navbar-main-content {
+  display: none !important;
+}
+
+#quarto-header {
+    border-bottom: 2px solid #262626;
 }
 
 .authors-toggle {
@@ -310,6 +380,11 @@ li.nav-item.dropdown {
 }
 
 
+/* This should match the sticky title height */
+#quarto-margin-sidebar.sidebar-unpinned {
+  top: 3em !important;
+}
+
 #toc-title {
   font-family: var(--nb-header-font-family);
   font-size: var(--nb-toc-title-font-size);
@@ -339,7 +414,7 @@ li.nav-item.dropdown {
 h1, h2 {
     font-family: var(--nb-header-font-family) !important;
     font-weight: var(--nb-header-font-weight) !important; 
-    color: var(--arcadia-black);
+    color: #262626;
 }
 
 h3 {
@@ -374,7 +449,7 @@ h1 {
 
 body {
     font-family: var(--nb-main-text-font-family);
-    color: var(--arcadia-black);
+    color: #262626;
 }
 
 /* Defines code background */
