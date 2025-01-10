@@ -159,11 +159,6 @@ li.nav-item.dropdown {
     margin-top: 0.3rem;  /* Add some spacing between icon and dropdown */
 }
 
-/* Padding around version icon */
-#nav-menu-iconify-qlementine-iconsversion-control-16- {
-  padding: 0.2rem 0.2rem 0.2rem 0.2rem;
-}
-
 .navbar-brand {
   position: relative;
   display: inline-block;
