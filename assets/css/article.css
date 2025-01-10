@@ -77,7 +77,20 @@ div.sourceCode:hover::before {
 body .page-columns {
     display: grid;
     gap: 0;
-    grid-template-columns: [screen-start] 1.5em [screen-start-inset] 3fr [page-start page-start-inset] min(450px, 8vw) [body-start-outset] 35px [body-start] 1.5em [body-content-start] minmax(500px, calc(850px - 3em)) [body-content-end] 1.5em [body-end] 35px [body-end-outset] minmax(75px, 145px) [page-end-inset] min(450px, 8vw) [page-end] 3fr [screen-end-inset] 1.5em [screen-end];
+    grid-template-columns: 
+        [screen-start] var(--grid-margin)
+        [screen-start-inset] var(--grid-edge-col)
+        [page-start page-start-inset] var(--grid-page-margin)
+        [body-start-outset] var(--grid-body-outset)
+        [body-start] var(--grid-body-padding)
+        [body-content-start] var(--grid-body-content)
+        [body-content-end] var(--grid-body-padding)
+        [body-end] var(--grid-body-outset)
+        [body-end-outset] var(--grid-sidebar-width)
+        [page-end-inset] var(--grid-page-margin)
+        [page-end] var(--grid-edge-col)
+        [screen-end-inset] var(--grid-margin)
+        [screen-end];
 }
 
 /* Callout colors */

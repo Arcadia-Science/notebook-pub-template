@@ -282,10 +282,10 @@ cookieconsent.run({
     }
   });
 </script>
-<template id="sticky-mini-title-template">
-  <div class="sticky-mini-title">
-    <div class="sticky-mini-title-content">
-      <div class="logo-wrapper">
+<template id="mini-title-template">
+  <div class="mini-title page-columns page-full">
+    <div class="mini-title-content">
+      <div class="mini-title-logo-wrapper">
         <img src="./assets/logo_white.png" alt="Logo">
       </div>
       <p>Inducing protoplast formation in Phaeodactylum tricornutum by silica deprivation, enzymatic treatment, or cytoskeletal inhibition</p>
@@ -297,25 +297,19 @@ cookieconsent.run({
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const template = document.getElementById('sticky-mini-title-template');
-    const titleBanner = document.querySelector('.quarto-title-banner .quarto-title .title');
+    // Get required elements
+    const template = document.getElementById('mini-title-template');
+    const titleBanner = document.querySelector('.quarto-title-banner');
     const abstract = document.querySelector('.abstract');
     const navbar = document.querySelector('#quarto-header');
-    const persistentHeight = 50;
-
-    console.log("Elements found:", {
-      template: !!template,
-      titleBanner: !!titleBanner,
-      abstract: !!abstract,
-      navbar: !!navbar
-    });
+    let prevRatio = {appear: 1, disappear: 1};
 
     if (template && titleBanner && abstract && navbar) {
       // Add the mini title to the document body
       const miniTitleContent = document.importNode(template.content, true);
       document.body.appendChild(miniTitleContent);
 
-      // Clone the version control dropdown if it exists
+      // Clone version control dropdown if it exists
       const originalDropdown = document.querySelector('.navbar-nav .nav-item.dropdown:has(iconify-icon[icon="qlementine-icons:version-control-16"])');
       if (originalDropdown) {
         const clonedDropdown = originalDropdown.cloneNode(true);
@@ -336,10 +330,9 @@ cookieconsent.run({
         }
       }
 
-      const stickyMiniTitle = document.querySelector('.sticky-mini-title');
-      console.log("Sticky mini title found:", !!stickyMiniTitle);
+      const stickyMiniTitle = document.querySelector('.mini-title');
 
-      // Function to check navbar visibility
+      // Navbar state management
       function updateNavbarState() {
         const isNavbarPinned = navbar.classList.contains('headroom--pinned');
         const isNavbarTop = !navbar.classList.contains('headroom--not-top');
@@ -351,66 +344,49 @@ cookieconsent.run({
         }
       }
 
-      // Create observer for navbar
-      const navbarObserver = new MutationObserver(() => {
-        updateNavbarState();
-      });
-
       // Observe navbar class changes
+      const navbarObserver = new MutationObserver(updateNavbarState);
       navbarObserver.observe(navbar, {
         attributes: true,
         attributeFilter: ['class']
       });
+      updateNavbarState(); // Initial state
 
-      // Initial navbar state check
-      updateNavbarState();
-
-      function expandMiniTitle() {
-        document.body.classList.add('mini-title-visible');
-        stickyMiniTitle.classList.add('visible');
+      // Mini title visibility functions
+      function toggleMiniTitle(show) {
+        document.body.classList.toggle('mini-title-visible', show);
+        stickyMiniTitle.classList.toggle('visible', show);
       }
 
-      function collapseMiniTitle() {
-        document.body.classList.remove('mini-title-visible');
-        stickyMiniTitle.classList.remove('visible');
+      // Create intersection observer with configurable options
+      function createIntersectionObserver(type, rootMargin) {
+        return new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const currentRatio = entry.intersectionRatio;
+
+            if (prevRatio[type] === 0 && currentRatio > 0) {
+              toggleMiniTitle(false);
+            } else if (prevRatio[type] > 0 && currentRatio === 0) {
+              toggleMiniTitle(true);
+            }
+
+            prevRatio[type] = currentRatio;
+          });
+        }, {
+          threshold: [0, 0.1],
+          rootMargin
+        });
       }
 
-      // Create appear observer (triggers when abstract hits top)
-      const appearObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (!entry.isIntersecting && entry.boundingClientRect.top <= persistentHeight) {
-              expandMiniTitle();
-            }
-          });
-        },
-        {
-          threshold: [0],
-          rootMargin: "0px"
-        }
-      );
+      // Create observers with different root margins
+      const appearObserver = createIntersectionObserver('appear', '-48px');
+      const disappearObserver = createIntersectionObserver('disappear', '48px');
 
-      // Create disappear observer (original title banner logic)
-      const disappearObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            const visibleHeight = entry.intersectionRect.height;
-            if (visibleHeight > persistentHeight) {
-              collapseMiniTitle();
-            }
-          });
-        },
-        {
-          threshold: Array.from({length: 100}, (_, i) => i / 100),
-          rootMargin: "0px"
-        }
-      );
-
-      // Start observing both elements
+      // Start observing title banner with both observers
       appearObserver.observe(titleBanner);
       disappearObserver.observe(titleBanner);
 
-      // Cleanup function
+      // Cleanup
       window.addEventListener('beforeunload', () => {
         navbarObserver.disconnect();
         appearObserver.disconnect();
@@ -419,12 +395,89 @@ cookieconsent.run({
     }
   });
 </script>
+<!-- version-in-title.html -->
+<style>
+  #title-version-control {
+    display: inline-flex;
+    align-items: baseline;
+    margin-left: 0.5rem;
+  }
+
+  .title-version-menu {
+    display: inline-block;
+  }
+
+  .title-version-menu .nav-link {
+    color: white;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .title-version-menu .nav-link:hover {
+    transform: scale(1.05);
+  }
+
+  .title-version-menu .dropdown-toggle::after {
+    color: white;
+    margin-left: 0.25rem;
+    vertical-align: baseline;
+  }
+
+  .title-version-menu iconify-icon {
+    font-size: 0.7em;
+  }
+
+  .title-version-menu .dropdown-menu {
+    min-width: 8rem;
+  }
+</style>
+
+</head><body class="nav-fixed"><div id="title-version-control"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Find the original version control dropdown
+    const originalDropdown = document.querySelector('.navbar-nav .nav-item.dropdown:has(iconify-icon[icon="qlementine-icons:version-control-16"])');
+
+    if (originalDropdown && document.querySelector('.quarto-title')) {
+      // Clone the dropdown structure
+      const clonedDropdown = originalDropdown.cloneNode(true);
+
+      // Update classes
+      clonedDropdown.className = 'title-version-menu dropdown';
+
+      // Remove the menu-text class but keep the span and its contents
+      const menuTextSpan = clonedDropdown.querySelector('.menu-text');
+      if (menuTextSpan) {
+        menuTextSpan.classList.remove('menu-text');
+      }
+
+      // Find the title element
+      const titleElement = document.querySelector('.quarto-title .title');
+
+      if (titleElement) {
+        // Add the version control to the container
+        const versionContainer = document.getElementById('title-version-control');
+        versionContainer.appendChild(clonedDropdown);
+        titleElement.appendChild(versionContainer);
+
+        // Ensure Bootstrap dropdown functionality works on the clone
+        if (typeof bootstrap !== 'undefined') {
+          const dropdownElement = clonedDropdown.querySelector('.dropdown-toggle');
+          if (dropdownElement) {
+            new bootstrap.Dropdown(dropdownElement);
+          }
+        }
+      }
+    }
+  });
+</script>
 
 
 <link rel="stylesheet" href="assets/css/main.css">
-</head>
 
-<body class="nav-fixed">
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">

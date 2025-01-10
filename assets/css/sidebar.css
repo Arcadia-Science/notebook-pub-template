@@ -1,6 +1,14 @@
-/* This should match the sticky title height */
-#quarto-margin-sidebar.sidebar-unpinned {
-  top: 3em !important;
+#quarto-margin-sidebar {
+  transition: top 0.2s ease-out !important;
+}
+
+/* Adjust body padding when both navbar and mini title are visible*/
+body.mini-title-visible #quarto-margin-sidebar{
+  top: var(--mini-title-height) !important;
+}
+
+body.mini-title-visible.navbar-visible #quarto-margin-sidebar {
+  top: calc(var(--mini-title-height) + var(--navbar-height)) !important;
 }
 
 #toc-title {

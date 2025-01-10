@@ -1,5 +1,6 @@
 /* Import other CSS files */
 @import url('./navbar.css');
+@import url('./mini-title.css');
 @import url('./frontmatter.css');
 @import url('./sidebar.css');
 @import url('./article.css');
@@ -7,8 +8,14 @@
 @import url('./colors.css');
 
 :root {
-    --arcadia-logo-size: 2rem;
-    /* Fonts */
+    --grid-margin: 1.5em;
+    --grid-edge-col: 3fr;
+    --grid-page-margin: min(450px, 2vw);
+    --grid-body-outset: 35px;
+    --grid-body-padding: 1.5em;
+    --grid-body-content: minmax(500px, calc(850px - 3em));
+    --grid-sidebar-width: minmax(75px, 145px);
+
     --nb-header-font-family: "Georgia";
     --nb-header-font-weight: 100;
     --nb-h1-font-size: 2.5rem;
@@ -21,10 +28,12 @@
     --bs-code-border-color: #e6e6e6;
     --bs-code-left-border-color: #003B4F99;
     --bs-link-color-rgb: var(--arcadia-dusk);
-    /* Callouts */
+
     --callout-note-rgb: var(--arcadia-pewter);
     --callout-warning-rgb: var(--arcadia-mustard);
     --callout-important-rgb: var(--arcadia-dragon);
     --callout-tip-rgb: var(--arcadia-teal);
     --callout-caution-rgb: var(--arcadia-tumbleweed);
+
+    --arcadia-logo-size: 2rem;
 }
