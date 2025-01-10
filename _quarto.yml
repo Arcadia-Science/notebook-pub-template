@@ -62,7 +62,7 @@ format:
       - file: assets/logo-animation.html
       - file: assets/author-reveal.html
       - file: assets/mini-title.html
-    css: assets/styles.css
+    css: assets/css/main.css
     page-layout: article
     title-block-banner: true
     toc: true

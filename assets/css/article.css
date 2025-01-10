@@ -1,0 +1,114 @@
+h1, h2 {
+    font-family: var(--nb-header-font-family) !important;
+    font-weight: var(--nb-header-font-weight) !important; 
+    color: #262626;
+}
+
+h3 {
+    font-family: var(--nb-main-text-font-family) !important;
+    font-weight: 400 !important; 
+} 
+
+h2 {
+    font-size: var(--nb-h2-font-size);
+}
+
+h1 {
+    font-size: var(--nb-h1-font-size);
+}
+
+#quarto-appendix.default .quarto-appendix-heading {
+    font-size: var(--nb-h2-font-size) !important;
+}
+
+.quarto-figure-center>figure>p, .quarto-figure-center>figure>div {
+    text-align: left;
+}
+
+body {
+    font-family: var(--nb-main-text-font-family);
+    color: #262626;
+}
+
+/* Defines code background */
+.code-annotation-gutter, .code-annotation-gutter-bg {
+    background-color: var(--bs-code-bg-color) !important;
+}
+div.sourceCode {
+    background-color: var(--bs-code-bg-color) !important;
+    border-radius: 4px;
+    border-style: inset;
+    border: 1px solid var(--bs-code-border-color);
+    padding: 0.6em;
+    padding-left: 0.2em;
+    position: relative;  /* For absolute positioning of pseudo-element */
+}
+
+div.sourceCode::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: var(--bs-code-border-color);
+    transition: width 0.2s ease,
+                background-color 0.2s ease;
+}
+
+div.sourceCode:hover::before {
+    width: 5px;
+    background-color: var(--bs-code-left-border-color);
+}
+
+/* Force CSS grid to contain figures according to their column specs */
+.page-columns .column-body,
+.page-columns .column-body-outset,
+.page-columns .column-body-inset,
+.page-columns .column-page,
+.page-columns .column-page-inset,
+.page-columns .column-page-outset,
+.page-columns .column-screen,
+.page-columns .column-screen-inset {
+    width: 100%;
+    height: auto;
+}
+
+body .page-columns {
+    display: grid;
+    gap: 0;
+    grid-template-columns: [screen-start] 1.5em [screen-start-inset] 3fr [page-start page-start-inset] min(450px, 8vw) [body-start-outset] 35px [body-start] 1.5em [body-content-start] minmax(500px, calc(850px - 3em)) [body-content-end] 1.5em [body-end] 35px [body-end-outset] minmax(75px, 145px) [page-end-inset] min(450px, 8vw) [page-end] 3fr [screen-end-inset] 1.5em [screen-end];
+}
+
+/* Callout colors */
+div.callout-note.callout {
+    border-left-color: var(--callout-note-rgb);
+}
+div.callout-note.callout-style-default>.callout-header {
+    background-color: rgb(from var(--callout-note-rgb) r g b / 0.1);
+}
+div.callout-warning.callout {
+    border-left-color: var(--callout-warning-rgb);
+}
+div.callout-warning.callout-style-default>.callout-header {
+    background-color: rgb(from var(--callout-warning-rgb) r g b / 0.1);
+}
+div.callout-important.callout {
+    border-left-color: var(--callout-important-rgb);
+}
+div.callout-important.callout-style-default>.callout-header {
+    background-color: rgb(from var(--callout-important-rgb) r g b / 0.1);
+}
+div.callout-tip.callout {
+    border-left-color: var(--callout-tip-rgb);
+}
+div.callout-tip.callout-style-default>.callout-header {
+    background-color: rgb(from var(--callout-tip-rgb) r g b / 0.1);
+}
+div.callout-caution.callout {
+    border-left-color: var(--callout-caution-rgb);
+}
+div.callout-caution.callout-style-default>.callout-header {
+    background-color: rgb(from var(--callout-caution-rgb) r g b / 0.1);
+}
+
