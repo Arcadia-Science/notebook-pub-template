@@ -105,7 +105,7 @@
     --bs-code-left-border-color: #003B4F99;
     --bs-link-color-rgb: var(--arcadia-dusk);
     /* Callouts */
-    --callout-note-rgb: var(--arcadia-aegean);
+    --callout-note-rgb: var(--arcadia-pewter);
     --callout-warning-rgb: var(--arcadia-mustard);
     --callout-important-rgb: var(--arcadia-dragon);
     --callout-tip-rgb: var(--arcadia-teal);
@@ -218,20 +218,82 @@ li.nav-item.dropdown {
     border-bottom: none;
 }
 
-/*
-navbar navbar-expand-xl {
-    border-bottom: 1.5px solid black;
+body.has-title-banner #quarto-header {
+  border-bottom: none;
 }
-*/
 
-/*
-#quarto-header.headroom--pinned,
-#quarto-header.headroom--not-top,
-#quarto-header.headroom--not-bottom,
-#quarto-header.fixed-top {
-    border-bottom: 1.5px solid black;
+body.has-title-banner .navbar-container {
+  display: flex !important;
+  flex-direction: column !important;
 }
-*/
+
+/* Wrapper for existing content to preserve layout */
+body.has-title-banner .navbar-main-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Preserve original spacing classes */
+body.has-title-banner .navbar-main-content .mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+body.has-title-banner .navbar-main-content .me-auto {
+  margin-right: auto !important;
+}
+
+body.has-title-banner .navbar-main-content .ms-auto {
+  margin-left: auto !important;
+}
+
+/* Base styling for persistent element with collapsible height */
+body.has-title-banner .sticky-mini-title {
+  color: var(--arcadia-white) !important;
+  font-family: var(--nb-banner-title-font-family) !important;
+  font-weight: 250 !important; 
+  font-size: 1.0rem;
+  transform: translateY(-100%);
+  height: 0rem;
+  opacity: 1;
+  line-height: 3rem;
+  padding: 0 1rem;
+  width: 100%;
+  background-color: #3b6179;
+  order: 2;
+  /* Stretch across screen, outside its div */
+  position: relative;
+  left: 0%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  /* Transition only transform for smoother animation */
+  overflow: hidden;
+  transition: transform 0.3s ease-out;
+}
+
+body.has-title-banner .sticky-mini-title.expanded {
+  transform: translateY(0);
+  height: 3rem;
+  transition: transform 0.3s ease-out;
+}
+
+/* Modify headroom animation for unpinned state to match exact height */
+body.has-title-banner .headroom--unpinned.headroom {
+  transform: translateY(calc(-100% + 3rem)) !important;
+}
+
+/* Hide main content when unpinned */
+body.has-title-banner .headroom--unpinned .navbar-main-content {
+  display: none !important;
+}
+
+#quarto-header {
+    border-bottom: 2px solid #262626;
+}
 
 .authors-toggle {
   padding-left: 0;
