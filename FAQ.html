@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-71061858a794c050722a20aca0ddcabd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1497f5f12d50ca49cebb8752c7a1d0c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -252,104 +252,180 @@ cookieconsent.run({
   <div class="sticky-mini-title">
     <div class="sticky-mini-title-content">
       <div class="logo-wrapper">
-        <img src="./logo_white.png" alt="Logo">
+        <img src="./assets/logo_white.png" alt="Logo">
       </div>
       <p>Inducing protoplast formation in Phaeodactylum tricornutum by silica deprivation, enzymatic treatment, or cytoskeletal inhibition</p>
-      <div class="dropdown">
-        <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-          <i class="bi bi-three-dots-vertical"></i>
-        </button>
-        <div class="dropdown-menu">
-          <a href="#abstract" class="dropdown-item">Abstract</a>
-          <a href="#methods" class="dropdown-item">Methods</a>
-          <a href="#results" class="dropdown-item">Results</a>
-          <a href="#discussion" class="dropdown-item">Discussion</a>
-        </div>
-      </div>
+      <div id="mini-version-control"></div>
     </div>
   </div>
 </template>
 
 <style>
+  .sticky-mini-title {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--arcadia-pewter);
+    color: white;
+    z-index: 1020;
+    height: 3rem;
+    transform: translateY(-100%);
+    transition: transform 0.2s ease-out, top 0.2s ease-out;
+  }
+
+  /* When navbar is visible, position mini title below it */
+  .navbar-visible .sticky-mini-title {
+    top: 4rem;
+    /* Adjust this value to match your navbar height */
+  }
+
+  .sticky-mini-title.visible {
+    transform: translateY(0);
+  }
+
   .sticky-mini-title-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 1rem;
+    height: 100%;
+  }
+
+  .logo-wrapper {
+    flex: 0 0 auto;
+    margin-right: 2rem;
+  }
+
+  .logo-wrapper img {
+    height: 1.5rem;
+    width: auto;
+  }
+
+  .sticky-mini-title-content p {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+
+  #mini-version-control {
+    flex: 0 0 auto;
+    margin-left: 2rem;
+  }
+
+  #mini-version-control .nav-link {
+    color: white;
+    padding: 0;
+  }
+
+  #mini-version-control iconify-icon {
+    font-size: 0.7em;
+  }
+
+  /* Adjust body padding when both navbar and mini title are visible */
+  body.mini-title-visible.navbar-visible {
+    padding-top: 7rem;
+    /* navbar height + mini title height */
+  }
+
+  body.mini-title-visible:not(.navbar-visible) {
+    padding-top: 3rem;
+    /* just mini title height */
   }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const navbar = document.querySelector('.navbar-container');
     const template = document.getElementById('sticky-mini-title-template');
     const titleBanner = document.querySelector('.quarto-title-banner .quarto-title .title');
     const abstract = document.querySelector('.abstract');
+    const navbar = document.querySelector('#quarto-header');
+    const persistentHeight = 50;
 
-    if (document.querySelector('.quarto-title-banner')) {
-      document.body.classList.add('has-title-banner');
-    }
+    console.log("Elements found:", {
+      template: !!template,
+      titleBanner: !!titleBanner,
+      abstract: !!abstract,
+      navbar: !!navbar
+    });
 
-    if (navbar && template && titleBanner && abstract) {
-      // Create wrapper and move existing content
-      const wrapper = document.createElement('div');
-      wrapper.className = 'navbar-main-content';
-      while (navbar.firstChild) {
-        wrapper.appendChild(navbar.firstChild);
-      }
-      navbar.appendChild(wrapper);
+    if (template && titleBanner && abstract && navbar) {
+      // Add the mini title to the document body
+      const miniTitleContent = document.importNode(template.content, true);
+      document.body.appendChild(miniTitleContent);
 
-      // Add persistent element
-      const element = template.content.cloneNode(true);
-      navbar.appendChild(element);
-
-      // Get the persistent element after insertion
-      const persistentElement = navbar.querySelector('.sticky-mini-title');
-      const persistentHeight = 48; // 3rem
-
-      // Track transition state
-      let isTransitioning = false;
-      persistentElement.addEventListener('transitionend', (e) => {
-        if (e.propertyName === 'transform') {
-          isTransitioning = false;
+      // Clone the version control dropdown if it exists
+      const originalDropdown = document.querySelector('.navbar-nav .nav-item.dropdown:has(iconify-icon[icon="qlementine-icons:version-control-16"])');
+      if (originalDropdown) {
+        const clonedDropdown = originalDropdown.cloneNode(true);
+        // Remove menu-text class but keep contents
+        const menuTextSpan = clonedDropdown.querySelector('.menu-text');
+        if (menuTextSpan) {
+          menuTextSpan.classList.remove('menu-text');
         }
+        // Add to mini version control container
+        const versionContainer = document.querySelector('#mini-version-control');
+        versionContainer.appendChild(clonedDropdown);
+        // Initialize Bootstrap dropdown
+        if (typeof bootstrap !== 'undefined') {
+          const dropdownElement = clonedDropdown.querySelector('.dropdown-toggle');
+          if (dropdownElement) {
+            new bootstrap.Dropdown(dropdownElement);
+          }
+        }
+      }
+
+      const stickyMiniTitle = document.querySelector('.sticky-mini-title');
+      console.log("Sticky mini title found:", !!stickyMiniTitle);
+
+      // Function to check navbar visibility
+      function updateNavbarState() {
+        const isNavbarPinned = navbar.classList.contains('headroom--pinned');
+        const isNavbarTop = !navbar.classList.contains('headroom--not-top');
+
+        if (isNavbarPinned || isNavbarTop) {
+          document.body.classList.add('navbar-visible');
+        } else {
+          document.body.classList.remove('navbar-visible');
+        }
+      }
+
+      // Create observer for navbar
+      const navbarObserver = new MutationObserver(() => {
+        updateNavbarState();
       });
 
-      const expandAndScroll = () => {
-        if (!persistentElement.classList.contains('expanded')) {
-          isTransitioning = true;
-          // First frame: add class
-          requestAnimationFrame(() => {
-            persistentElement.classList.add('expanded');
-            // Next frame: scroll
-            requestAnimationFrame(() => {
-              window.scrollBy({
-                top: persistentHeight,
-                behavior: 'instant'
-              });
-            });
-          });
-        }
-      };
+      // Observe navbar class changes
+      navbarObserver.observe(navbar, {
+        attributes: true,
+        attributeFilter: ['class']
+      });
 
-      const collapseAndScroll = () => {
-        if (persistentElement.classList.contains('expanded')) {
-          isTransitioning = true;
-          requestAnimationFrame(() => {
-            persistentElement.classList.remove('expanded');
-            window.scrollBy({
-              top: -persistentHeight,
-              behavior: 'instant'
-            });
-          });
-        }
-      };
+      // Initial navbar state check
+      updateNavbarState();
+
+      function expandMiniTitle() {
+        document.body.classList.add('mini-title-visible');
+        stickyMiniTitle.classList.add('visible');
+      }
+
+      function collapseMiniTitle() {
+        document.body.classList.remove('mini-title-visible');
+        stickyMiniTitle.classList.remove('visible');
+      }
 
       // Create appear observer (triggers when abstract hits top)
       const appearObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach(entry => {
-            if (!entry.isIntersecting && entry.boundingClientRect.top <= persistentHeight && !isTransitioning) {
-              expandAndScroll();
+            if (!entry.isIntersecting && entry.boundingClientRect.top <= persistentHeight) {
+              expandMiniTitle();
             }
           });
         },
@@ -364,8 +440,8 @@ cookieconsent.run({
         (entries) => {
           entries.forEach(entry => {
             const visibleHeight = entry.intersectionRect.height;
-            if (visibleHeight > persistentHeight && !isTransitioning) {
-              collapseAndScroll();
+            if (visibleHeight > persistentHeight) {
+              collapseMiniTitle();
             }
           });
         },
@@ -376,94 +452,61 @@ cookieconsent.run({
       );
 
       // Start observing both elements
-      appearObserver.observe(abstract);
+      appearObserver.observe(titleBanner);
       disappearObserver.observe(titleBanner);
+
+      // Cleanup function
+      window.addEventListener('beforeunload', () => {
+        navbarObserver.disconnect();
+        appearObserver.disconnect();
+        disappearObserver.disconnect();
+      });
     }
   });
 </script>
-<!-- version-dropdown.html -->
-<style>
-  #title-version-control {
-    display: inline-flex;
-    align-items: baseline;
-    margin-left: 0.5rem;
-  }
-
-  .title-version-menu {
-    display: inline-block;
-  }
-
-  .title-version-menu .nav-link {
-    color: white;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .title-version-menu .nav-link:hover {
-    transform: scale(1.05);
-  }
-
-  .title-version-menu .dropdown-toggle::after {
-    color: white;
-    margin-left: 0.25rem;
-    vertical-align: baseline;
-  }
-
-  .title-version-menu iconify-icon {
-    font-size: 0.7em;
-  }
-
-  .title-version-menu .dropdown-menu {
-    min-width: 8rem;
-  }
-</style>
-
-</head><body class="nav-fixed"><div id="title-version-control"></div>
-
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Find the original version control dropdown
-    const originalDropdown = document.querySelector('.navbar-nav .nav-item.dropdown:has(iconify-icon[icon="qlementine-icons:version-control-16"])');
+    const header = document.getElementById('quarto-header');
+    if (!header) return;
 
-    if (originalDropdown && document.querySelector('.quarto-title')) {
-      // Clone the dropdown structure
-      const clonedDropdown = originalDropdown.cloneNode(true);
+    let lastScrollY = window.scrollY;
 
-      // Update classes
-      clonedDropdown.className = 'title-version-menu dropdown';
+    // Remove existing scroll listeners
+    window.removeEventListener('scroll', window._headroom_scroll_handler);
 
-      // Remove the menu-text class but keep the span and its contents
-      const menuTextSpan = clonedDropdown.querySelector('.menu-text');
-      if (menuTextSpan) {
-        menuTextSpan.classList.remove('menu-text');
-      }
+    // Add our own scroll handler
+    window.addEventListener('scroll', function () {
+      const currentScrollY = window.scrollY;
 
-      // Find the title element
-      const titleElement = document.querySelector('.quarto-title .title');
+      if (currentScrollY === 0) {
+        // At the top of the page
+        header.classList.remove('headroom--pinned', 'headroom--unpinned', 'headroom--not-top');
+      } else {
+        if (!header.classList.contains('headroom--not-top')) {
+          header.classList.add('headroom--not-top');
+        }
 
-      if (titleElement) {
-        // Add the version control to the container
-        const versionContainer = document.getElementById('title-version-control');
-        versionContainer.appendChild(clonedDropdown);
-        titleElement.appendChild(versionContainer);
-
-        // Ensure Bootstrap dropdown functionality works on the clone
-        if (typeof bootstrap !== 'undefined') {
-          const dropdownElement = clonedDropdown.querySelector('.dropdown-toggle');
-          if (dropdownElement) {
-            new bootstrap.Dropdown(dropdownElement);
-          }
+        if (currentScrollY < lastScrollY) {
+          // Scrolling up
+          header.classList.remove('headroom--unpinned');
+          header.classList.add('headroom--pinned');
+        } else if (currentScrollY > lastScrollY) {
+          // Scrolling down
+          header.classList.remove('headroom--pinned');
+          header.classList.add('headroom--unpinned');
         }
       }
-    }
+
+      lastScrollY = currentScrollY;
+    }, {passive: true});
   });
 </script>
 
 
 <link rel="stylesheet" href="assets/styles.css">
+</head>
 
-
-
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
