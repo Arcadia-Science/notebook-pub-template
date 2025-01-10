@@ -1,0 +1,216 @@
+<template id="sticky-mini-title-template">
+  <div class="sticky-mini-title">
+    <div class="sticky-mini-title-content">
+      <div class="logo-wrapper">
+        <img src="./assets/logo_white.png" alt="Logo">
+      </div>
+      <p>{{< var pub.title>}}</p>
+      <div id="mini-version-control"></div>
+    </div>
+  </div>
+</template>
+
+<style>
+  .sticky-mini-title {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--arcadia-pewter);
+    color: white;
+    z-index: 1020;
+    height: 3rem;
+    transform: translateY(-100%);
+    transition: transform 0.2s ease-out, top 0.2s ease-out;
+  }
+
+  /* When navbar is visible, position mini title below it */
+  .navbar-visible .sticky-mini-title {
+    top: 4rem;
+    /* Adjust this value to match your navbar height */
+  }
+
+  .sticky-mini-title.visible {
+    transform: translateY(0);
+  }
+
+  .sticky-mini-title-content {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 1rem;
+    height: 100%;
+  }
+
+  .logo-wrapper {
+    flex: 0 0 auto;
+    margin-right: 2rem;
+  }
+
+  .logo-wrapper img {
+    height: 1.5rem;
+    width: auto;
+  }
+
+  .sticky-mini-title-content p {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+
+  #mini-version-control {
+    flex: 0 0 auto;
+    margin-left: 2rem;
+  }
+
+  #mini-version-control .nav-link {
+    color: white;
+    padding: 0;
+  }
+
+  #mini-version-control iconify-icon {
+    font-size: 0.7em;
+  }
+
+  /* Adjust body padding when both navbar and mini title are visible */
+  body.mini-title-visible.navbar-visible {
+    padding-top: 7rem;
+    /* navbar height + mini title height */
+  }
+
+  body.mini-title-visible:not(.navbar-visible) {
+    padding-top: 3rem;
+    /* just mini title height */
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const template = document.getElementById('sticky-mini-title-template');
+    const titleBanner = document.querySelector('.quarto-title-banner .quarto-title .title');
+    const abstract = document.querySelector('.abstract');
+    const navbar = document.querySelector('#quarto-header');
+    const persistentHeight = 50;
+
+    console.log("Elements found:", {
+      template: !!template,
+      titleBanner: !!titleBanner,
+      abstract: !!abstract,
+      navbar: !!navbar
+    });
+
+    if (template && titleBanner && abstract && navbar) {
+      // Add the mini title to the document body
+      const miniTitleContent = document.importNode(template.content, true);
+      document.body.appendChild(miniTitleContent);
+
+      // Clone the version control dropdown if it exists
+      const originalDropdown = document.querySelector('.navbar-nav .nav-item.dropdown:has(iconify-icon[icon="qlementine-icons:version-control-16"])');
+      if (originalDropdown) {
+        const clonedDropdown = originalDropdown.cloneNode(true);
+        // Remove menu-text class but keep contents
+        const menuTextSpan = clonedDropdown.querySelector('.menu-text');
+        if (menuTextSpan) {
+          menuTextSpan.classList.remove('menu-text');
+        }
+        // Add to mini version control container
+        const versionContainer = document.querySelector('#mini-version-control');
+        versionContainer.appendChild(clonedDropdown);
+        // Initialize Bootstrap dropdown
+        if (typeof bootstrap !== 'undefined') {
+          const dropdownElement = clonedDropdown.querySelector('.dropdown-toggle');
+          if (dropdownElement) {
+            new bootstrap.Dropdown(dropdownElement);
+          }
+        }
+      }
+
+      const stickyMiniTitle = document.querySelector('.sticky-mini-title');
+      console.log("Sticky mini title found:", !!stickyMiniTitle);
+
+      // Function to check navbar visibility
+      function updateNavbarState() {
+        const isNavbarPinned = navbar.classList.contains('headroom--pinned');
+        const isNavbarTop = !navbar.classList.contains('headroom--not-top');
+
+        if (isNavbarPinned || isNavbarTop) {
+          document.body.classList.add('navbar-visible');
+        } else {
+          document.body.classList.remove('navbar-visible');
+        }
+      }
+
+      // Create observer for navbar
+      const navbarObserver = new MutationObserver(() => {
+        updateNavbarState();
+      });
+
+      // Observe navbar class changes
+      navbarObserver.observe(navbar, {
+        attributes: true,
+        attributeFilter: ['class']
+      });
+
+      // Initial navbar state check
+      updateNavbarState();
+
+      function expandMiniTitle() {
+        document.body.classList.add('mini-title-visible');
+        stickyMiniTitle.classList.add('visible');
+      }
+
+      function collapseMiniTitle() {
+        document.body.classList.remove('mini-title-visible');
+        stickyMiniTitle.classList.remove('visible');
+      }
+
+      // Create appear observer (triggers when abstract hits top)
+      const appearObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting && entry.boundingClientRect.top <= persistentHeight) {
+              expandMiniTitle();
+            }
+          });
+        },
+        {
+          threshold: [0],
+          rootMargin: "0px"
+        }
+      );
+
+      // Create disappear observer (original title banner logic)
+      const disappearObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            const visibleHeight = entry.intersectionRect.height;
+            if (visibleHeight > persistentHeight) {
+              collapseMiniTitle();
+            }
+          });
+        },
+        {
+          threshold: Array.from({length: 100}, (_, i) => i / 100),
+          rootMargin: "0px"
+        }
+      );
+
+      // Start observing both elements
+      appearObserver.observe(titleBanner);
+      disappearObserver.observe(titleBanner);
+
+      // Cleanup function
+      window.addEventListener('beforeunload', () => {
+        navbarObserver.disconnect();
+        appearObserver.disconnect();
+        disappearObserver.disconnect();
+      });
+    }
+  });
+</script>

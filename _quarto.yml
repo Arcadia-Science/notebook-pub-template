@@ -61,8 +61,8 @@ format:
     include-in-header:
       - file: assets/logo-animation.html
       - file: assets/author-reveal.html
-      - file: assets/sticky-title.html
-      - file: assets/version-dropdown.html
+      - file: assets/mini-title.html
+      - file: assets/navbar-override.html
     css: assets/styles.css
     page-layout: article
     title-block-banner: true

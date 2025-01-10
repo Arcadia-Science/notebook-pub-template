@@ -287,6 +287,7 @@ body.has-title-banner .headroom--unpinned .navbar-main-content {
 }
 
 #quarto-header {
+    z-index: 1030;
     border-bottom: 2px solid #262626;
 }
 
