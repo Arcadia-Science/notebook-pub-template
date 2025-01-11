@@ -6,16 +6,9 @@
 @import url('./article.css');
 @import url('./footer.css');
 @import url('./colors.css');
+@import url('./grid.css');
 
 :root {
-    --grid-margin: 1.5em;
-    --grid-edge-col: 3fr;
-    --grid-page-margin: min(450px, 2vw);
-    --grid-body-outset: 35px;
-    --grid-body-padding: 1.5em;
-    --grid-body-content: minmax(500px, calc(850px - 3em));
-    --grid-sidebar-width: minmax(75px, 145px);
-
     --nb-header-font-family: "Georgia";
     --nb-header-font-weight: 100;
     --nb-h1-font-size: 2.5rem;

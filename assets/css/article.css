@@ -61,38 +61,6 @@ div.sourceCode:hover::before {
     background-color: var(--bs-code-left-border-color);
 }
 
-/* Force CSS grid to contain figures according to their column specs */
-.page-columns .column-body,
-.page-columns .column-body-outset,
-.page-columns .column-body-inset,
-.page-columns .column-page,
-.page-columns .column-page-inset,
-.page-columns .column-page-outset,
-.page-columns .column-screen,
-.page-columns .column-screen-inset {
-    width: 100%;
-    height: auto;
-}
-
-body .page-columns {
-    display: grid;
-    gap: 0;
-    grid-template-columns: 
-        [screen-start] var(--grid-margin)
-        [screen-start-inset] var(--grid-edge-col)
-        [page-start page-start-inset] var(--grid-page-margin)
-        [body-start-outset] var(--grid-body-outset)
-        [body-start] var(--grid-body-padding)
-        [body-content-start] var(--grid-body-content)
-        [body-content-end] var(--grid-body-padding)
-        [body-end] var(--grid-body-outset)
-        [body-end-outset] var(--grid-sidebar-width)
-        [page-end-inset] var(--grid-page-margin)
-        [page-end] var(--grid-edge-col)
-        [screen-end-inset] var(--grid-margin)
-        [screen-end];
-}
-
 /* Callout colors */
 div.callout-note.callout {
     border-left-color: var(--callout-note-rgb);
