@@ -38,20 +38,33 @@
   transition: opacity 1s ease-in-out;
 }
 
-/* Logo - stays its natural size */
 .mini-title-logo-wrapper {
   flex: 0 0 auto;
   margin-right: 1rem;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  height: var(--mini-title-height);
+}
+
+.mini-title-logo-wrapper a {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.mini-title-logo-wrapper a:hover {
+  opacity: 0.8; /* subtle hover effect */
+  transition: opacity 0.2s ease;
 }
 
 .mini-title-logo-wrapper img {
-  height: 1.5rem;
+  max-height: 100%;
   width: auto;
+  padding: 0.25rem;
+  object-fit: contain;
 }
 
-/* Title - takes available space but doesn't force expansion */
 .mini-title-content p {
   flex: 0 1 auto;
   text-align: center;
@@ -60,15 +73,16 @@
   overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0;
-  max-width: fit-content; /* Only take needed space */
+  max-width: fit-content;
 }
 
-/* Version control - stays its natural size */
 #mini-version-control {
   flex: 0 0 auto;
   margin-left: 1rem;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
+  height: var(--mini-title-height);
 }
 
 #mini-version-control .nav-link {
@@ -76,6 +90,10 @@
   padding: 0;
 }
 
+#mini-version-control .nav-link:hover {
+  opacity: 0.8;
+}
+
 #mini-version-control iconify-icon {
-  font-size: 0.7em;
+  font-size: 0.9em;
 }
