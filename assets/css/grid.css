@@ -20,6 +20,10 @@
     --grid-body-padding: clamp(1rem, 2vw, 1.5em);
     --grid-body-content: minmax(min(100vw - 2rem, 500px), 850px);
     --grid-sidebar-width: clamp(0px, 15vw, 145px);
+    --grid-mobile-outer-left-edge: 0.5rem;
+    --grid-mobile-inner-left-edge: 1rem;
+    --grid-mobile-inner-right-edge: 0.5rem;
+    --grid-mobile-outer-right-edge: 0.5rem;
 }
 
 /* Base mobile layout */
@@ -46,19 +50,14 @@ body .page-columns {
 @media (max-width: 640px) {
     body .page-columns {
         grid-template-columns: 
-            [screen-start page-start body-start body-content-start] 1rem
+            [screen-start screen-start-inset] 0rem
+            [page-start-inset page-start body-start-outset] var(--grid-mobile-outer-left-edge)
+            [body-start body-content-start] var(--grid-mobile-inner-left-edge)
             [content] 1fr
-            [screen-end page-end body-end body-content-end] 1rem;
+            [body-content-end body-end] var(--grid-mobile-inner-right-edge)
+            [body-end-outset page-end-inset page-end] var(--grid-mobile-outer-right-edge)
+            [screen-end-inset screen-end] 0rem
     }
 }
 
-/* Tablet breakpoint adjustments */
-@media (min-width: 641px) and (max-width: 1024px) {
-    body .page-columns {
-        grid-template-columns: 
-            [screen-start] var(--grid-margin)
-            [page-start body-start body-content-start] 1fr
-            [body-content-end body-end page-end] var(--grid-margin)
-            [screen-end];
-    }
-}
+
