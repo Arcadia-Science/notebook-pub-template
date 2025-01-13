@@ -8,14 +8,13 @@ This repo is a template for notebook publications. The publication rendered and 
 
     In the top-right of this GitHub repo, select the green button that says "*Use this template*".
 
-    > [!IMPORTANT]  
-    > When creating your repo from this template, you need to **check the box** that says, "*Include all branches*"
+    **IMPORTANT**: When creating your repo from this template, you need to **check the box** that says, "*Include all branches*"
 
-1. Config edits 
+1. Config edits
 
     * Replace the variables in `_variables.yml`
         - For `google_analytics`, provide the publishing team your repo name and they'll provide you a Google Analytics tracking ID.
-    * Replace the variables in `authors.yml`. 
+    * Replace the variables in `authors.yml`.
         - This can always be updated, but for now at least add yourself.
 
 1. Setup the code environment
@@ -42,8 +41,7 @@ Publishing is handled automatically with a GitHub Action that triggers whenever 
 
     Populate `README_TEMPLATE.md` and then rename it to `README.md`.
 
-    > [!NOTE]  
-    > The content you're reading now is the current `README.md`, which is to be replaced with `README_TEMPLATE.md`.
+    **NOTE**: The content you're reading now is the current `README.md`, which is to be replaced with `README_TEMPLATE.md`.
 
 1. Remove placeholder package
 
@@ -65,8 +63,7 @@ Publishing is handled automatically with a GitHub Action that triggers whenever 
 
     Second, [install the Giscus App](https://github.com/apps/giscus) for your repository. Click *Configure*, select *Arcadia-Science*, then select your repository from the dropdown. Click *Update access*.
 
-    > [!IMPORTANT]  
-    > Do not deselect any of the other Arcadia-Science repositories that already have the Giscus app installed, *e.g.* `Arcadia-Science/notebook-pub-template`.
+    **IMPORTANT**: Do not deselect any of the other Arcadia-Science repositories that already have the Giscus app installed, *e.g.* `Arcadia-Science/notebook-pub-template`.
 
     Now, edit the comments section in `_quarto.yml` with your repo name:
 
