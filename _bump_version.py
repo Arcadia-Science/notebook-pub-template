@@ -9,6 +9,7 @@ Important:
     - You should not run this command directly. Use `make bump-version`, and run it only
       when instructed to in `CONTRIBUTING.qmd`.
 """
+
 import shutil
 import sys
 from pathlib import Path
