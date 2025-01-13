@@ -12,6 +12,35 @@
   --content-padding: 1rem;
 }
 
+#quarto-header {
+    height: var(--navbar-height);
+    min-height: var(--navbar-height);
+    max-height: var(--navbar-height);
+    overflow: hidden;
+}
+
+/* Remove height constraints when frozen (hamburger menu expanded) */
+#quarto-header.headroom--frozen {
+    height: auto;
+    min-height: var(--navbar-height);
+    max-height: none;
+}
+
+/* Ensure inner navbar respects the header height */
+#quarto-header .navbar {
+    height: 100%;
+}
+
+/* When frozen, allow navbar to expand */
+#quarto-header.headroom--frozen .navbar {
+    height: auto;
+}
+
+footer.footer .nav-footer, #quarto-header>nav {
+  padding-left: 0em;
+  padding-right: 0em;
+}
+
 .navbar {
     --bs-navbar-brand-padding-y: 1rem;
     --bs-nav-link-font-size: 1.2rem;
