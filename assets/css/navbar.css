@@ -41,6 +41,10 @@ footer.footer .nav-footer, #quarto-header>nav {
   padding-right: 0em;
 }
 
+.navbar-brand-container {
+    max-width: calc(100% - 50px);
+}
+
 .navbar {
     --bs-navbar-brand-padding-y: 1rem;
     --bs-nav-link-font-size: 1.2rem;
