@@ -46,7 +46,7 @@ body .page-columns {
         [screen-end];
 }
 
-/* Simplified mobile layout for very small screens */
+/* Simplified mobile layout for small screens */
 @media (max-width: 640px) {
     body .page-columns {
         grid-template-columns: 
@@ -57,6 +57,13 @@ body .page-columns {
             [body-content-end body-end] var(--grid-mobile-inner-right-edge)
             [body-end-outset page-end-inset page-end] var(--grid-mobile-outer-right-edge)
             [screen-end-inset screen-end] 0rem
+    }
+}
+
+/* Prevents logo cutoff on very small screens */
+@media (max-width: 335px) {
+    img.navbar-logo {
+        visibility: hidden;
     }
 }
 
