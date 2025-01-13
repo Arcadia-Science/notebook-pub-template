@@ -1,13 +1,13 @@
 h1, h2 {
     font-family: var(--nb-header-font-family) !important;
-    font-weight: var(--nb-header-font-weight) !important; 
+    font-weight: var(--nb-header-font-weight) !important;
     color: #262626;
 }
 
 h3 {
     font-family: var(--nb-main-text-font-family) !important;
-    font-weight: 400 !important; 
-} 
+    font-weight: 400 !important;
+}
 
 h2 {
     font-size: var(--nb-h2-font-size);
@@ -21,7 +21,7 @@ h1 {
     font-size: var(--nb-h2-font-size) !important;
 }
 
-.quarto-figure-center>figure>p, .quarto-figure-center>figure>div {
+.quarto-figure-center>figure>p {
     text-align: left;
 }
 
@@ -61,6 +61,12 @@ div.sourceCode:hover::before {
     background-color: var(--bs-code-left-border-color);
 }
 
+/* This preserves aspect ratio of figures */
+.quarto-layout-cell img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Callout colors */
 div.callout-note.callout {
     border-left-color: var(--callout-note-rgb);
@@ -92,4 +98,3 @@ div.callout-caution.callout {
 div.callout-caution.callout-style-default>.callout-header {
     background-color: rgb(from var(--callout-caution-rgb) r g b / 0.1);
 }
-
