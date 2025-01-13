@@ -17,9 +17,36 @@ This repo is a template for notebook publications. The publication rendered and 
     * Replace the variables in `authors.yml`.
         - This can always be updated, but for now at least add yourself.
 
+1. Install Quarto
+
+    The publication is rendered with [Quarto](https://quarto.org/). If you don’t have it installed (check with quarto --version), you can install it [here](https://quarto.org/docs/get-started/).
+
 1. Setup the code environment
 
-    Setup the codebase and compute environment by following the relevant steps in [SETUP.qmd](SETUP.qmd).
+    This repository uses conda to manage the computational and build environment. If you don’t have it installed (check with `conda --version`), you can find operating system-specific instructions for installing miniconda [here](https://docs.anaconda.com/miniconda/).
+
+    When you're ready, run the following commands to create and activate the environment. Replace `[REPO-NAME]` with your repository name.
+
+    ```bash
+    conda env create -n [REPO-NAME] --file env.yml
+    conda activate [REPO-NAME]
+    ```
+
+    (As you introduce dependencies to your publication, or if you already have your full set of dependencies, add them to `env.yml` with the version pinned.)
+
+    Now, install any internal packages in the repository:
+
+    ```bash
+    pip install -e .
+    ```
+
+    And finally, install the [pre-commit](https://pre-commit.com/) hooks:
+
+    ```bash
+    pre-commit install
+    ```
+
+    Test your installation with `make preview`. Your pub will open up in your browser.
 
     Afterwards, create a branch to work on (don't commit to `main` directly).
 

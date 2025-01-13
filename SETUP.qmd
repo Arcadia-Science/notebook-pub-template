@@ -20,7 +20,7 @@ git clone https://github.com/{{< var pub.org >}}/{{< var pub.repo >}}.git
 
 ## Installation
 
-::: {.callout-note}
+::: {.callout-important}
 The publication is rendered with [Quarto](https://quarto.org/). If you don't have it installed (check with `quarto --version`), you can install it [here](https://quarto.org/docs/get-started/).
 :::
 
