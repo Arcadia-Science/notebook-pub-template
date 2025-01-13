@@ -21,7 +21,7 @@ h1 {
     font-size: var(--nb-h2-font-size) !important;
 }
 
-.quarto-figure-center>figure>p, .quarto-figure-center>figure>div {
+.quarto-figure-center>figure>p {
     text-align: left;
 }
 
