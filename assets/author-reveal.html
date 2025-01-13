@@ -42,8 +42,12 @@
       // Get the authors content div from the cloned template
       const authorsContent = authorsSection.querySelector('.authors-content');
 
+      const sortedAuthors = [...authorData.authors].sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      });
+
       // Process authors from the data
-      authorData.authors.forEach(author => {
+      sortedAuthors.forEach(author => {
         const authorP = document.createElement('p');
 
         // Create name span
