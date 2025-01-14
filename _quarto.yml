@@ -21,8 +21,6 @@ website:
       menu:
       - text: v01 (latest)
         href: index.ipynb
-      - text: v00
-        href: index_v00.ipynb
     - text: '{{< iconify nrk:back >}} Back to Pub'
       href: index.ipynb
     right:
