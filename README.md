@@ -54,8 +54,6 @@ This repo is a template for notebook publications. The publication rendered and 
 
     Edit `index.ipynb` to create your pub. As you work, render it in a live preview with `make preview`.
 
-    If you already have a notebook written that you're trying to transform into a pub, replace the template `index.ipynb` with your own, but be sure to add the YAML front matter (the first cell of `index.ipynb`) to your notebook.
-
 ## How to publish
 
 Publishing is handled automatically with a GitHub Action that triggers whenever a pull request is merged into `main`. Thus, all the following action items should be completed before your pull request is approved and subsequently merged.
@@ -73,6 +71,17 @@ Publishing is handled automatically with a GitHub Action that triggers whenever 
 1. Remove placeholder package
 
     If you did not populate `src/analysis` with your own content, remove it (`rm -rf src/analysis`).
+
+1. Remove reference to the syntax demo from `_quarto.yml`
+
+    Feel free to keep `demo.ipynb` in your repo, but remove the following lines in `_quarto.yml`:
+
+    ```
+    - text: 'Demo'
+      href: demo.ipynb
+    ```
+
+    This will remove *Demo* from the navigation bar.
 
 1. Make the repository public
 

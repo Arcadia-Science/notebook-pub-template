@@ -23,6 +23,8 @@ website:
         href: index.ipynb
     - text: '{{< iconify nrk:back >}} Back to Pub'
       href: index.ipynb
+    - text: 'Demo'
+      href: demo.ipynb
     right:
     - text: FAQ
       href: FAQ.qmd
@@ -79,3 +81,4 @@ code-annotations: hover
 html-table-processing: none
 filters:
   - abstract-section
+demo-title: "A brief syntax demo"
