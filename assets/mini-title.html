@@ -6,12 +6,11 @@
           <img src="./assets/logo_white.png" alt="Logo">
         </a>
       </div>
-      <p>{{< var pub.title>}}</p>
+      <p></p>
       <div id="mini-version-control"></div>
     </div>
   </div>
 </template>
-
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -27,23 +26,34 @@
       const miniTitleContent = document.importNode(template.content, true);
       document.body.appendChild(miniTitleContent);
 
-      // Clone version control dropdown if it exists
-      const originalDropdown = document.querySelector('.navbar-nav .nav-item.dropdown:has(iconify-icon[icon="qlementine-icons:version-control-16"])');
-      if (originalDropdown) {
-        const clonedDropdown = originalDropdown.cloneNode(true);
-        // Remove menu-text class but keep contents
-        const menuTextSpan = clonedDropdown.querySelector('.menu-text');
-        if (menuTextSpan) {
-          menuTextSpan.classList.remove('menu-text');
-        }
-        // Add to mini version control container
-        const versionContainer = document.querySelector('#mini-version-control');
-        versionContainer.appendChild(clonedDropdown);
-        // Initialize Bootstrap dropdown
-        if (typeof bootstrap !== 'undefined') {
-          const dropdownElement = clonedDropdown.querySelector('.dropdown-toggle');
-          if (dropdownElement) {
-            new bootstrap.Dropdown(dropdownElement);
+      // Get and set the title text from h1.title
+      const titleElement = document.querySelector('h1.title');
+      const miniTitleP = document.querySelector('.mini-title-content p');
+      if (titleElement && miniTitleP) {
+        const titleText = titleElement.childNodes[0].textContent.trim();
+        miniTitleP.textContent = titleText;
+
+        // Only clone and add version control if title is not the demo title
+        if (titleText !== '{{< meta demo-title >}}') {
+          // Clone version control dropdown if it exists
+          const originalDropdown = document.querySelector('.navbar-nav .nav-item.dropdown:has(iconify-icon[icon="qlementine-icons:version-control-16"])');
+          if (originalDropdown) {
+            const clonedDropdown = originalDropdown.cloneNode(true);
+            // Remove menu-text class but keep contents
+            const menuTextSpan = clonedDropdown.querySelector('.menu-text');
+            if (menuTextSpan) {
+              menuTextSpan.classList.remove('menu-text');
+            }
+            // Add to mini version control container
+            const versionContainer = document.querySelector('#mini-version-control');
+            versionContainer.appendChild(clonedDropdown);
+            // Initialize Bootstrap dropdown
+            if (typeof bootstrap !== 'undefined') {
+              const dropdownElement = clonedDropdown.querySelector('.dropdown-toggle');
+              if (dropdownElement) {
+                new bootstrap.Dropdown(dropdownElement);
+              }
+            }
           }
         }
       }

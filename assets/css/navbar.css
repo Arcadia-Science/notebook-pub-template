@@ -2,11 +2,11 @@
 :root {
   /* Base sizes */
   --mini-title-height: 3rem;
-  
+
   /* Computed values */
   --navbar-height: 4rem;
   --total-header-height: calc(var(--navbar-height) + var(--mini-title-height));
-  
+
   /* Spacing/padding */
   --navbar-padding: 0.5rem;
   --content-padding: 1rem;
@@ -91,7 +91,7 @@ li.nav-item.dropdown {
     display: none;
 }
 
-body:not(:has(.quarto-title-banner)) .navbar-nav .nav-item:has(iconify-icon[icon="nrk:back"]) {
+body:not(:has(.abstract)) .navbar-nav .nav-item:has(iconify-icon[icon="nrk:back"]) {
     display: block;
 }
 
@@ -121,4 +121,3 @@ body:not(:has(.quarto-title-banner)) .navbar-nav .nav-item:has(iconify-icon[icon
 .menu-text {
     color: var(--arcadia-black) !important;
 }
-

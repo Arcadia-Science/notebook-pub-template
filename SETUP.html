@@ -308,12 +308,11 @@ cookieconsent.run({
           <img src="./assets/logo_white.png" alt="Logo">
         </a>
       </div>
-      <p>This is the title for the notebook pub template demo</p>
+      <p></p>
       <div id="mini-version-control"></div>
     </div>
   </div>
 </template>
-
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -329,23 +328,34 @@ cookieconsent.run({
       const miniTitleContent = document.importNode(template.content, true);
       document.body.appendChild(miniTitleContent);
 
-      // Clone version control dropdown if it exists
-      const originalDropdown = document.querySelector('.navbar-nav .nav-item.dropdown:has(iconify-icon[icon="qlementine-icons:version-control-16"])');
-      if (originalDropdown) {
-        const clonedDropdown = originalDropdown.cloneNode(true);
-        // Remove menu-text class but keep contents
-        const menuTextSpan = clonedDropdown.querySelector('.menu-text');
-        if (menuTextSpan) {
-          menuTextSpan.classList.remove('menu-text');
-        }
-        // Add to mini version control container
-        const versionContainer = document.querySelector('#mini-version-control');
-        versionContainer.appendChild(clonedDropdown);
-        // Initialize Bootstrap dropdown
-        if (typeof bootstrap !== 'undefined') {
-          const dropdownElement = clonedDropdown.querySelector('.dropdown-toggle');
-          if (dropdownElement) {
-            new bootstrap.Dropdown(dropdownElement);
+      // Get and set the title text from h1.title
+      const titleElement = document.querySelector('h1.title');
+      const miniTitleP = document.querySelector('.mini-title-content p');
+      if (titleElement && miniTitleP) {
+        const titleText = titleElement.childNodes[0].textContent.trim();
+        miniTitleP.textContent = titleText;
+
+        // Only clone and add version control if title is not the demo title
+        if (titleText !== 'A brief syntax demo') {
+          // Clone version control dropdown if it exists
+          const originalDropdown = document.querySelector('.navbar-nav .nav-item.dropdown:has(iconify-icon[icon="qlementine-icons:version-control-16"])');
+          if (originalDropdown) {
+            const clonedDropdown = originalDropdown.cloneNode(true);
+            // Remove menu-text class but keep contents
+            const menuTextSpan = clonedDropdown.querySelector('.menu-text');
+            if (menuTextSpan) {
+              menuTextSpan.classList.remove('menu-text');
+            }
+            // Add to mini version control container
+            const versionContainer = document.querySelector('#mini-version-control');
+            versionContainer.appendChild(clonedDropdown);
+            // Initialize Bootstrap dropdown
+            if (typeof bootstrap !== 'undefined') {
+              const dropdownElement = clonedDropdown.querySelector('.dropdown-toggle');
+              if (dropdownElement) {
+                new bootstrap.Dropdown(dropdownElement);
+              }
+            }
           }
         }
       }
@@ -417,33 +427,34 @@ cookieconsent.run({
 </script>
 <!-- version-in-title.html -->
 </head><body class="nav-fixed"><div id="title-version-control"></div>
-
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     // Find the original version control dropdown
     const originalDropdown = document.querySelector('.navbar-nav .nav-item.dropdown:has(iconify-icon[icon="qlementine-icons:version-control-16"])');
-
     if (originalDropdown && document.querySelector('.quarto-title')) {
       // Clone the dropdown structure
       const clonedDropdown = originalDropdown.cloneNode(true);
-
       // Update classes
       clonedDropdown.className = 'title-version-menu dropdown';
-
       // Remove the menu-text class but keep the span and its contents
       const menuTextSpan = clonedDropdown.querySelector('.menu-text');
       if (menuTextSpan) {
         menuTextSpan.classList.remove('menu-text');
       }
-
       // Find the title element
       const titleElement = document.querySelector('.quarto-title .title');
-
       if (titleElement) {
         // Add the version control to the container
         const versionContainer = document.getElementById('title-version-control');
         versionContainer.appendChild(clonedDropdown);
         titleElement.appendChild(versionContainer);
+
+        // Check if this is the author guide and hide if it is
+        if (titleElement.childNodes[0].textContent.trim() === 'A brief syntax demo') {
+          versionContainer.style.display = 'none';
+          versionContainer.style.visibility = 'hidden';
+          versionContainer.style.pointerEvents = 'none';
+        }
 
         // Ensure Bootstrap dropdown functionality works on the clone
         if (typeof bootstrap !== 'undefined') {
@@ -487,15 +498,15 @@ cookieconsent.run({
     <a class="dropdown-item" href="./index.html">
  <span class="dropdown-text">v01 (latest)</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./index_v00.html">
- <span class="dropdown-text">v00</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
 <span class="menu-text"><iconify-icon role="img" inline="" icon="nrk:back" aria-label="Icon back from nrk Iconify.design set." title="Icon back from nrk Iconify.design set."></iconify-icon> Back to Pub</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./demo.html"> 
+<span class="menu-text">Demo</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
