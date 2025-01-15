@@ -725,7 +725,7 @@ e^{ \pm i\theta } = \cos \theta \pm i\sin \theta
 <div id="f8f5414f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> alertness(hours_sleep, coffees):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    base_alertness <span class="op">=</span> <span class="bu">min</span>(hours_sleep <span class="op">/</span> <span class="dv">8</span> <span class="op">*</span> <span class="dv">100</span>, <span class="dv">100</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    coffee_boost <span class="op">=</span> <span class="bu">min</span>(coffees <span class="op">*</span> <span class="dv">20</span>, <span class="dv">60</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    coffee_boost <span class="op">=</span> <span class="bu">min</span>(coffees <span class="op">*</span> <span class="dv">30</span>, <span class="dv">60</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="bu">min</span>(base_alertness <span class="op">+</span> coffee_boost, <span class="dv">100</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">round</span>(total, <span class="dv">1</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
