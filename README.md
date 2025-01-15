@@ -56,7 +56,7 @@ This repo is a template for notebook publications. The publication rendered and 
 
 ## How to publish
 
-Publishing is handled automatically with a GitHub Action that triggers whenever a pull request is merged into `main`. Thus, all the following action items should be completed before your pull request is approved and subsequently merged.
+Publishing is handled automatically with a GitHub Action that triggers whenever a pull request is merged into `publish`. Thus, all the following action items should be completed before your pull request is approved and subsequently merged.
 
 1. Enable read/write permissions for GitHub Actions
 
