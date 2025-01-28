@@ -8,7 +8,7 @@ This repo is a template for notebook publications. The publication rendered and 
 
     In the top-right of this GitHub repo, select the green button that says "*Use this template*".
 
-    **IMPORTANT**: When creating your repo from this template, you need to **check the box** that says, "*Include all branches*"
+    **IMPORTANT**: When creating your repo from this template, you need to **check the box** that says, "*Include all branches*". This is because the hosted pub is managed on a separate branch.
 
 1. Config edits
 
@@ -50,13 +50,16 @@ This repo is a template for notebook publications. The publication rendered and 
 
     Afterwards, create a branch to work on (don't commit to `main` directly).
 
+1. Register your publication with the Pub Team
+
+    If you intend to publish your analysis, fill out the "*Kick off a new pub*" form on the AirTable [Publishing toolkit](https://www.notion.so/arcadiascience/Publishing-2-0-f0c51bf29d1d4356a86e6cf8a72ae88b?pvs=4#e1de83e8dd2a4081904064347779ed25).
+
 1. Create your pub
 
     Edit `index.ipynb` to create your pub. As you work, render it in a live preview with `make preview`.
 
-## How to publish
 
-Publishing is handled automatically with a GitHub Action that triggers whenever a pull request is merged into `publish`. Thus, all the following action items should be completed before your pull request is approved and subsequently merged.
+## How to publish
 
 1. Enable read/write permissions for GitHub Actions
 
@@ -108,9 +111,31 @@ Publishing is handled automatically with a GitHub Action that triggers whenever 
 
     You may have to wait a few minutes for `make preview` to properly render the Giscus widget.
 
-1. Final checks
+1. Get approval from the Pub Team
 
-    Complete the steps in the section, "*Final checks*" in [CONTRIBUTING.qmd](CONTRIBUTING.qmd).
+    Like all other pubs, follow the [AirTable toolkit guide](https://airtable.com/appN7KQ55bT6HHfog/pagm69ti1kZK1GhBx) through to the final step, "*Submit your pub for release*".
+
+1. Final run-through
+
+    Begin with a clean branch (no uncommitted changes). Then run the notebook from the command line:
+
+    ```bash
+    make execute
+    ```
+
+    This command will update `index.ipynb` with the latest execution results. Importantly, it may generate runtime artifacts in the `_freeze/` directory.
+
+    Then run `make preview` to see how the publication is rendering. Verify that your changes appear how you intend them to appear. If not, make the necessary changes and re-run `make execute`.
+
+    Once happy, commit `index.ipynb` and all files in the `_freeze/` directory.
+
+    Now, create a pull request to merge your branch into `main`. Once your PR is approved, merge into `main`.
+
+1. Host the publication
+
+    Publishing is automated through a GitHub Action that triggers when a pull request is merged into the `publish` branch. Thus, all that's required for your publication to go live is to merge into `publish`. By convention, we only merge changes from the `main` branch into `publish`. This ensures collaborators can merge their completed work into `main`, where others can see and build upon it, while keeping those changes private until they are deliberately hosted by merging `main` into `publish`.
+
+    When all your changes have been merged into `main` and you're ready for your publication to go live, open a pull request to merge `main` into `publish`. Once approved and merged, your publication will be live within minutes.
 
 ## Publishing revisions
 
