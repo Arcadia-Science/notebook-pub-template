@@ -25,13 +25,17 @@ extend-include = ["*.ipynb"]
 [tool.ruff.lint.per-file-ignores]
 # ignore star and unused imports
 "__init__.py" = ["F403", "F405"]
-"index.ipynb" = [
+"index*.ipynb" = [
     # Markdown paragraphs are converted to single line comments that extend past line limit. Ignore.
     "E501",
     # Cells often end with useless expressions. Ignore.
     "B018",
     # Allow imports throughout the file.
     "E402",
+    # Allow re-definition of imports. Sometimes imports lead to warnings, that we can supress in the
+    # render by moving them to a cell with `# | output: false`. But for clarity, the import should
+    # remain in the place where it was originally defined.
+    "F811",
 ]
 
 [tool.ruff.lint]
