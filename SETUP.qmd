@@ -4,7 +4,7 @@ comments: false
 
 # Setup
 
-This document details how to create a local copy of this pub's codebase and setup your compute environment. This is a prerequisite for reproducing this publication, experimenting with the analysis, or contributing a revision of this publication.
+This document details how to create a local copy of this pub's codebase and setup your compute environment. This is a prerequisite for reproducing this publication, experimenting with the analysis, or contributing a revision.
 
 ## Obtain local copy
 
