@@ -96,7 +96,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1497f5f12d50ca49cebb8752c7a1d0c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-588cfbbe96d58bcb2f7211f9fea600a0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -243,6 +243,12 @@ require(['plotly'], function(Plotly) {
   });
 
   require(['js-yaml'], function (jsyaml) {
+    // Function to get last name from full name
+    function getLastName(fullName) {
+      const nameParts = fullName.trim().split(' ');
+      return nameParts[nameParts.length - 1];
+    }
+
     // Function to load the YAML file
     async function loadAuthorData() {
       try {
@@ -267,8 +273,11 @@ require(['plotly'], function(Plotly) {
       // Get the authors content div from the cloned template
       const authorsContent = authorsSection.querySelector('.authors-content');
 
+      // Update sort to use last name
       const sortedAuthors = [...authorData.authors].sort((a, b) => {
-        return a.name.localeCompare(b.name);
+        const lastNameA = getLastName(a.name);
+        const lastNameB = getLastName(b.name);
+        return lastNameA.localeCompare(lastNameB);
       });
 
       // Process authors from the data
@@ -308,7 +317,6 @@ require(['plotly'], function(Plotly) {
             theme: 'custom'
           });
         }
-
       });
 
       // Create container and insert at the beginning of title meta
@@ -706,7 +714,7 @@ Important
 </section>
 <section id="citations-footnotes" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="citations-footnotes">Citations &amp; Footnotes</h3>
-<p>To cite something, add its bibtex entry to <code>ref.bib</code> and then cite it <span class="citation" data-cites="Avasthi2024Early">(<a href="#ref-Avasthi2024Early" role="doc-biblioref">Avasthi et al., 2024</a>)</span>. For in-depth description of available citation syntax, visit <a href="https://quarto.org/docs/authoring/citations.html#sec-citations">Quarto’s documentation</a>.</p>
+<p>To cite something, add its bibtex entry to <code>ref.bib</code> and then cite it <span class="citation" data-cites="Avasthi2024Early">(<a href="#ref-Avasthi2024Early" role="doc-biblioref">Avasthi et al., 2024</a>)</span>. Here’s another <span class="citation" data-cites="lin_evolutionary-scale_2023">(<a href="#ref-lin_evolutionary-scale_2023" role="doc-biblioref">Lin et al., 2023</a>)</span>. For in-depth description of available citation syntax, visit <a href="https://quarto.org/docs/authoring/citations.html#sec-citations">Quarto’s documentation</a>.</p>
 <p>Also, don’t forget about footnotes<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;To add additional information, like what you’re reading right now, use <a href="https://quarto.org/docs/authoring/markdown-basics.html#footnotes">footnotes</a>.</p>
 <p>To create a multi-paragraph footnote, indent subsequent paragraphs. Footnotes can also cite things <span class="citation" data-cites="Avasthi2024Early">(<a href="#ref-Avasthi2024Early" role="doc-biblioref">Avasthi et al., 2024</a>)</span>.</p></div></div></section>
@@ -1125,6 +1133,9 @@ Note
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Avasthi2024Early" class="csl-entry" role="listitem">
 Avasthi P, Hochstrasser ML, Roth R. (2024). Early update on <span>Arcadia</span> publishing 2.0: Scientists are in charge, speed is an issue
+</div>
+<div id="ref-lin_evolutionary-scale_2023" class="csl-entry" role="listitem">
+Lin Z, Akin H, Rao R, Hie B, Zhu Z, Lu W, Smetanin N, Verkuil R, Kabeli O, Shmueli Y, Santos Costa A dos, Fazel-Zarandi M, Sercu T, Candido S, Rives A. (2023). Evolutionary-scale prediction of atomic-level protein structure with a language model. <a href="https://doi.org/10.1126/science.ade2574">https://doi.org/10.1126/science.ade2574</a>
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

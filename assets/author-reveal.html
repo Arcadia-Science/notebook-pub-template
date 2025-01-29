@@ -18,6 +18,12 @@
   });
 
   require(['js-yaml'], function (jsyaml) {
+    // Function to get last name from full name
+    function getLastName(fullName) {
+      const nameParts = fullName.trim().split(' ');
+      return nameParts[nameParts.length - 1];
+    }
+
     // Function to load the YAML file
     async function loadAuthorData() {
       try {
@@ -42,8 +48,11 @@
       // Get the authors content div from the cloned template
       const authorsContent = authorsSection.querySelector('.authors-content');
 
+      // Update sort to use last name
       const sortedAuthors = [...authorData.authors].sort((a, b) => {
-        return a.name.localeCompare(b.name);
+        const lastNameA = getLastName(a.name);
+        const lastNameB = getLastName(b.name);
+        return lastNameA.localeCompare(lastNameB);
       });
 
       // Process authors from the data
@@ -83,7 +92,6 @@
             theme: 'custom'
           });
         }
-
       });
 
       // Create container and insert at the beginning of title meta
