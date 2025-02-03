@@ -15,7 +15,7 @@ This repo is a template for notebook publications. The publication rendered and 
     * Replace the variables in `_variables.yml`
         - For `google_analytics`, provide the publishing team your repo name and they'll provide you a Google Analytics tracking ID.
     * Replace the variables in `authors.yml`.
-        - This can always be updated, but for now at least add yourself.
+        - You'll update this once contributor roles have been assigned by Publishing Team, but for now, feel free to add yourself.
 
 1. Install Quarto
 
@@ -114,6 +114,17 @@ This repo is a template for notebook publications. The publication rendered and 
 1. Get approval from the Pub Team
 
     Like all other pubs, follow the [AirTable toolkit guide](https://airtable.com/appN7KQ55bT6HHfog/pagm69ti1kZK1GhBx) through to the final step, "*Submit your pub for release*".
+    
+    * Once all contributor roles have been assigned, populate `_authors.yml` accordingly.
+    * Once all required authors sign the *AI methods form*, paste the following lines at the end of your section with the heading `## Abstract`:
+
+        ```
+        ----
+
+        :::{.callout-note title="AI usage disclosure" collapse="true"}
+        This is a placeholder for the AI usage disclosure. Once all authors sign the AI code form on AirTable, SlackBot will message you an AI disclosure that you should place here.
+        :::
+        ```
 
 1. Final run-through
 
