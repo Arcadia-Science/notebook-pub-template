@@ -7,6 +7,7 @@ comments: false
 # Contributing
 
 We welcome improvements to this publication! If you'd like to improve or extend the publication, please submit a pull request. We'll collaborate with you to incorporate your revisions.
+Alternatively, you're welcome to [leave a comment](FAQ.qmd#how-can-i-comment) on the pub using Giscus.
 
 * Did you spot any mistakes?
 * Do you think an analysis is missing?
