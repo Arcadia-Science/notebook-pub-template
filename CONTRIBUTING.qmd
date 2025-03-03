@@ -47,7 +47,7 @@ Begin with a clean branch (no uncommitted changes). Then run the notebook from t
 make execute
 ```
 
-This command will update `index.ipynb` with the latest execution results. Importantly, it may generate runtime artifacts in the `_freeze/` directory.
+This command will update `index.ipynb` with the latest execution results.
 
 Then run `make preview` to see how the publication is rendering. Verify that your changes appear how you intend them to appear. If not, make the necessary changes and re-run `make execute`.
 
