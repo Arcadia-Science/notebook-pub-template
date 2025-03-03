@@ -18,7 +18,7 @@ All the code and data for this publication and its analysis are hosted on GitHub
 
 ## How can I reproduce this?
 
-Reproducing this publication is easy. Follow this [setup guide](SETUP.qmd) to get started.
+Reproducing this publication is as easy as issuing a few commands from the command line. Follow this [setup guide](SETUP.qmd) to get started.
 
 ## How can I contribute?
 
