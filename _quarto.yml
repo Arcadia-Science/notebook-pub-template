@@ -28,7 +28,7 @@ website:
     right:
     - text: FAQ
       href: FAQ.qmd
-    - text: Reproduce
+    - text: Reproduce this pub
       href: SETUP.qmd
     - text: Contribute
       href: CONTRIBUTING.qmd
