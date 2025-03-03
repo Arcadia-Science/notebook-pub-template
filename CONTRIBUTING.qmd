@@ -2,6 +2,8 @@
 comments: false
 ---
 
+**FIXME This needs to be updated once the git tag versioning system lands**
+
 # Contributing
 
 We welcome improvements to this publication! If you'd like to improve or extend the publication, please submit a pull request. We'll collaborate with you to incorporate your revisions.
