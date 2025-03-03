@@ -1,87 +1,88 @@
 # Template Architecture
 
-This document describes the architecture of the notebook publication template, explaining which files are custom, vendored, or generated automatically.
+## TL;DR for Users
 
-## Directory Structure Overview
+If you're **using this template** to create a publication:
+
+- **Only edit these files**:
+  - `index.ipynb` - Your main publication content
+  - `_variables.yml` - Publication metadata (title, author, etc.)
+  - `authors.yml` - Author information and roles
+  - `src/` - Custom Python code for your publication
+  - `env.yml` - Dependencies for your publication
+
+- **Leave these files alone**:
+  - `_extensions/` - Quarto extensions
+  - `_freeze/` - Generated execution results
+  - `_site/` - Generated website files
+  - `assets/` - Template styling
+
+That's it! Focus on creating great content in your notebook and let the template handle the rest.
+
+## File Structure Overview
 
 ```
 notebook-pub-template/
-├── _extensions/        # Quarto extensions (vendored)
-├── _freeze/           # Generated output files (do not edit directly)
-├── _site/             # Generated site (do not edit directly)
-├── assets/            # Custom assets for publication styling
-├── src/               # Custom Python code for the publication
-├── _quarto.yml        # Main Quarto configuration file
-├── _variables.yml     # Publication variables
+├── index.ipynb        # Your main publication content
+├── _variables.yml     # Publication metadata
 ├── authors.yml        # Author information
-├── *.ipynb            # Jupyter notebook content files
-└── various config files (pyproject.toml, env.yml, etc.)
+├── src/               # Custom Python code
+├── env.yml            # Conda environment definition
+├── _quarto.yml        # Quarto configuration (rarely edit)
+├── _freeze/           # Generated output (don't edit)
+├── _extensions/       # Quarto extensions (don't edit)
+├── _site/             # Generated website (don't edit)
+├── assets/            # Template styling (rarely edit)
+└── pyproject.toml     # Python configuration (rarely edit)
 ```
 
-## Key Components
+### Content Files
 
-### Custom Files (Safe to Edit)
+- **`index.ipynb`**: The primary file containing publication content. This Jupyter notebook contains both narrative text (in markdown cells) and executable code (in code cells).
 
-- **Content Files**:
-  - `index.ipynb`: Main publication content
-  - `demo.ipynb`: Example/demo content
-  - Any other `.ipynb` files you create
+- **`src/`**: Directory for Python modules that contain user code to be imported into your notebook. This helps keep the notebook clean by moving complex functionality into separate files.
 
-- **Configuration**:
-  - `_quarto.yml`: Main Quarto configuration
-  - `_variables.yml`: Publication variables
-  - `authors.yml`: Author information
-  - `pyproject.toml`: Python project configuration including ruff settings
-  - `env.yml`: Conda environment specification
+### Configuration Files
 
-- **Custom Code**:
-  - `src/` directory: Contains custom Python code for the publication
+- **`_variables.yml`**: Contains publication metadata like title, repository information, and Google Analytics ID. This should be customized for the publication.
 
-- **Custom Assets**:
-  - `assets/`: Contains stylesheets, logos, and other publication assets
-  - `assets/css/`: CSS styling for the publication
+- **`authors.yml`**: Contains author information and contributor roles. The publishing team will help finalize this file near the end of the publication cycle.
 
-### Vendored Files (Do Not Edit)
+- **`env.yml`**: Defines the Conda environment for the publication.
 
-- **Extensions**:
-  - `_extensions/`: Directory containing Quarto extensions
-    - `mcanouil/iconify/`: IconIfy extension
-    - `pandoc-ext/abstract-section/`: Abstract section extension
-    - `quarto-ext/fontawesome/`: FontAwesome extension
+### Vendored Files
 
-- **Other Vendored Assets**:
-  - `assets/arcadia.csl`: Citation style file
+These files should not edited.
 
-### Generated Files (Do Not Edit Directly)
+- **`_extensions/`**: Contains Quarto extensions that provide special functionality:
+  - `mcanouil/iconify/`: Icon rendering
+  - `pandoc-ext/abstract-section/`: Abstract formatting
+  - `quarto-ext/fontawesome/`: Font icons
 
-- **Build Artifacts**:
-  - `_freeze/`: Contains cached execution results
-  - `_site/`: Contains the generated static site
+- **`assets/arcadia.csl`**: Citation style file
 
-## Publication Flow
+### Generated Files
 
-1. Content is authored in Jupyter notebooks (primarily `index.ipynb`)
-2. Quarto uses the configuration in `_quarto.yml` to render the notebooks
-3. The rendered content uses styles from `assets/css/` and extensions from `_extensions/`
-4. Generated output is stored in `_freeze/` and `_site/`
-5. GitHub Actions automate the publishing process
+These files are generated and should not be edited directly.
 
-## Quarto Configuration
+- **`_freeze/`**: Contains cached execution results from the notebook. This should be committed to the repository.
 
-The `_quarto.yml` file is the central configuration file that controls:
-- Website structure and navigation
-- Page layout and styling
-- Rendering options
-- Extensions configuration
+- **`_site/`**: Contains the generated static website. This should never be committed to the repository.
 
-## Customization Points
+### Template Configuration
 
-When modifying the template, focus on:
-1. Content in `.ipynb` files
-2. Custom styling in `assets/css/`
-3. Configuration in `_quarto.yml` and `_variables.yml`
-4. Custom code in `src/`
+- **`_quarto.yml`**: Controls the rendering process and website structure. Only edit when specifically instructed.
 
-Avoid modifying:
-1. Files in `_extensions/`
-2. Files in `_freeze/` and `_site/`
+- **`assets/css/`**: Stylesheet files that control the publication appearance.
+
+## How It All Works Together
+
+1. **Content Creation**: Authors edit `index.ipynb` with their analysis and narrative
+2. **Rendering**: Quarto converts notebooks to HTML using configurations in `_quarto.yml`
+3. **Styling**: CSS and HTML snippets in `assets/` apply custom styling to the publication
+4. **Output**: Final website is built in `_site/` and execution cache in `_freeze/`
+5. **Publishing**: GitHub Actions automate the publication process when merged to the `publish` branch
+
+For more information on how to create and publish content using this template, see:
+- [Environment Setup Guide](ENVIRONMENT_SETUP.md)
+- [Publishing Guide](PUBLISHING_GUIDE.md)
