@@ -55,6 +55,8 @@ The best way to ensure you've correctly set up your code and compute environment
 make execute
 ```
 
+(Make sure you're in the conda environment you created above)
+
 This will execute and render the notebook `index.ipynb`, then build the publication site HTML, generating the directory `_site/`. Open `_site/index.html` to view your local copy of the publication.
 
 ## Modify
