@@ -14,7 +14,7 @@ There is a comment section at the bottom of the [pub](index.ipynb), where you ca
 
 ## Where is the data/code?
 
-All the code and data for this publication and its analysis are hosted on GitHub at [this URL](https://github.com/{{< var pub.org >}}/{{< var pub.repo >}}).
+All the code for this publication and its analysis are hosted on GitHub at [this URL](https://github.com/{{< var pub.org >}}/{{< var pub.repo >}}). Any associated data is either hosted or linked to from this repository.
 
 ## How can I reproduce this?
 
