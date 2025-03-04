@@ -15,11 +15,7 @@ Instructions are provided for:
 
     In your repo, go to *Settings* -> *Actions* -> *General* -> *Workflow permissions*, and check the box, "*Read and write permissions*"
 
-1. Populate the `README_TEMPLATE.md`
-
-    Populate `README_TEMPLATE.md` and then rename it to `README.md`.
-
-    **NOTE**: The content you're reading now is the current `README.md`, which is to be replaced with `README_TEMPLATE.md`.
+1. Populate the publication information in the `README.md`
 
 1. Remove placeholder package
 
@@ -38,7 +34,7 @@ Instructions are provided for:
 
 1. Make the repository public
 
-    In order for this pub to be open and reproducible, make the [repo public](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).
+    In order for this pub to be open and reproducible, make the [repo public](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility). Be sure it meets [our standards](https://github.com/Arcadia-Science/arcadia-software-handbook/blob/main/guides-and-standards/standards--public-repos.md) for public-facing repos.
 
 1. Enable comments
 

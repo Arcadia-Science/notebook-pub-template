@@ -54,7 +54,7 @@ website:
       href: https://twitter.com/arcadiascience
     - icon: github
       href: https://github.com/Arcadia-Science
-  google-analytics: '{{< var pub.google_analytics >}}'
+  google-analytics: '{{< var pub.google_analytics_id >}}'
   cookie-consent:
     type: implied
     style: simple

@@ -1,3 +1,6 @@
+# This workflow is taken from
+# https://quarto.org/docs/publishing/github-pages.html#github-action, which
+# contains other useful information.
 on:
   workflow_dispatch:
   push:

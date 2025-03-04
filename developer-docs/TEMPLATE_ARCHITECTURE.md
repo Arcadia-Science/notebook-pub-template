@@ -56,10 +56,10 @@ These files should not edited.
 
 - **`_extensions/`**: Contains Quarto extensions that provide special functionality:
   - `mcanouil/iconify/`: Icon rendering
-  - `pandoc-ext/abstract-section/`: Abstract formatting
+  - `pandoc-ext/abstract-section/`: Used to nicely render the "Summary" in the top markdown cell of the notebook.
   - `quarto-ext/fontawesome/`: Font icons
 
-- **`assets/arcadia.csl`**: Citation style file
+- **`assets/arcadia.csl`**: This is a custom citation style file built for Arcadia. The details and motivation for this format can be found on [this Notion page](https://www.notion.so/arcadiascience/Changing-citation-styles-on-PubPub-4ad8a40c600f4375b4ffcf1edc77f9a8#4ad8a40c600f4375b4ffcf1edc77f9a8).
 
 ### Generated Files
 

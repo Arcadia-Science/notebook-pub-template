@@ -1,6 +1,6 @@
 # Environment Setup Guide
 
-This document explains how to set up the development environment for working with notebook publications.
+This document explains how to set up the development environment for working with and reproducing notebook publications.
 
 ## Setup the code environment
 
@@ -21,7 +21,7 @@ Now, install any internal packages in the repository:
 pip install -e .
 ```
 
-And finally, install the [pre-commit](https://pre-commit.com/) hooks:
+And finally, install the [pre-commit](https://pre-commit.com/) hooks. This is optional but recommended:
 
 ```bash
 pre-commit install
@@ -31,22 +31,20 @@ Test your installation with `make preview`. Your pub will open up in your browse
 
 Afterwards, create a branch to work on (don't commit to `main` directly).
 
-## Development Commands
-
-The Makefile provides several useful commands for development:
-
-- `make lint`: Run linting checks using ruff
-- `make format`: Automatically format code using ruff
-- `make pre-commit`: Run all pre-commit hooks
-- `make test`: Run pytest tests
-- `make execute`: Render notebooks with code execution
-- `make preview`: Preview the Quarto site locally
-- `make bump-version`: Update version number
-
-## Jupyter Notebook Development
+## Pub Development
 
 When working with Jupyter notebooks:
 
 1. Edit `index.ipynb` as your main publication file
 2. Use `make preview` to see changes in real-time
 3. Run `make execute` before committing to update `_freeze/` with execution results
+
+## Other Commands
+
+The Makefile provides several useful commands for development:
+
+- `make lint`: Run linting checks using ruff
+- `make format`: Automatically format code using ruff
+- `make pre-commit`: Run all pre-commit hooks
+- `make test`: Run pytest tests, if they exist
+- `make bump-version`: Update version number
