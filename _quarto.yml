@@ -3,6 +3,8 @@ project:
   render:
   - '*.qmd'
   - '*.ipynb'
+  - 'examples/*.ipynb'
+  - 'pages/*.qmd'
   resources:
   - assets/*
   - authors.yml
@@ -24,7 +26,7 @@ website:
     - text: '{{< iconify nrk:back >}} Back to Pub'
       href: index.ipynb
     - text: Demo
-      href: demo.ipynb
+      href: /examples/demo.html
     right:
     - text: FAQ
       href: pages/FAQ.qmd
