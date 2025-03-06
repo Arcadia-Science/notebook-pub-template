@@ -10,7 +10,7 @@ This *notebook publication* uses a format we're experimenting with that treats a
 
 ## How can I comment?
 
-There is a comment section at the bottom of the [pub](index.ipynb), where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget.
+There is a comment section at the bottom of the [pub](../index.ipynb), where you can read and contribute to any community discussion. Note that commenting requires a GitHub account and authorizing Giscus, a GitHub Discussions widget.
 
 ## Where is the data/code?
 
