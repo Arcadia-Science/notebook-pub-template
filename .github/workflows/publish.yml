@@ -27,7 +27,8 @@ jobs:
       # so we need to create it manually here (if it does not exist).
       - name: Create the `gh-pages` branch if it does not exist
         run: |
-          if ! git show-ref --verify --quiet refs/heads/gh-pages; then
+          git fetch origin
+          if ! git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
             git checkout --orphan gh-pages
             git rm -rf --quiet .
             git commit --allow-empty -m "Initializing gh-pages branch"
