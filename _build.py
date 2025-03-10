@@ -27,14 +27,14 @@ from pathlib import Path
 import yaml
 
 
-def get_versioned_notebook_path(tag: str) -> str:
+def get_versioned_notebook_path(tag: str) -> Path:
     """Get the path to the `index.ipynb` notebook for a given tag."""
-    return f"index_{tag}.ipynb"
+    return Path(f"index_{tag}.ipynb")
 
 
-def get_versioned_freeze_directory_path(tag: str) -> str:
+def get_versioned_freeze_directory_path(tag: str) -> Path:
     """Get the path to the `_freeze/index` directory for a given tag."""
-    return f"_freeze/index_{tag}"
+    return Path(f"_freeze/index_{tag}")
 
 
 @contextmanager
@@ -60,7 +60,7 @@ def get_tags() -> list[str]:
 
 def copy_notebook(tag: str, dry_run: bool) -> None:
     """Copy the `index.ipynb` notebook from a tagged release."""
-    src = "index.ipynb"
+    src = Path("index.ipynb")
     dst = get_versioned_notebook_path(tag)
 
     if dry_run:
@@ -72,35 +72,34 @@ def copy_notebook(tag: str, dry_run: bool) -> None:
 
 def copy_freeze_directory(tag: str, dry_run: bool) -> None:
     """Copy the `_freeze` directory from a tagged release."""
-    src = "_freeze/index"
+    src = Path("_freeze/index")
     dst = get_versioned_freeze_directory_path(tag)
 
     if dry_run:
         print(f"Would copy '{src}' to '{dst}'")
         return
 
-    shutil.rmtree(dst, ignore_errors=True)
-    shutil.copytree(src, dst)
+    shutil.copytree(src, dst, dirs_exist_ok=True)
 
 
 def update_index_notebook(tag: str, dry_run: bool) -> None:
     """Rename the most recent tagged version of the notebook to `index.ipynb`."""
     notebook_src = get_versioned_notebook_path(tag)
-    notebook_dst = "index.ipynb"
+    notebook_dst = Path("index.ipynb")
 
     freeze_src = get_versioned_freeze_directory_path(tag)
-    freeze_dst = "_freeze/index"
+    freeze_dst = Path("_freeze/index")
 
     if dry_run:
         print(f"Would move '{notebook_src}' to '{notebook_dst}'")
         print(f"Would move '{freeze_src}' to '{freeze_dst}'")
         return
 
-    os.remove(notebook_dst)
-    shutil.rmtree(freeze_dst, ignore_errors=True)
+    notebook_dst.unlink()
+    notebook_src.replace(notebook_dst)
 
-    shutil.move(notebook_src, notebook_dst)
-    shutil.move(freeze_src, freeze_dst)
+    shutil.rmtree(freeze_dst, ignore_errors=True)
+    freeze_src.replace(freeze_dst)
 
 
 def update_quarto_yaml(most_recent_tag: str, previous_tags: list[str], dry_run: bool) -> None:
