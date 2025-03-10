@@ -114,7 +114,7 @@ def update_quarto_yaml(most_recent_tag: str, previous_tags: list[str], dry_run: 
         "href": "index.ipynb",
     }
     previous_version_items = [
-        {"text": tag, "href": get_versioned_notebook_path(tag)} for tag in previous_tags
+        {"text": tag, "href": str(get_versioned_notebook_path(tag))} for tag in previous_tags
     ]
 
     if dry_run:
