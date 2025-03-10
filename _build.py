@@ -27,6 +27,16 @@ from pathlib import Path
 import yaml
 
 
+def get_versioned_notebook_path(tag: str) -> str:
+    """Get the path to the `index.ipynb` notebook for a given tag."""
+    return f"index_{tag}.ipynb"
+
+
+def get_versioned_freeze_directory_path(tag: str) -> str:
+    """Get the path to the `_freeze/index` directory for a given tag."""
+    return f"_freeze/index_{tag}"
+
+
 @contextmanager
 def git_checkout(ref: str):
     original_ref = (
@@ -51,43 +61,62 @@ def get_tags() -> list[str]:
 def copy_notebook(tag: str, dry_run: bool) -> None:
     """Copy the `index.ipynb` notebook from a tagged release."""
     src = "index.ipynb"
-    dst = f"index_{tag}.ipynb"
+    dst = get_versioned_notebook_path(tag)
 
     if dry_run:
         print(f"Would copy '{src}' to '{dst}'")
         return
 
-    if os.path.exists(dst):
-        shutil.rmtree(dst)
     shutil.copy2(src, dst)
 
 
 def copy_freeze_directory(tag: str, dry_run: bool) -> None:
     """Copy the `_freeze` directory from a tagged release."""
     src = "_freeze/index"
-    dst = f"_freeze/index_{tag}"
+    dst = get_versioned_freeze_directory_path(tag)
 
     if dry_run:
         print(f"Would copy '{src}' to '{dst}'")
         return
 
-    if os.path.exists(dst):
-        shutil.rmtree(dst)
+    shutil.rmtree(dst, ignore_errors=True)
     shutil.copytree(src, dst)
 
 
-def update_quarto_yaml(tags: list[str], dry_run: bool) -> None:
+def update_index_notebook(tag: str, dry_run: bool) -> None:
+    """Rename the most recent tagged version of the notebook to `index.ipynb`."""
+    notebook_src = get_versioned_notebook_path(tag)
+    notebook_dst = "index.ipynb"
+
+    freeze_src = get_versioned_freeze_directory_path(tag)
+    freeze_dst = "_freeze/index"
+
+    if dry_run:
+        print(f"Would move '{notebook_src}' to '{notebook_dst}'")
+        print(f"Would move '{freeze_src}' to '{freeze_dst}'")
+        return
+
+    os.remove(notebook_dst)
+    shutil.rmtree(freeze_dst, ignore_errors=True)
+
+    shutil.move(notebook_src, notebook_dst)
+    shutil.move(freeze_src, freeze_dst)
+
+
+def update_quarto_yaml(most_recent_tag: str, previous_tags: list[str], dry_run: bool) -> None:
     """Update the _quarto.yml file to include menu items for each tagged release."""
     yaml_path = Path("_quarto.yml")
     content = yaml.safe_load(yaml_path.read_text())
 
-    tags = sorted(tags, reverse=True)
-    most_recent_tag, *previous_tags = tags
     most_recent_version_item = {
         "text": f"{most_recent_tag} (latest)",
-        "href": f"index_{most_recent_tag}.ipynb",
+        # The link for the most recent version is always `index.ipynb`.
+        # (This version of the notebook is renamed to `index.ipynb` elsewhere in this script.)
+        "href": "index.ipynb",
     }
-    previous_version_items = [{"text": tag, "href": f"index_{tag}.ipynb"} for tag in previous_tags]
+    previous_version_items = [
+        {"text": tag, "href": get_versioned_notebook_path(tag)} for tag in previous_tags
+    ]
 
     if dry_run:
         print(f"Would update '{yaml_path}' with the following menu items:")
@@ -119,7 +148,11 @@ def main() -> None:
             copy_notebook(tag, dry_run=args.dry_run)
             copy_freeze_directory(tag, dry_run=args.dry_run)
 
-    update_quarto_yaml(tags, dry_run=args.dry_run)
+    tags = sorted(tags, reverse=True)
+    most_recent_tag, *previous_tags = tags
+
+    update_index_notebook(most_recent_tag, dry_run=args.dry_run)
+    update_quarto_yaml(most_recent_tag, previous_tags, dry_run=args.dry_run)
 
 
 if __name__ == "__main__":
