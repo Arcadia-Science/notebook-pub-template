@@ -27,6 +27,7 @@ This workflow solves the version aggregation problem by doing two things:
    - Copies each version to a new uniquely named file (e.g., `index_v1.ipynb`, `index_v2.ipynb`).
    - Collects all execution results from each tag's `_freeze` directory.
    - Updates `_quarto.yml` to include a version selector menu for all tagged versions.
+   - Renames the most recent tagged version of the notebook to `index.ipynb`.
 
 2. It opens a PR to merge the notebook versions and execution results into a special `publish` branch. The `publish` branch is used only to store the publication artifacts, not for version control, so it is reset to match `main` before the PR is opened.
 
