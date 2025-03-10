@@ -75,6 +75,6 @@ jobs:
           base: ${{ env.PUBLISH_BRANCH }}
           # `branch` is the source branch for the PR.
           branch: ${{ env.BUILD_BRANCH }}
-          commit-message: "add build artifacts"
+          commit-message: "Update the public Quarto publication"
           title: "[Publication] Update the public Quarto publication"
           body: ${{ env.PR_BODY }}
