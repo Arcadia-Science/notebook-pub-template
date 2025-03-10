@@ -21,20 +21,31 @@ import argparse
 import os
 import shutil
 import subprocess
+from contextlib import contextmanager
 from pathlib import Path
 
 import yaml
+
+
+@contextmanager
+def git_checkout(ref: str):
+    original_ref = (
+        subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"])
+        .decode("utf-8")
+        .strip()
+    )
+
+    try:
+        subprocess.run(["git", "checkout", ref], check=True)
+        yield
+    finally:
+        subprocess.run(["git", "checkout", original_ref], check=True)
 
 
 def get_tags() -> list[str]:
     """Get a list of all git tags."""
     result = subprocess.run(["git", "tag"], capture_output=True, text=True, check=True)
     return result.stdout.splitlines()
-
-
-def checkout_ref(ref: str) -> None:
-    """Checkout the specified git ref."""
-    subprocess.run(["git", "checkout", ref], check=True)
 
 
 def copy_notebook(tag: str, dry_run: bool) -> None:
@@ -98,28 +109,17 @@ def main() -> None:
     args.add_argument("--dry-run", action="store_true")
     args = args.parse_args()
 
-    # Get the branch that is checked out when the script starts,
-    # so we can check it out again later.
-    checked_out_branch = (
-        subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"])
-        .decode("utf-8")
-        .strip()
-    )
-
     tags = get_tags()
     if not tags:
         raise ValueError("No tags found")
 
     for tag in tags:
         print(f"Processing tag {tag}")
-        checkout_ref(tag)
-        copy_notebook(tag, dry_run=args.dry_run)
-        copy_freeze_directory(tag, dry_run=args.dry_run)
+        with git_checkout(tag):
+            copy_notebook(tag, dry_run=args.dry_run)
+            copy_freeze_directory(tag, dry_run=args.dry_run)
 
     update_quarto_yaml(tags, dry_run=args.dry_run)
-
-    # Clean up by checking out the branch that was checked out when the script started.
-    checkout_ref(checked_out_branch)
 
 
 if __name__ == "__main__":
