@@ -18,7 +18,6 @@ This script executes the following steps:
 """
 
 import argparse
-import os
 import shutil
 import subprocess
 from contextlib import contextmanager
@@ -28,12 +27,12 @@ import yaml
 
 
 def get_versioned_notebook_path(tag: str) -> Path:
-    """Get the path to the `index.ipynb` notebook for a given tag."""
+    """Get the path to the versioned `index.ipynb` notebook for a given tag."""
     return Path(f"index_{tag}.ipynb")
 
 
 def get_versioned_freeze_directory_path(tag: str) -> Path:
-    """Get the path to the `_freeze/index` directory for a given tag."""
+    """Get the path to the versioned `_freeze/index` directory for a given tag."""
     return Path(f"_freeze/index_{tag}")
 
 
@@ -59,7 +58,7 @@ def get_tags() -> list[str]:
 
 
 def copy_notebook(tag: str, dry_run: bool) -> None:
-    """Copy the `index.ipynb` notebook from a tagged release."""
+    """Copy the `index.ipynb` notebook for a given tag to a versioned notebook."""
     src = Path("index.ipynb")
     dst = get_versioned_notebook_path(tag)
 
@@ -71,7 +70,7 @@ def copy_notebook(tag: str, dry_run: bool) -> None:
 
 
 def copy_freeze_directory(tag: str, dry_run: bool) -> None:
-    """Copy the `_freeze` directory from a tagged release."""
+    """Copy the `_freeze/index` directory for a given tag to a versioned directory."""
     src = Path("_freeze/index")
     dst = get_versioned_freeze_directory_path(tag)
 
@@ -82,8 +81,11 @@ def copy_freeze_directory(tag: str, dry_run: bool) -> None:
     shutil.copytree(src, dst, dirs_exist_ok=True)
 
 
-def update_index_notebook(tag: str, dry_run: bool) -> None:
-    """Rename the most recent tagged version of the notebook to `index.ipynb`."""
+def update_index_notebook_and_freeze_directory(tag: str, dry_run: bool) -> None:
+    """
+    Rename the most recent tagged version of the notebook and its freeze directory
+    to `index.ipynb` and `_freeze/index`, respectively.
+    """
     notebook_src = get_versioned_notebook_path(tag)
     notebook_dst = Path("index.ipynb")
 
@@ -133,9 +135,17 @@ def update_quarto_yaml(most_recent_tag: str, previous_tags: list[str], dry_run: 
 
 
 def main() -> None:
-    args = argparse.ArgumentParser()
-    args.add_argument("--dry-run", action="store_true")
-    args = args.parse_args()
+    """
+    Entrypoint for the script.
+
+    CLI args:
+        --dry-run: Print the actions that would be taken without actually taking them.
+            This is intended to be used when running this script locally during development,
+            as a way to preview the changes the script would make to the working directory.
+    """
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dry-run", action="store_true")
+    args = parser.parse_args()
 
     tags = get_tags()
     if not tags:
@@ -150,7 +160,7 @@ def main() -> None:
     tags = sorted(tags, reverse=True)
     most_recent_tag, *previous_tags = tags
 
-    update_index_notebook(most_recent_tag, dry_run=args.dry_run)
+    update_index_notebook_and_freeze_directory(most_recent_tag, dry_run=args.dry_run)
     update_quarto_yaml(most_recent_tag, previous_tags, dry_run=args.dry_run)
 
 
