@@ -27,12 +27,24 @@
 
 6. **Create your publication**
 
-    Edit `index.ipynb` to create your publication. As you work, render a live preview with:
+    Edit `index.ipynb` to create your publication. As you work, you can render a live preview of your changes with:
 
     ```bash
     make preview
     ```
 
+    Then, commit your changes to a development branch and merge them into `main` using our usual PR-based workflow.
+
+    As you work, please be careful to avoid modifying any files in the following directories:
+
+      - `_extensions/` (Quarto extensions)
+      - `_freeze/` (Generated execution results)
+      - `_site/` (Generated website files)
+      - `assets/` (Template styling)
+
+    These files are all either necessary to build the publication or are automatically generated during the publication process.
+
 7. **Publishing**
 
     See the [Publishing Guide](developer-docs/PUBLISHING_GUIDE.md) for complete instructions on the publishing process.
+

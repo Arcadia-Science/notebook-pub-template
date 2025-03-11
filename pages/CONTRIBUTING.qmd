@@ -2,8 +2,6 @@
 comments: false
 ---
 
-**FIXME This needs to be updated once the git tag versioning system lands**
-
 # Contributing
 
 We welcome improvements to this publication! If you'd like to improve or extend the publication, please submit a pull request. We'll collaborate with you to incorporate your revisions.
@@ -24,16 +22,6 @@ To learn about how we credit external collaborators, click [here](https://github
 
 If you haven't already, follow our [setup guide](SETUP.qmd) to create a local copy of the code and compute environment.
 
-## Snapshot current version
-
-Before making any changes, we need to preserve the current state of the publication by creating a versioned snapshot. This ensures we maintain an archive of all previous versions alongside the latest one. To create this snapshot, run:
-
-```bash
-make bump-version
-```
-
-Commit the changes and untracked files (`_freeze/*`, `_quarto.yml`, `index_*.ipynb`) introduced by this version snapshot before proceeding with your changes.
-
 ## Make your changes
 
 Edit `index.ipynb` to your liking.
@@ -52,8 +40,8 @@ This command will update `index.ipynb` with the latest execution results.
 
 Then run `make preview` to see how the publication is rendering. Verify that your changes appear how you intend them to appear. If not, make the necessary changes and re-run `make execute`.
 
-Once happy, commit `index.ipynb` and all files in the `_freeze/` directory.
+Once everything looks good, commit `index.ipynb` and all files in the `_freeze/` directory.
 
-Finally, submit a pull request and we'll work with you to merge the changes.
+Finally, submit a pull request and we'll work with you to merge your changes.
 
-Once we approve your pull request, we'll merge your changes and notify you when they go live at the [hosted URL](https://{{< var pub.org >}}.github.io/{{< var pub.repo >}}/). Thanks for contributing!
+Once we approve and merge your pull request, we'll publish a new version of the pub. We'll notify you when this new version goes live at the [hosted URL](https://{{< var pub.org >}}.github.io/{{< var pub.repo >}}/). Thanks for contributing!
