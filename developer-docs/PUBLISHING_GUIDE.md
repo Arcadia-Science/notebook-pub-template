@@ -86,6 +86,8 @@ Instructions are provided for:
 
     Follow the instructions on Notion [here](https://www.notion.so/arcadiascience/How-to-archive-a-GitHub-repository-on-Zenodo-at-time-of-publication-1cd6202af5bb4b5ba8464caaba8e9bed) to link your repo to Zenodo and create a new tagged release. (Note: this step is the same one you would follow for a "normal" non-notebook pub.)
 
+    Be sure to use a version number of the form 'v1' or 'v1.0' for this initial tagged release.
+
 1. **Merge the auto-generated publication PR**
 
     When you create a new tagged release in the step above, a GitHub Action automatically builds the public publication and opens a PR to merge the publication files into the `publish` branch.
@@ -113,7 +115,7 @@ git checkout main
 git pull
 ```
 
-Then, create a new tag and push it to the repo:
+Then, create a new tag and push it to the repo. For each revision, increment the tag by 1, e.g. 'v1' -> 'v2'. Be sure to use the same format as the initial tagged release (e.g. use 'v2.0' if the initial release was 'v1.0', or 'v2' if the initial release was 'v1').
 
 ```bash
 git tag v2
