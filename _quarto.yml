@@ -3,13 +3,15 @@ project:
   render:
   - '*.qmd'
   - '*.ipynb'
+  - 'examples/*.ipynb'
+  - 'pages/*.qmd'
   resources:
   - assets/*
   - authors.yml
 execute:
   freeze: auto
 website:
-  favicon: assets/logo_white.png
+  favicon: "assets/logo_white.png"
   twitter-card: true
   open-graph: true
   navbar:
@@ -23,15 +25,15 @@ website:
         href: index.ipynb
     - text: '{{< iconify nrk:back >}} Back to Pub'
       href: index.ipynb
-    - text: 'Demo'
-      href: demo.ipynb
+    - text: Demo
+      href: /examples/demo.html
     right:
     - text: FAQ
-      href: FAQ.qmd
-    - text: Reproduce
-      href: SETUP.qmd
+      href: pages/FAQ.qmd
+    - text: Reproduce this pub
+      href: pages/SETUP.qmd
     - text: Contribute
-      href: CONTRIBUTING.qmd
+      href: pages/CONTRIBUTING.qmd
     tools:
     - icon: twitter-x
       href: https://twitter.com/arcadiascience
@@ -44,7 +46,7 @@ website:
   page-footer:
     background: '#484B50'
     border: false
-    left: '[![](assets/logo_white.png){fig-alt="Arcadia-Science" width=65px}](https://www.arcadiascience.com/)
+    left: '[![](../assets/logo_white.png){fig-alt="Arcadia-Science" width=65px}](https://www.arcadiascience.com/)
 
       Copyright 2025, Arcadia Science
 
@@ -54,17 +56,17 @@ website:
       href: https://twitter.com/arcadiascience
     - icon: github
       href: https://github.com/Arcadia-Science
-  google-analytics: "{{< var pub.google_analytics >}}"
+  google-analytics: '{{< var pub.google_analytics_id >}}'
   cookie-consent:
     type: implied
     style: simple
 format:
   html:
     include-in-header:
-      - file: assets/logo-animation.html
-      - file: assets/author-reveal.html
-      - file: assets/mini-title.html
-      - file: assets/version-in-title.html
+    - file: assets/logo-animation.html
+    - file: assets/author-reveal.html
+    - file: assets/mini-title.html
+    - file: assets/version-in-title.html
     css: assets/css/main.css
     page-layout: article
     title-block-banner: true
@@ -80,5 +82,5 @@ csl: assets/arcadia.csl
 code-annotations: hover
 html-table-processing: none
 filters:
-  - abstract-section
-demo-title: "A brief syntax demo"
+- abstract-section
+demo-title: A brief syntax demo

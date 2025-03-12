@@ -4,13 +4,13 @@ comments: false
 
 # Setup
 
-This document details how to create a local copy of this pub's codebase and setup your compute environment. This is a prerequisite for reproducing this publication, experimenting with the analysis, or contributing a revision.
+This document details how to create a local copy of this pub's codebase, setup your compute environment, and reproduce the pub itself. This will enable you to experiment with the analysis in the pub and, optionally, contribute revisions to it.
 
 ## Obtain local copy
 
 The codebase is hosted on GitHub and can be found [here](https://github.com/{{< var pub.org >}}/{{< var pub.repo >}}).
 
-To obtain a local copy, you have the option of either *cloning* or *forking* the repository. If you aren't sure what's best, our suggestion is to clone unless you both (1) want to propose a revision for the publication and (2) are not an employee of Arcadia Science.
+To obtain a local copy of this repo, you can either *clone* it directly or fork it to your own GitHub account, then clone your fork. If you aren't sure what's best, our suggestion is to clone directly unless you both (1) want to propose a revision for the publication and (2) are not an employee of Arcadia Science.
 
 To clone:
 
@@ -54,6 +54,8 @@ The best way to ensure you've correctly set up your code and compute environment
 ```bash
 make execute
 ```
+
+(Make sure you're in the conda environment you created above)
 
 This will execute and render the notebook `index.ipynb`, then build the publication site HTML, generating the directory `_site/`. Open `_site/index.html` to view your local copy of the publication.
 

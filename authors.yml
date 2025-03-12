@@ -16,7 +16,7 @@
 # - visualization
 authors:
   - name: First M. Last
-    orcid: 0000-0002-6473-0921
+    orcid: 0000-0000-0000-0000
     roles:
       - conceptualization
       - formal analysis
@@ -24,7 +24,7 @@ authors:
       - methodology
       - software
   - name: Contributor Name
-    orcid: 0000-0001-2345-6789
+    orcid: 0000-0000-0000-0000
     roles:
       - data curation
       - validation
