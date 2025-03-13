@@ -27,7 +27,7 @@
     // Function to load the YAML file
     async function loadAuthorData() {
       try {
-        const response = await fetch('../../authors.yml');
+        const response = await fetch('/authors.yml');
         const yamlText = await response.text();
         window.authorData = jsyaml.load(yamlText);
         initializeAuthors();
