@@ -301,15 +301,12 @@ cookieconsent.run({
     const navbar = document.querySelector('#quarto-header');
     let prevRatio = {appear: 1, disappear: 1};
 
-    // Set logo path based on URL pattern
-    const logoImg = template.content.querySelector('.logo-white');
-    const currentPath = window.location.pathname;
-
-    // Check if we're on an index page
-    if (currentPath.endsWith('/index.html') || currentPath.match(/\/index[^\/]*\.html$/)) {
-      logoImg.src = './assets/logo_white.png';
-    } else {
-      logoImg.src = '../../assets/logo_white.png';
+    // Get base URL from an existing resource we know works (navbar logo)
+    const navbarLogo = document.querySelector('.navbar-logo');
+    if (navbarLogo) {
+      const baseUrl = navbarLogo.src.substring(0, navbarLogo.src.lastIndexOf('/assets/'));
+      const logoPath = baseUrl + '/assets/logo_white.png';
+      template.content.querySelector('.logo-white').src = logoPath;
     }
 
     if (template && titleBanner && abstract && navbar) {
