@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>contributing</title>
+<title>setup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,26 +57,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./assets/logo_white.png" rel="icon" type="image/png">
-<script src="site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0220e4cacb8ef68a5d3f6f930f88f384.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/logo_white.png" rel="icon" type="image/png">
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0220e4cacb8ef68a5d3f6f930f88f384.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,14 +104,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-FMENQL377V"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id="></script>
 
 <script type="text/plain" cookie-consent="tracking">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-FMENQL377V', { 'anonymize_ip': true});
+gtag('config', '', { 'anonymize_ip': true});
 </script>
 
 <script type="text/javascript" charset="UTF-8">
@@ -144,7 +144,7 @@ cookieconsent.run({
     video.loop = false;
     video.playbackRate = 1.0;
     const source = document.createElement("source");
-    source.src = "./assets/logo_movie.mp4";
+    source.src = "../../assets/logo_movie.mp4";
     source.type = "video/mp4";
     video.appendChild(source);
 
@@ -212,7 +212,7 @@ cookieconsent.run({
     // Function to load the YAML file
     async function loadAuthorData() {
       try {
-        const response = await fetch('./authors.yml');
+        const response = await fetch('../../authors.yml');
         const yamlText = await response.text();
         window.authorData = jsyaml.load(yamlText);
         initializeAuthors();
@@ -313,7 +313,7 @@ cookieconsent.run({
     <div class="mini-title-content">
       <div class="mini-title-logo-wrapper">
         <a href="https://research.arcadiascience.com/">
-          <img src="./assets/logo_white.png" alt="Logo">
+          <img src="../../assets/logo_white.png" alt="Logo">
         </a>
       </div>
       <p></p>
@@ -477,7 +477,7 @@ cookieconsent.run({
 </script>
 
 
-<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="../assets/css/main.css">
 
 
 
@@ -488,7 +488,7 @@ cookieconsent.run({
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="https://research.arcadiascience.com/" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/logo_text.png" alt="" class="navbar-logo">
+    <img src="../assets/logo_text.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -503,31 +503,31 @@ cookieconsent.run({
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-iconify-qlementine-iconsversion-control-16-">    
         <li>
-    <a class="dropdown-item" href="./index.html">
+    <a class="dropdown-item" href="../index.html">
  <span class="dropdown-text">v01 (latest)</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text"><iconify-icon role="img" inline="" icon="nrk:back" aria-label="Icon back from nrk Iconify.design set." title="Icon back from nrk Iconify.design set."></iconify-icon> Back to Pub</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./demo.html"> 
+    <a class="nav-link" href="../examples/demo.html"> 
 <span class="menu-text">Demo</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./FAQ.html"> 
+    <a class="nav-link" href="../pages/FAQ.html"> 
 <span class="menu-text">FAQ</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./SETUP.html"> 
-<span class="menu-text">Reproduce</span></a>
+    <a class="nav-link active" href="../pages/SETUP.html" aria-current="page"> 
+<span class="menu-text">Reproduce this pub</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./CONTRIBUTING.html" aria-current="page"> 
+    <a class="nav-link" href="../pages/CONTRIBUTING.html"> 
 <span class="menu-text">Contribute</span></a>
   </li>  
 </ul>
@@ -548,12 +548,17 @@ cookieconsent.run({
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#contributing" id="toc-contributing" class="nav-link active" data-scroll-target="#contributing">Contributing</a>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a>
   <ul class="collapse">
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#snapshot-current-version" id="toc-snapshot-current-version" class="nav-link" data-scroll-target="#snapshot-current-version">Snapshot current version</a></li>
-  <li><a href="#make-your-changes" id="toc-make-your-changes" class="nav-link" data-scroll-target="#make-your-changes">Make your changes</a></li>
-  <li><a href="#steps-before-publishing" id="toc-steps-before-publishing" class="nav-link" data-scroll-target="#steps-before-publishing">Steps before publishing</a></li>
+  <li><a href="#obtain-local-copy" id="toc-obtain-local-copy" class="nav-link" data-scroll-target="#obtain-local-copy">Obtain local copy</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  </ul></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s next?</a>
+  <ul class="collapse">
+  <li><a href="#reproduce" id="toc-reproduce" class="nav-link" data-scroll-target="#reproduce">Reproduce</a></li>
+  <li><a href="#modify" id="toc-modify" class="nav-link" data-scroll-target="#modify">Modify</a></li>
+  <li><a href="#preview" id="toc-preview" class="nav-link" data-scroll-target="#preview">Preview</a></li>
+  <li><a href="#publish" id="toc-publish" class="nav-link" data-scroll-target="#publish">Publish</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -564,53 +569,64 @@ cookieconsent.run({
 
 
 
-<section id="contributing" class="level1">
-<h1>Contributing</h1>
-<p>We welcome improvements to this publication! If you’d like to improve or extend the publication, please submit a pull request. We’ll collaborate with you to incorporate your revisions.</p>
-<ul>
-<li>Did you spot any mistakes?</li>
-<li>Do you think an analysis is missing?</li>
-<li>Do you think the wording could be improved?</li>
-<li>Did you spot a typo or grammatical mistake?</li>
-</ul>
-<p>These are just a few examples of revisions that we’d be happy to receive from you.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="setup" class="level1">
+<h1>Setup</h1>
+<p>This document details how to create a local copy of this pub’s codebase, setup your compute environment, and reproduce the pub itself. This will enable you to experiment with the analysis in the pub and, optionally, contribute revisions to it.</p>
+<section id="obtain-local-copy" class="level2">
+<h2 class="anchored" data-anchor-id="obtain-local-copy">Obtain local copy</h2>
+<p>The codebase is hosted on GitHub and can be found <a href="https://github.com/Arcadia-Science/notebook-pub-template">here</a>.</p>
+<p>To obtain a local copy of this repo, you can either <em>clone</em> it directly or fork it to your own GitHub account, then clone your fork. If you aren’t sure what’s best, our suggestion is to clone directly unless you both (1) want to propose a revision for the publication and (2) are not an employee of Arcadia Science.</p>
+<p>To clone:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/Arcadia-Science/notebook-pub-template.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To learn about how we credit external collaborators, click <a href="https://github.com/Arcadia-Science/arcadia-software-handbook/blob/main/guides-and-standards/guide--credit-for-contributions.md">here</a>.</p>
+<p>The publication is rendered with <a href="https://quarto.org/">Quarto</a>. If you don’t have it installed (check with <code>quarto --version</code>), you can install it <a href="https://quarto.org/docs/get-started/">here</a>.</p>
 </div>
 </div>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
-<p>If you haven’t already, follow our <a href="./SETUP.html">setup guide</a> to create a local copy of the code and compute environment.</p>
+<p>This repository uses conda to manage the computational and build environment. If you don’t have it installed (check with <code>conda --version</code>), you can find operating system-specific instructions for installing miniconda <a href="https://docs.conda.io/projects/miniconda/en/latest/">here</a>. After installing, run the following commands to create and activate the environment.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-n</span> notebook-pub-template <span class="at">--file</span> env.yml</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate notebook-pub-template</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now, install any internal packages in the repository:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And finally, if you plan to submit a pull request, install the <a href="https://pre-commit.com/">pre-commit</a> hooks:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pre-commit</span> install</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="snapshot-current-version" class="level2">
-<h2 class="anchored" data-anchor-id="snapshot-current-version">Snapshot current version</h2>
-<p>Before making any changes, we need to preserve the current state of the publication by creating a versioned snapshot. This ensures we maintain an archive of all previous versions alongside the latest one. To create this snapshot, run:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> bump-version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Commit the changes and untracked files (<code>_freeze/*</code>, <code>_quarto.yml</code>, <code>index_*.ipynb</code>) introduced by this version snapshot before proceeding with your changes.</p>
 </section>
-<section id="make-your-changes" class="level2">
-<h2 class="anchored" data-anchor-id="make-your-changes">Make your changes</h2>
-<p>Edit <code>index.ipynb</code> to your liking.</p>
+<section id="whats-next" class="level1">
+<h1>What’s next?</h1>
+<p>With a copy of the code and compute environment set up on your local machine, you can now reproduce or modify a local copy of the publication however you see fit. Read on to get started.</p>
+<section id="reproduce" class="level2">
+<h2 class="anchored" data-anchor-id="reproduce">Reproduce</h2>
+<p>The best way to ensure you’ve correctly set up your code and compute environment is to reproduce this work. Fortunately, the analysis, and therefore the publication itself, can be reproduced with the following command:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> execute</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(Make sure you’re in the conda environment you created above)</p>
+<p>This will execute and render the notebook <code>index.ipynb</code>, then build the publication site HTML, generating the directory <code>_site/</code>. Open <code>_site/index.html</code> to view your local copy of the publication.</p>
 </section>
-<section id="steps-before-publishing" class="level2">
-<h2 class="anchored" data-anchor-id="steps-before-publishing">Steps before publishing</h2>
-<p>To publish your revisions, we need you to open a pull request. And in order for us to merge your pull request, here’s what we’ll need from you in addition to your content changes.</p>
-<p>Begin with a clean branch (no uncommitted changes). Then run the notebook from the command line:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> execute</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This command will update <code>index.ipynb</code> with the latest execution results. Importantly, it may generate runtime artifacts in the <code>_freeze/</code> directory.</p>
-<p>Then run <code>make preview</code> to see how the publication is rendering. Verify that your changes appear how you intend them to appear. If not, make the necessary changes and re-run <code>make execute</code>.</p>
-<p>Once happy, commit <code>index.ipynb</code> and all files in the <code>_freeze/</code> directory.</p>
-<p>Finally, submit a pull request and we’ll work with you to merge the changes.</p>
-<p>Once we approve your pull request, we’ll merge your changes and notify you when they go live at the <a href="https://Arcadia-Science.github.io/notebook-pub-template/">hosted URL</a>. Thanks for contributing!</p>
+<section id="modify" class="level2">
+<h2 class="anchored" data-anchor-id="modify">Modify</h2>
+<p>To modify or extend any analyses, open up <code>index.ipynb</code> with Jupyter or your favorite IDE:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter-lab</span> index.ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="preview" class="level2">
+<h2 class="anchored" data-anchor-id="preview">Preview</h2>
+<p>To create a live preview of your pub, run the following:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will open a local copy of the publication in your default browser. The command watches for changes such that whenever <code>index.ipynb</code> is saved, the publication is re-rendered.</p>
+</section>
+<section id="publish" class="level2">
+<h2 class="anchored" data-anchor-id="publish">Publish</h2>
+<p>If you’ve improved the publication, consider contributing so we can update the hosted publication with your edits (big or small!). To get started, see our <a href="../pages/CONTRIBUTING.html">contributing guide</a>.</p>
 
 
 </section>
@@ -1077,7 +1093,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><a href="https://www.arcadiascience.com/"><img src="assets/logo_white.png" class="img-fluid" alt="Arcadia-Science" width="65"></a> Copyright 2025, Arcadia Science</p>
+<p><a href="https://www.arcadiascience.com/"><img src="../assets/logo_white.png" class="img-fluid" alt="Arcadia-Science" width="65"></a> Copyright 2025, Arcadia Science</p>
 </div>   
     <div class="nav-footer-center">
 

@@ -78,26 +78,26 @@ div.csl-indent {
 }</style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./assets/logo_white.png" rel="icon" type="image/png">
-<script src="site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0220e4cacb8ef68a5d3f6f930f88f384.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/logo_white.png" rel="icon" type="image/png">
+<script src="../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0220e4cacb8ef68a5d3f6f930f88f384.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -125,14 +125,14 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-FMENQL377V"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id="></script>
 
 <script type="text/plain" cookie-consent="tracking">
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-FMENQL377V', { 'anonymize_ip': true});
+gtag('config', '', { 'anonymize_ip': true});
 </script>
 
 <script type="text/javascript" charset="UTF-8">
@@ -184,7 +184,7 @@ require(['plotly'], function(Plotly) {
     video.loop = false;
     video.playbackRate = 1.0;
     const source = document.createElement("source");
-    source.src = "./assets/logo_movie.mp4";
+    source.src = "../../assets/logo_movie.mp4";
     source.type = "video/mp4";
     video.appendChild(source);
 
@@ -252,7 +252,7 @@ require(['plotly'], function(Plotly) {
     // Function to load the YAML file
     async function loadAuthorData() {
       try {
-        const response = await fetch('./authors.yml');
+        const response = await fetch('../../authors.yml');
         const yamlText = await response.text();
         window.authorData = jsyaml.load(yamlText);
         initializeAuthors();
@@ -353,7 +353,7 @@ require(['plotly'], function(Plotly) {
     <div class="mini-title-content">
       <div class="mini-title-logo-wrapper">
         <a href="https://research.arcadiascience.com/">
-          <img src="./assets/logo_white.png" alt="Logo">
+          <img src="../../assets/logo_white.png" alt="Logo">
         </a>
       </div>
       <p></p>
@@ -476,12 +476,14 @@ require(['plotly'], function(Plotly) {
 <!-- version-in-title.html -->
 <meta property="og:title" content="A brief syntax demo">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://Arcadia-Science.github.io/notebook-pub-template/demo_files/figure-html/fig-random-scatter-plots-output-1.png">
+<meta property="og:image" content="https://Arcadia-Science.github.io/notebook-pub-template/examples/demo_files/figure-html/fig-random-scatter-plots-output-1.png">
+<meta property="og:image:alt" content="Add brief alt text: [Chart type] of [type of data] where [reason for including].">
 <meta property="og:image:height" content="938">
 <meta property="og:image:width" content="1324">
 <meta name="twitter:title" content="A brief syntax demo">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://Arcadia-Science.github.io/notebook-pub-template/demo_files/figure-html/fig-random-scatter-plots-output-1.png">
+<meta name="twitter:image" content="https://Arcadia-Science.github.io/notebook-pub-template/examples/demo_files/figure-html/fig-random-scatter-plots-output-1.png">
+<meta name="twitter:image:alt" content="Add brief alt text: [Chart type] of [type of data] where [reason for including].">
 <meta name="twitter:image-height" content="938">
 <meta name="twitter:image-width" content="1324">
 <meta name="twitter:card" content="summary_large_image">
@@ -557,7 +559,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="../assets/css/main.css">
 
 
 
@@ -568,7 +570,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="https://research.arcadiascience.com/" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/logo_text.png" alt="" class="navbar-logo">
+    <img src="../assets/logo_text.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -583,31 +585,31 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-iconify-qlementine-iconsversion-control-16-">    
         <li>
-    <a class="dropdown-item" href="./index.html">
+    <a class="dropdown-item" href="../index.html">
  <span class="dropdown-text">v01 (latest)</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text"><iconify-icon role="img" inline="" icon="nrk:back" aria-label="Icon back from nrk Iconify.design set." title="Icon back from nrk Iconify.design set."></iconify-icon> Back to Pub</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./demo.html" aria-current="page"> 
+    <a class="nav-link active" href="../examples/demo.html" aria-current="page"> 
 <span class="menu-text">Demo</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./FAQ.html"> 
+    <a class="nav-link" href="../pages/FAQ.html"> 
 <span class="menu-text">FAQ</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./SETUP.html"> 
-<span class="menu-text">Reproduce</span></a>
+    <a class="nav-link" href="../pages/SETUP.html"> 
+<span class="menu-text">Reproduce this pub</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./CONTRIBUTING.html"> 
+    <a class="nav-link" href="../pages/CONTRIBUTING.html"> 
 <span class="menu-text">Contribute</span></a>
   </li>  
 </ul>
@@ -976,7 +978,7 @@ Note
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "This is a small table."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>And a figure could be captioned and labeled with:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-some-figure</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "This is some figure."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "This is some figure."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>If your code block produces several plots, you can subcaption each:</p>
@@ -999,10 +1001,10 @@ Note
 <div aria-describedby="fig-random-scatter-plots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-random-scatter-plots" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-random-scatter-plots-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-random-scatter-plots-1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Add brief alt text: [Chart type] of [type of data] where [reason for including].">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-random-scatter-plots-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="demo_files/figure-html/fig-random-scatter-plots-output-1.png" data-ref-parent="fig-random-scatter-plots" width="662" height="469" class="figure-img">
+<img src="demo_files/figure-html/fig-random-scatter-plots-output-1.png" data-ref-parent="fig-random-scatter-plots" alt="Add brief alt text: [Chart type] of [type of data] where [reason for including]." width="662" height="469" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-random-scatter-plots-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) This is the first plot.
@@ -1011,10 +1013,10 @@ Note
 </div>
 </div>
 <div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-random-scatter-plots" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-random-scatter-plots-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-random-scatter-plots-2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Second scatter plot of 10 random points showing uniform distribution with no correlation.">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-random-scatter-plots-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="demo_files/figure-html/fig-random-scatter-plots-output-2.png" data-ref-parent="fig-random-scatter-plots" width="662" height="469" class="figure-img">
+<img src="demo_files/figure-html/fig-random-scatter-plots-output-2.png" data-ref-parent="fig-random-scatter-plots" alt="Second scatter plot of 10 random points showing uniform distribution with no correlation." width="662" height="469" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-random-scatter-plots-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) This is the second.
@@ -1025,10 +1027,10 @@ Note
 </div>
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-random-scatter-plots" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-random-scatter-plots-3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-random-scatter-plots-3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Third scatter plot of 10 random points showing uniform distribution with no correlation.">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-random-scatter-plots-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="demo_files/figure-html/fig-random-scatter-plots-output-3.png" data-ref-parent="fig-random-scatter-plots" width="661" height="469" class="figure-img">
+<img src="demo_files/figure-html/fig-random-scatter-plots-output-3.png" data-ref-parent="fig-random-scatter-plots" alt="Third scatter plot of 10 random points showing uniform distribution with no correlation." width="661" height="469" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-random-scatter-plots-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) The third.
@@ -1037,10 +1039,10 @@ Note
 </div>
 </div>
 <div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-random-scatter-plots" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-random-scatter-plots-4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-random-scatter-plots-4" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Fourth scatter plot of 10 random points showing uniform distribution with no correlation.">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-random-scatter-plots-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="demo_files/figure-html/fig-random-scatter-plots-output-4.png" data-ref-parent="fig-random-scatter-plots" width="662" height="469" class="figure-img">
+<img src="demo_files/figure-html/fig-random-scatter-plots-output-4.png" data-ref-parent="fig-random-scatter-plots" alt="Fourth scatter plot of 10 random points showing uniform distribution with no correlation." width="662" height="469" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-random-scatter-plots-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (d) And finally, here’s the fourth.
@@ -1598,7 +1600,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><a href="https://www.arcadiascience.com/"><img src="assets/logo_white.png" class="img-fluid" alt="Arcadia-Science" width="65"></a> Copyright 2025, Arcadia Science</p>
+<p><a href="https://www.arcadiascience.com/"><img src="../assets/logo_white.png" class="img-fluid" alt="Arcadia-Science" width="65"></a> Copyright 2025, Arcadia Science</p>
 </div>   
     <div class="nav-footer-center">
 
