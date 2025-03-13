@@ -216,7 +216,18 @@ cookieconsent.run({
     // Function to load the YAML file
     async function loadAuthorData() {
       try {
-        const response = await fetch('/authors.yml');
+        // Get base URL from an existing resource we know works (navbar logo)
+        const navbarLogo = document.querySelector('.navbar-logo');
+        let baseUrl = '';
+
+        if (navbarLogo && navbarLogo.src) {
+          baseUrl = navbarLogo.src.substring(0, navbarLogo.src.lastIndexOf('/assets/'));
+        }
+
+        // Use the baseUrl to construct the path to authors.yml
+        const authorYamlPath = baseUrl + '/authors.yml';
+
+        const response = await fetch(authorYamlPath);
         const yamlText = await response.text();
         window.authorData = jsyaml.load(yamlText);
         initializeAuthors();
