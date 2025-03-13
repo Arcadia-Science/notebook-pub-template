@@ -143,8 +143,12 @@ cookieconsent.run({
     video.playsInline = true;
     video.loop = false;
     video.playbackRate = 1.0;
+
+    // Get base URL from an existing resource we know works
+    const baseUrl = logoImg.src.substring(0, logoImg.src.lastIndexOf('/assets/'));
+
     const source = document.createElement("source");
-    source.src = "../../assets/logo_movie.mp4";
+    source.src = baseUrl + "/assets/logo_movie.mp4";
     source.type = "video/mp4";
     video.appendChild(source);
 
@@ -212,7 +216,7 @@ cookieconsent.run({
     // Function to load the YAML file
     async function loadAuthorData() {
       try {
-        const response = await fetch('../../authors.yml');
+        const response = await fetch('/authors.yml');
         const yamlText = await response.text();
         window.authorData = jsyaml.load(yamlText);
         initializeAuthors();
@@ -313,7 +317,7 @@ cookieconsent.run({
     <div class="mini-title-content">
       <div class="mini-title-logo-wrapper">
         <a href="https://research.arcadiascience.com/">
-          <img src="../../assets/logo_white.png" alt="Logo">
+          <img class="logo-white" src="" alt="Logo">
         </a>
       </div>
       <p></p>
@@ -330,6 +334,14 @@ cookieconsent.run({
     const abstract = document.querySelector('.abstract');
     const navbar = document.querySelector('#quarto-header');
     let prevRatio = {appear: 1, disappear: 1};
+
+    // Get base URL from an existing resource we know works (navbar logo)
+    const navbarLogo = document.querySelector('.navbar-logo');
+    if (navbarLogo) {
+      const baseUrl = navbarLogo.src.substring(0, navbarLogo.src.lastIndexOf('/assets/'));
+      const logoPath = baseUrl + '/assets/logo_white.png';
+      template.content.querySelector('.logo-white').src = logoPath;
+    }
 
     if (template && titleBanner && abstract && navbar) {
       // Add the mini title to the document body

@@ -3,7 +3,7 @@
     <div class="mini-title-content">
       <div class="mini-title-logo-wrapper">
         <a href="https://research.arcadiascience.com/">
-          <img src="../../assets/logo_white.png" alt="Logo">
+          <img class="logo-white" src="" alt="Logo">
         </a>
       </div>
       <p></p>
@@ -20,6 +20,14 @@
     const abstract = document.querySelector('.abstract');
     const navbar = document.querySelector('#quarto-header');
     let prevRatio = {appear: 1, disappear: 1};
+
+    // Get base URL from an existing resource we know works (navbar logo)
+    const navbarLogo = document.querySelector('.navbar-logo');
+    if (navbarLogo) {
+      const baseUrl = navbarLogo.src.substring(0, navbarLogo.src.lastIndexOf('/assets/'));
+      const logoPath = baseUrl + '/assets/logo_white.png';
+      template.content.querySelector('.logo-white').src = logoPath;
+    }
 
     if (template && titleBanner && abstract && navbar) {
       // Add the mini title to the document body
