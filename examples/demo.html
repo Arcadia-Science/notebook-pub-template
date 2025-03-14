@@ -240,13 +240,26 @@ require(['plotly'], function(Plotly) {
 </template>
 
 <script>
-  require.config({
-    paths: {
-      'js-yaml': 'https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min'
-    }
-  });
+  // First, load RequireJS if it's not already loaded
+  if (typeof require === 'undefined') {
+    const requireScript = document.createElement('script');
+    requireScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js';
+    requireScript.onload = function() {
+      initAuthorReveal();
+    };
+    document.head.appendChild(requireScript);
+  } else {
+    initAuthorReveal();
+  }
 
-  require(['js-yaml'], function (jsyaml) {
+  function initAuthorReveal() {
+    require.config({
+      paths: {
+        'js-yaml': 'https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min'
+      }
+    });
+
+    require(['js-yaml'], function (jsyaml) {
     // Function to get last name from full name
     function getLastName(fullName) {
       const nameParts = fullName.trim().split(' ');
@@ -268,6 +281,10 @@ require(['plotly'], function(Plotly) {
         const authorYamlPath = baseUrl + '/authors.yml';
 
         const response = await fetch(authorYamlPath);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const yamlText = await response.text();
         window.authorData = jsyaml.load(yamlText);
         initializeAuthors();
@@ -279,10 +296,15 @@ require(['plotly'], function(Plotly) {
     function initializeAuthors() {
       // Find the quarto-title-meta div
       const titleMeta = document.querySelector('.quarto-title-meta');
-      if (!titleMeta) return;
+      if (!titleMeta) {
+        return;
+      }
 
       // Get template content
       const template = document.getElementById('authors-template');
+      if (!template) {
+        return;
+      }
       const authorsSection = template.content.cloneNode(true);
 
       // Get the authors content div from the cloned template
@@ -343,6 +365,10 @@ require(['plotly'], function(Plotly) {
       const toggle = document.querySelector('.authors-toggle');
       const content = document.querySelector('.authors-content');
 
+      if (!toggle || !content) {
+        return;
+      }
+
       toggle.addEventListener('click', () => {
         const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
         toggle.setAttribute('aria-expanded', !isExpanded);
@@ -361,7 +387,8 @@ require(['plotly'], function(Plotly) {
     } else {
       loadAuthorData();
     }
-  });
+    });
+  }
 </script>
 <template id="mini-title-template">
   <div class="mini-title page-columns page-full">
@@ -616,6 +643,10 @@ window.Quarto = {
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text"><iconify-icon role="img" inline="" icon="nrk:back" aria-label="Icon back from nrk Iconify.design set." title="Icon back from nrk Iconify.design set."></iconify-icon> Back to Pub</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../examples/demo.html" aria-current="page"> 
+<span class="menu-text">Demo</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
