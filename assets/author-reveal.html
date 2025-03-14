@@ -10,18 +10,9 @@
   </div>
 </template>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
 <script>
-  // First, load RequireJS if it's not already loaded
-  if (typeof require === 'undefined') {
-    const requireScript = document.createElement('script');
-    requireScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js';
-    requireScript.onload = function () {
-      initAuthorReveal();
-    };
-    document.head.appendChild(requireScript);
-  } else {
-    initAuthorReveal();
-  }
+  initAuthorReveal();
 
   function initAuthorReveal() {
     require.config({
