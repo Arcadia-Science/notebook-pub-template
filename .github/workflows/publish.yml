@@ -3,13 +3,19 @@
 
 on:
   workflow_dispatch:
-  push:
-    branches: publish
+  pull_request:
+    types:
+      # Only run when a PR is closed (which includes merges).
+      - closed
+    branches:
+      - publish
 
 name: Quarto Publish
 
 jobs:
   publish:
+    # Run when the workflow is manually triggered or when a PR is merged.
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     permissions:
       contents: write
