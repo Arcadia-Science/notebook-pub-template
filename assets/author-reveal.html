@@ -31,17 +31,7 @@
       // Function to load the YAML file
       async function loadAuthorData() {
         try {
-          // Get base URL from an existing resource we know works (navbar logo)
-          const navbarLogo = document.querySelector('.navbar-logo');
-          let baseUrl = '';
-
-          if (navbarLogo && navbarLogo.src) {
-            baseUrl = navbarLogo.src.substring(0, navbarLogo.src.lastIndexOf('/assets/'));
-          }
-
-          // Use the baseUrl to construct the path to authors.yml
-          const authorYamlPath = baseUrl + '/authors.yml';
-
+          const authorYamlPath = '/authors.yml';
           const response = await fetch(authorYamlPath);
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
