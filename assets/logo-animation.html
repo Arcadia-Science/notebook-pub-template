@@ -14,10 +14,7 @@
     const source = document.createElement("source");
     // Github Pages sites are served from a path like `https://arcadia-science.github.io/<repo>/`
     // so we need to add the repo name to the path when we're on Github Pages.
-    let siteRoot = '/';
-    if (window.location.hostname.endsWith('github.io')) {
-      siteRoot += window.location.pathname.split('/')[1];
-    }
+    const siteRoot = (window.location.hostname.endsWith('github.io')) ? `/${window.location.pathname.split('/')[1]}` : '';
     source.src = `${siteRoot}/assets/logo_movie.mp4`;
     source.type = "video/mp4";
     video.appendChild(source);
