@@ -47,4 +47,3 @@
 7. **Publishing**
 
     See the [Publishing Guide](developer-docs/PUBLISHING_GUIDE.md) for complete instructions on the publishing process.
-
