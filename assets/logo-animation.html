@@ -11,11 +11,11 @@
     video.loop = false;
     video.playbackRate = 1.0;
 
-    // Get base URL from an existing resource we know works
-    const baseUrl = logoImg.src.substring(0, logoImg.src.lastIndexOf('/assets/'));
-
     const source = document.createElement("source");
-    source.src = baseUrl + "/assets/logo_movie.mp4";
+    // Github Pages sites are served from a path like `https://arcadia-science.github.io/<repo>/`
+    // so we need to add the repo name to the path when we're on Github Pages.
+    const siteRoot = (window.location.hostname.endsWith('github.io')) ? `/${window.location.pathname.split('/')[1]}` : '';
+    source.src = `${siteRoot}/assets/logo_movie.mp4`;
     source.type = "video/mp4";
     video.appendChild(source);
 

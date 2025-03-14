@@ -57,25 +57,17 @@ make execute
 
 (Make sure you're in the conda environment you created above)
 
-This will execute and render the notebook `index.ipynb`, then build the publication site HTML, generating the directory `_site/`. Open `_site/index.html` to view your local copy of the publication.
-
-## Modify
-
-To modify or extend any analyses, open up `index.ipynb` with Jupyter or your favorite IDE:
-
-```bash
-jupyter-lab index.ipynb
-```
-
-## Preview
-
-To create a live preview of your pub, run the following:
+This will execute and render the notebook `index.ipynb`, then build the publication site. To preview the site, use
 
 ```bash
 make preview
 ```
 
-This will open a local copy of the publication in your default browser. The command watches for changes such that whenever `index.ipynb` is saved, the publication is re-rendered.
+This will open a local instance of the publication in your default browser.
+
+## Modify
+
+To modify or extend any analyses, open up `index.ipynb` with Jupyter or your favorite IDE. To preview changes as you modify the notebook, run `make preview` again and leave the command running. As you make changes to the notebook, the preview site will automatically reload.
 
 ## Publish
 
