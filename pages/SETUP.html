@@ -144,11 +144,8 @@ cookieconsent.run({
     video.loop = false;
     video.playbackRate = 1.0;
 
-    // Get base URL from an existing resource we know works
-    const baseUrl = logoImg.src.substring(0, logoImg.src.lastIndexOf('/assets/'));
-
     const source = document.createElement("source");
-    source.src = baseUrl + "/assets/logo_movie.mp4";
+    source.src = "/assets/logo_movie.mp4";
     source.type = "video/mp4";
     video.appendChild(source);
 
@@ -220,17 +217,7 @@ cookieconsent.run({
       // Function to load the YAML file
       async function loadAuthorData() {
         try {
-          // Get base URL from an existing resource we know works (navbar logo)
-          const navbarLogo = document.querySelector('.navbar-logo');
-          let baseUrl = '';
-
-          if (navbarLogo && navbarLogo.src) {
-            baseUrl = navbarLogo.src.substring(0, navbarLogo.src.lastIndexOf('/assets/'));
-          }
-
-          // Use the baseUrl to construct the path to authors.yml
-          const authorYamlPath = baseUrl + '/authors.yml';
-
+          const authorYamlPath = '/authors.yml';
           const response = await fetch(authorYamlPath);
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -346,7 +333,7 @@ cookieconsent.run({
     <div class="mini-title-content">
       <div class="mini-title-logo-wrapper">
         <a href="https://research.arcadiascience.com/">
-          <img class="logo-white" src="" alt="Logo">
+          <img class="logo-white" src="/assets/logo_white.png" alt="Logo">
         </a>
       </div>
       <p></p>
@@ -363,14 +350,6 @@ cookieconsent.run({
     const abstract = document.querySelector('.abstract');
     const navbar = document.querySelector('#quarto-header');
     let prevRatio = {appear: 1, disappear: 1};
-
-    // Get base URL from an existing resource we know works (navbar logo)
-    const navbarLogo = document.querySelector('.navbar-logo');
-    if (navbarLogo) {
-      const baseUrl = navbarLogo.src.substring(0, navbarLogo.src.lastIndexOf('/assets/'));
-      const logoPath = baseUrl + '/assets/logo_white.png';
-      template.content.querySelector('.logo-white').src = logoPath;
-    }
 
     if (template && titleBanner && abstract && navbar) {
       // Add the mini title to the document body
@@ -598,7 +577,6 @@ cookieconsent.run({
   <ul class="collapse">
   <li><a href="#reproduce" id="toc-reproduce" class="nav-link" data-scroll-target="#reproduce">Reproduce</a></li>
   <li><a href="#modify" id="toc-modify" class="nav-link" data-scroll-target="#modify">Modify</a></li>
-  <li><a href="#preview" id="toc-preview" class="nav-link" data-scroll-target="#preview">Preview</a></li>
   <li><a href="#publish" id="toc-publish" class="nav-link" data-scroll-target="#publish">Publish</a></li>
   </ul></li>
   </ul>
@@ -652,18 +630,13 @@ Important
 <p>The best way to ensure you’ve correctly set up your code and compute environment is to reproduce this work. Fortunately, the analysis, and therefore the publication itself, can be reproduced with the following command:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> execute</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(Make sure you’re in the conda environment you created above)</p>
-<p>This will execute and render the notebook <code>index.ipynb</code>, then build the publication site HTML, generating the directory <code>_site/</code>. Open <code>_site/index.html</code> to view your local copy of the publication.</p>
+<p>This will execute and render the notebook <code>index.ipynb</code>, then build the publication site. To preview the site, use</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will open a local instance of the publication in your default browser.</p>
 </section>
 <section id="modify" class="level2">
 <h2 class="anchored" data-anchor-id="modify">Modify</h2>
-<p>To modify or extend any analyses, open up <code>index.ipynb</code> with Jupyter or your favorite IDE:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter-lab</span> index.ipynb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="preview" class="level2">
-<h2 class="anchored" data-anchor-id="preview">Preview</h2>
-<p>To create a live preview of your pub, run the following:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This will open a local copy of the publication in your default browser. The command watches for changes such that whenever <code>index.ipynb</code> is saved, the publication is re-rendered.</p>
+<p>To modify or extend any analyses, open up <code>index.ipynb</code> with Jupyter or your favorite IDE. To preview changes as you modify the notebook, run <code>make preview</code> again and leave the command running. As you make changes to the notebook, the preview site will automatically reload.</p>
 </section>
 <section id="publish" class="level2">
 <h2 class="anchored" data-anchor-id="publish">Publish</h2>

@@ -46,21 +46,14 @@
     "href": "pages/SETUP.html#reproduce",
     "title": "Setup",
     "section": "Reproduce",
-    "text": "Reproduce\nThe best way to ensure you’ve correctly set up your code and compute environment is to reproduce this work. Fortunately, the analysis, and therefore the publication itself, can be reproduced with the following command:\nmake execute\n(Make sure you’re in the conda environment you created above)\nThis will execute and render the notebook index.ipynb, then build the publication site HTML, generating the directory _site/. Open _site/index.html to view your local copy of the publication."
+    "text": "Reproduce\nThe best way to ensure you’ve correctly set up your code and compute environment is to reproduce this work. Fortunately, the analysis, and therefore the publication itself, can be reproduced with the following command:\nmake execute\n(Make sure you’re in the conda environment you created above)\nThis will execute and render the notebook index.ipynb, then build the publication site. To preview the site, use\nmake preview\nThis will open a local instance of the publication in your default browser."
   },
   {
     "objectID": "pages/SETUP.html#modify",
     "href": "pages/SETUP.html#modify",
     "title": "Setup",
     "section": "Modify",
-    "text": "Modify\nTo modify or extend any analyses, open up index.ipynb with Jupyter or your favorite IDE:\njupyter-lab index.ipynb"
-  },
-  {
-    "objectID": "pages/SETUP.html#preview",
-    "href": "pages/SETUP.html#preview",
-    "title": "Setup",
-    "section": "Preview",
-    "text": "Preview\nTo create a live preview of your pub, run the following:\nmake preview\nThis will open a local copy of the publication in your default browser. The command watches for changes such that whenever index.ipynb is saved, the publication is re-rendered."
+    "text": "Modify\nTo modify or extend any analyses, open up index.ipynb with Jupyter or your favorite IDE. To preview changes as you modify the notebook, run make preview again and leave the command running. As you make changes to the notebook, the preview site will automatically reload."
   },
   {
     "objectID": "pages/SETUP.html#publish",
