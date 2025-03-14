@@ -111,7 +111,10 @@ cookieconsent.run({
     video.playbackRate = 1.0;
 
     const source = document.createElement("source");
-    source.src = "/assets/logo_movie.mp4";
+    // Github Pages sites are served from a path like `https://arcadia-science.github.io/<repo>/`
+    // so we need to add the repo name to the path when we're on Github Pages.
+    const siteRoot = (window.location.hostname.endsWith('github.io')) ? `/${window.location.pathname.split('/')[1]}` : '';
+    source.src = `${siteRoot}/assets/logo_movie.mp4`;
     source.type = "video/mp4";
     video.appendChild(source);
 
@@ -183,7 +186,10 @@ cookieconsent.run({
       // Function to load the YAML file
       async function loadAuthorData() {
         try {
-          const authorYamlPath = '/authors.yml';
+          // Github Pages sites are served from a path like `https://arcadia-science.github.io/<repo>/`
+          // so we need to add the repo name to the path when we're on Github Pages.
+          const siteRoot = (window.location.hostname.endsWith('github.io')) ? `/${window.location.pathname.split('/')[1]}` : '';
+          const authorYamlPath = `${siteRoot}/authors.yml`;
           const response = await fetch(authorYamlPath);
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -315,6 +321,12 @@ cookieconsent.run({
     const titleBanner = document.querySelector('.quarto-title-banner');
     const abstract = document.querySelector('.abstract');
     const navbar = document.querySelector('#quarto-header');
+
+    // Github Pages sites are served from a path like `https://arcadia-science.github.io/<repo>/`
+    // so we need to add the repo name to the path when we're on Github Pages.
+    const siteRoot = (window.location.hostname.endsWith('github.io')) ? `/${window.location.pathname.split('/')[1]}` : '';
+    template.content.querySelector('.logo-white').src = `${siteRoot}/assets/logo_white.png`;
+
     let prevRatio = {appear: 1, disappear: 1};
 
     if (template && titleBanner && abstract && navbar) {

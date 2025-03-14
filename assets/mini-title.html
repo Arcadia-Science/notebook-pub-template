@@ -19,6 +19,12 @@
     const titleBanner = document.querySelector('.quarto-title-banner');
     const abstract = document.querySelector('.abstract');
     const navbar = document.querySelector('#quarto-header');
+
+    // Github Pages sites are served from a path like `https://arcadia-science.github.io/<repo>/`
+    // so we need to add the repo name to the path when we're on Github Pages.
+    const siteRoot = (window.location.hostname.endsWith('github.io')) ? `/${window.location.pathname.split('/')[1]}` : '';
+    template.content.querySelector('.logo-white').src = `${siteRoot}/assets/logo_white.png`;
+
     let prevRatio = {appear: 1, disappear: 1};
 
     if (template && titleBanner && abstract && navbar) {
