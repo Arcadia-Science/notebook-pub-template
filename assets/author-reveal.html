@@ -11,13 +11,26 @@
 </template>
 
 <script>
-  require.config({
-    paths: {
-      'js-yaml': 'https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min'
-    }
-  });
+  // First, load RequireJS if it's not already loaded
+  if (typeof require === 'undefined') {
+    const requireScript = document.createElement('script');
+    requireScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js';
+    requireScript.onload = function() {
+      initAuthorReveal();
+    };
+    document.head.appendChild(requireScript);
+  } else {
+    initAuthorReveal();
+  }
 
-  require(['js-yaml'], function (jsyaml) {
+  function initAuthorReveal() {
+    require.config({
+      paths: {
+        'js-yaml': 'https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min'
+      }
+    });
+
+    require(['js-yaml'], function (jsyaml) {
     // Function to get last name from full name
     function getLastName(fullName) {
       const nameParts = fullName.trim().split(' ');
@@ -39,6 +52,10 @@
         const authorYamlPath = baseUrl + '/authors.yml';
 
         const response = await fetch(authorYamlPath);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const yamlText = await response.text();
         window.authorData = jsyaml.load(yamlText);
         initializeAuthors();
@@ -50,10 +67,15 @@
     function initializeAuthors() {
       // Find the quarto-title-meta div
       const titleMeta = document.querySelector('.quarto-title-meta');
-      if (!titleMeta) return;
+      if (!titleMeta) {
+        return;
+      }
 
       // Get template content
       const template = document.getElementById('authors-template');
+      if (!template) {
+        return;
+      }
       const authorsSection = template.content.cloneNode(true);
 
       // Get the authors content div from the cloned template
@@ -114,6 +136,10 @@
       const toggle = document.querySelector('.authors-toggle');
       const content = document.querySelector('.authors-content');
 
+      if (!toggle || !content) {
+        return;
+      }
+
       toggle.addEventListener('click', () => {
         const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
         toggle.setAttribute('aria-expanded', !isExpanded);
@@ -132,5 +158,6 @@
     } else {
       loadAuthorData();
     }
-  });
+    });
+  }
 </script>
