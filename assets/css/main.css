@@ -9,55 +9,59 @@
 @import url("./grid.css");
 
 @font-face {
-  font-family: "SuisseIntl-Italic";
-  src: url("https://www.arcadiascience.com/fonts/SuisseIntl-Italic.woff2")
-    format("woff2");
-}
-
-@font-face {
   font-family: "SuisseIntl-Regular";
   src: url("https://www.arcadiascience.com/fonts/SuisseIntl-Regular.woff2")
-    format("woff2");
+      format("woff2"),
+    local("Helvetica Neue");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
   font-family: "SuisseIntl-Thin";
   src: url("https://www.arcadiascience.com/fonts/SuisseIntl-Thin.woff2")
-    format("woff2");
+      format("woff2"),
+    local("Helvetica Neue Light");
+  font-weight: 100;
+  font-style: normal;
 }
 
 @font-face {
   font-family: "SuisseIntl-ThinItalic";
   src: url("https://www.arcadiascience.com/fonts/SuisseIntl-ThinItalic.woff2")
-    format("woff2");
-}
-
-@font-face {
-  font-family: "SuisseIntlMono";
-  src: url("https://www.arcadiascience.com/fonts/SuisseIntlMono.woff2")
-    format("woff2");
+      format("woff2"),
+    local("Helvetica Neue Light Italic");
+  font-weight: 100;
+  font-style: italic;
 }
 
 @font-face {
   font-family: "SuisseWorks-Italic";
   src: url("https://www.arcadiascience.com/fonts/SuisseWorks-Italic.woff2")
-    format("woff2");
+      format("woff2"),
+    local("Georgia");
+  font-weight: normal;
+  font-style: italic;
 }
 
 @font-face {
   font-family: "SuisseWorks";
   src: url("https://www.arcadiascience.com/fonts/SuisseWorks.woff2")
-    format("woff2");
+      format("woff2"),
+    local("Georgia");
+  font-weight: normal;
+  font-style: normal;
 }
 
 :root {
-  --nb-header-font-family: "SuisseWorks";
+  --nb-header-font-family: "SuisseWorks", Georgia, serif;
   --nb-header-font-weight: 100;
   --nb-h1-font-size: 2.5rem;
   --nb-h2-font-size: 2rem;
   --nb-toc-title-font-size: 1.2rem;
-  --nb-main-text-font-family: "SuisseIntl";
-  --nb-banner-title-font-family: "SuisseIntl";
+  --nb-main-text-font-family: "SuisseIntl", "Helvetica Neue", Arial, sans-serif;
+  --nb-banner-title-font-family: "SuisseIntl-Thin", "Helvetica Neue Light",
+    Arial, sans-serif;
   --bs-code-color: var(--arcadia-dusk);
   --bs-code-bg-color: #f6f6f6;
   --bs-code-border-color: #e6e6e6;
