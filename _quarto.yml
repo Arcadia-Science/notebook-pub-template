@@ -8,6 +8,7 @@ project:
   resources:
   - assets/*
   - authors.yml
+  - CITATION.cff
 execute:
   freeze: auto
 website:
@@ -32,6 +33,8 @@ website:
       href: pages/FAQ.qmd
     - text: Reproduce this pub
       href: pages/SETUP.qmd
+    - text: Cite this pub
+      href: "#"
     - text: Contribute
       href: pages/CONTRIBUTING.qmd
     tools:
@@ -67,7 +70,10 @@ format:
     - file: assets/author-reveal.html
     - file: assets/mini-title.html
     - file: assets/version-in-title.html
-    css: assets/css/main.css
+    - file: assets/citation-box.html
+    css: 
+    - assets/css/main.css
+    - assets/css/citation-box.css
     page-layout: article
     title-block-banner: true
     toc: true
