@@ -11,8 +11,7 @@
 @font-face {
   font-family: "SuisseIntl-Regular";
   src: url("https://www.arcadiascience.com/fonts/SuisseIntl-Regular.woff2")
-      format("woff2"),
-    local("Helvetica Neue");
+    format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -20,8 +19,7 @@
 @font-face {
   font-family: "SuisseIntl-Thin";
   src: url("https://www.arcadiascience.com/fonts/SuisseIntl-Thin.woff2")
-      format("woff2"),
-    local("Helvetica Neue Light");
+    format("woff2");
   font-weight: 100;
   font-style: normal;
 }
@@ -29,8 +27,7 @@
 @font-face {
   font-family: "SuisseIntl-ThinItalic";
   src: url("https://www.arcadiascience.com/fonts/SuisseIntl-ThinItalic.woff2")
-      format("woff2"),
-    local("Helvetica Neue Light Italic");
+    format("woff2");
   font-weight: 100;
   font-style: italic;
 }
@@ -38,8 +35,7 @@
 @font-face {
   font-family: "SuisseWorks-Italic";
   src: url("https://www.arcadiascience.com/fonts/SuisseWorks-Italic.woff2")
-      format("woff2"),
-    local("Georgia");
+    format("woff2");
   font-weight: normal;
   font-style: italic;
 }
@@ -47,8 +43,7 @@
 @font-face {
   font-family: "SuisseWorks";
   src: url("https://www.arcadiascience.com/fonts/SuisseWorks.woff2")
-      format("woff2"),
-    local("Georgia");
+    format("woff2");
   font-weight: normal;
   font-style: normal;
 }
