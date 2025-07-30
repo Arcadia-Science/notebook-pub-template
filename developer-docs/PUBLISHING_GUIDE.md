@@ -9,10 +9,11 @@ Instructions are provided for:
 
 ## Steps for initial publication
 
-1. **Enable read/write permissions for GitHub Actions**
+1. **Configure GitHub Actions and GitHub Pages settings**
 
     * In your repo, go to *Settings* -> *Actions* -> *General* -> *Workflow permissions*, and check the box, "*Read and write permissions*".
     * In your repo, go to *Settings* -> *Actions* -> *General* -> *Workflow permissions*, and check the box, "*Allow GitHub Actions to create and approve pull requests*".
+    * In your repo, go to *Settings* -> *Pages* and select the *Deploy from a branch* option. Then select the `gh-pages` branch and click save.
 
 1. **Populate the publication information in the `README.md`**
 
