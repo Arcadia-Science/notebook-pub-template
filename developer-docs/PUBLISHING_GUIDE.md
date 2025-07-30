@@ -11,7 +11,8 @@ Instructions are provided for:
 
 1. **Enable read/write permissions for GitHub Actions**
 
-    In your repo, go to *Settings* -> *Actions* -> *General* -> *Workflow permissions*, and check the box, "*Read and write permissions*".
+    * In your repo, go to *Settings* -> *Actions* -> *General* -> *Workflow permissions*, and check the box, "*Read and write permissions*".
+    * In your repo, go to *Settings* -> *Actions* -> *General* -> *Workflow permissions*, and check the box, "*Allow GitHub Actions to create and approve pull requests*".
 
 1. **Populate the publication information in the `README.md`**
 
