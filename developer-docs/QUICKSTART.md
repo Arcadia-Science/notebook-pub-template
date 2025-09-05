@@ -19,11 +19,11 @@
 
 4. **Set up your environment**
 
-    See the [Environment Setup Guide](developer-docs/ENVIRONMENT_SETUP.md) for complete instructions.
+    See the [Environment Setup Guide](ENVIRONMENT_SETUP.md) for complete instructions.
 
 5. **Register your publication**
 
-    If you intend to publish your analysis, fill out the "*Kick off a new pub*" form on the AirTable [Publishing toolkit](https://www.notion.so/arcadiascience/Publishing-2-0-f0c51bf29d1d4356a86e6cf8a72ae88b?pvs=4#e1de83e8dd2a4081904064347779ed25).
+    If you intend to publish your analysis, fill out the "*Kick off a new pub*" form on the AirTable [Publishing toolkit](https://airtable.com/appN7KQ55bT6HHfog/pagm69ti1kZK1GhBx).
 
 6. **Create your publication**
 
@@ -46,4 +46,4 @@
 
 7. **Publishing**
 
-    See the [Publishing Guide](developer-docs/PUBLISHING_GUIDE.md) for complete instructions on the publishing process.
+    See the [Publishing Guide](PUBLISHING_GUIDE.md) for complete instructions on the publishing process.
