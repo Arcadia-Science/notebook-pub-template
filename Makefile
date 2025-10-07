@@ -32,4 +32,6 @@ preview:
 
 .PHONY: execute-demo
 execute-demo:
+	# This command is only necessary when changes are made to the demo notebook
+	# for development of the notebook pub template.
 	quarto render examples/demo.ipynb --execute
