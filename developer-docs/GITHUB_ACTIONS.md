@@ -11,7 +11,7 @@ The publishing workflow described in the [Publishing Guide](PUBLISHING_GUIDE.md)
     This workflow creates the publication artifacts by aggregating all tagged versions of the `index.ipynb` notebook.
 
 2. **A publishing workflow** (`.github/workflows/publish.yml`)
-    
+
     This workflow renders the Quarto site from the publication artifacts and publishes the site to GitHub Pages.
 
 ## The version aggregation problem
@@ -50,4 +50,3 @@ The full development and publication process is described briefly below to help 
 3. **Building the publication**: When the author pushes a new tag, the build workflow is triggered. It aggregates all tagged notebook versions and opens a PR to merge them into a special `publish` branch. The author can then review this PR and merge it into `publish` when they are ready to publish the publication.
 
 4. **Publishing the publication**: When the author merges the build PR into `publish`, the `publish` workflow is triggered. It renders all of the versions and deploys the Quarto site to GitHub Pages.
-
