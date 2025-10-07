@@ -18,14 +18,18 @@ test:
 
 .PHONY: execute
 execute:
-	# Project-wide render without executing code cells. Instead, rely on
-	# pre-computed results present in _freeze/
+	# Project-wide render without executing code cells.
+	# Instead, rely on pre-computed results present in `_freeze/`.
 	quarto render
 
-	# Now, render `index.ipynb`, with code execution. This will populate
-	# _freeze/index/ with pre-computed results.
+	# Now, render `index.ipynb` with code execution.
+	# This will populate `_freeze/index/` with pre-computed results.
 	quarto render index.ipynb --execute
 
 .PHONY: preview
 preview:
 	quarto preview
+
+.PHONY: execute-demo
+execute-demo:
+	quarto render examples/demo.ipynb --execute
