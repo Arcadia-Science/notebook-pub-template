@@ -27,8 +27,8 @@ The publication is hosted at [this URL]([PUB-URL]).
 
 ## Reproduce
 
-Please see [SETUP.qmd](SETUP.qmd).
+Please see [SETUP.qmd](pages/SETUP.qmd).
 
 ## Contribute
 
-Please see [CONTRIBUTING.qmd](CONTRIBUTING.qmd).
+Please see [CONTRIBUTING.qmd](pages/CONTRIBUTING.qmd).
