@@ -42,7 +42,7 @@ website:
       href: https://twitter.com/arcadiascience
     - icon: github
       href: https://github.com/{{< var pub.org >}}/{{< var pub.repo >}}
-    logo: assets/logo_text.png
+    logo: "assets/logo_text.png"
     logo-href: https://research.arcadiascience.com/
     background: white
     search: true
@@ -63,30 +63,18 @@ website:
   cookie-consent:
     type: implied
     style: simple
-format:
-  html:
-    include-in-header:
-    - file: assets/logo-animation.html
-    - file: assets/author-reveal.html
-    - file: assets/mini-title.html
-    - file: assets/version-in-title.html
-    - file: assets/citation-box.html
-    css:
-    - assets/css/main.css
-    - assets/css/citation-box.css
-    page-layout: article
-    title-block-banner: true
-    toc: true
-    toc-expand: 2
+format: arcadia-science/arcadia-pub-theme-html
+shortcodes:
+- _extensions/mcanouil/iconify/iconify.lua
+filters:
+- _extensions/pandoc-ext/abstract-section/abstract-section.lua
 comments:
   giscus:
     repo: Arcadia-Science/notebook-pub-template
     input-position: top
 reference-location: margin
 bibliography: ref.bib
-csl: assets/arcadia.csl
+csl: "_extensions/arcadia-science/arcadia-pub-theme/assets/arcadia.csl"
 code-annotations: hover
 html-table-processing: none
-filters:
-- abstract-section
 demo-title: A brief syntax demo
