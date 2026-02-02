@@ -11,7 +11,7 @@ project:
 execute:
   freeze: auto
 website:
-  favicon: "_extensions/arcadia-science/arcadia-pub-theme/assets/logo_white.png"
+  favicon: "_extensions/Arcadia-Science/arcadia-pub-theme/assets/logo_white.png"
   twitter-card: true
   open-graph: true
   navbar:
@@ -41,14 +41,14 @@ website:
       href: https://twitter.com/arcadiascience
     - icon: github
       href: https://github.com/{{< var pub.org >}}/{{< var pub.repo >}}
-    logo: "_extensions/arcadia-science/arcadia-pub-theme/assets/logo_text.png"
+    logo: "_extensions/Arcadia-Science/arcadia-pub-theme/assets/logo_text.png"
     logo-href: https://research.arcadiascience.com/
     background: white
     search: true
   page-footer:
     background: '#484B50'
     border: false
-    left: '[![](/_extensions/arcadia-science/arcadia-pub-theme/assets/logo_white.png){fig-alt="Arcadia-Science" width=65px}](https://www.arcadiascience.com/)
+    left: '[![](/_extensions/Arcadia-Science/arcadia-pub-theme/assets/logo_white.png){fig-alt="Arcadia-Science" width=65px}](https://www.arcadiascience.com/)
 
       Copyright 2025, Arcadia Science
 
@@ -62,7 +62,7 @@ website:
   cookie-consent:
     type: implied
     style: simple
-format: arcadia-science/arcadia-pub-theme-html
+format: Arcadia-Science/arcadia-pub-theme-html
 shortcodes:
 - _extensions/mcanouil/iconify/iconify.lua
 filters:
@@ -73,7 +73,7 @@ comments:
     input-position: top
 reference-location: margin
 bibliography: ref.bib
-csl: "_extensions/arcadia-science/arcadia-pub-theme/assets/arcadia.csl"
+csl: "_extensions/Arcadia-Science/arcadia-pub-theme/assets/arcadia.csl"
 code-annotations: hover
 html-table-processing: none
 demo-title: A brief syntax demo
