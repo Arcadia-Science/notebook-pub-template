@@ -12,10 +12,9 @@ If you're **using this template** to create a publication:
   - `env.yml` - Dependencies for your publication
 
 - **Leave these files alone**:
-  - `_extensions/` - Quarto extensions
+  - `_extensions/` - Quarto extensions (including the theme)
   - `_freeze/` - Generated execution results
   - `_site/` - Generated website files
-  - `assets/` - Template styling
 
 That's it! Focus on creating great content in your notebook and let the template handle the rest.
 
@@ -32,7 +31,6 @@ notebook-pub-template/
 ├── _freeze/           # Generated output (don't edit)
 ├── _extensions/       # Quarto extensions (don't edit)
 ├── _site/             # Generated website (don't edit)
-├── assets/            # Template styling (rarely edit)
 └── pyproject.toml     # Python configuration (rarely edit)
 ```
 
@@ -50,16 +48,13 @@ notebook-pub-template/
 
 - **`env.yml`**: Defines the Conda environment for the publication.
 
-### Vendored Files
+### Extensions
 
-These files should not edited.
+The `_extensions/` directory contains Quarto extensions. These should not be edited directly. Most important is **`arcadia-science/arcadia-pub-theme/`**, our publication theme. It provides all CSS styling, interactive components (sticky header, author reveal, citation modal), and assets like the citation style file. This extension is maintained in the [notebook-pub-theme](https://github.com/Arcadia-Science/notebook-pub-theme) repository.
 
-- **`_extensions/`**: Contains Quarto extensions that provide special functionality:
-  - `mcanouil/iconify/`: Icon rendering
-  - `pandoc-ext/abstract-section/`: Used to nicely render the "Summary" in the top markdown cell of the notebook.
-  - `quarto-ext/fontawesome/`: Font icons
+To update the Arcadia theme, see [notebook-pub-theme](https://github.com/Arcadia-Science/notebook-pub-theme) for detailed instructions.
 
-- **`assets/arcadia.csl`**: This is a custom citation style file built for Arcadia. The details and motivation for this format can be found on [this Notion page](https://www.notion.so/arcadiascience/Changing-citation-styles-on-PubPub-4ad8a40c600f4375b4ffcf1edc77f9a8#4ad8a40c600f4375b4ffcf1edc77f9a8).
+To update/add any of the other extensions, use [`quarto add`](https://quarto.org/docs/extensions/managing.html).
 
 ### Generated Files
 
@@ -73,16 +68,21 @@ These files are generated and should not be edited directly.
 
 - **`_quarto.yml`**: Controls the rendering process and website structure. Only edit when specifically instructed.
 
-- **`assets/css/`**: Stylesheet files that control the publication appearance.
-
 ## How It All Works Together
 
 1. **Content Creation**: Authors edit `index.ipynb` with their analysis and narrative
 2. **Rendering**: Quarto converts notebooks to HTML using configurations in `_quarto.yml`
-3. **Styling**: CSS and HTML snippets in `assets/` apply custom styling to the publication
+3. **Styling**: The arcadia-pub-theme extension provides CSS, interactive components, and brand assets
 4. **Output**: Final website is built in `_site/` and execution cache in `_freeze/`
 5. **Publishing**: GitHub Actions automate the publication process when merged to the `publish` branch
 
+## Theme/Styling
+
+Any style changes should be made in the notebook-pub-theme repo and added into this repo using Quarto's extension management system (see *Extensions* above). This separation allows styling improvements to be made in the extension and then propagated to all pub repos.
+
+## Setup/Publishing
+
 For more information on how to create and publish content using this template, see:
+
 - [Environment Setup Guide](ENVIRONMENT_SETUP.md)
 - [Publishing Guide](PUBLISHING_GUIDE.md)
