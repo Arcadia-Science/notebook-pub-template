@@ -50,7 +50,9 @@ notebook-pub-template/
 
 ### Extensions
 
-The `_extensions/` directory contains Quarto extensions. These should not be edited directly. Most important is **`arcadia-science/arcadia-pub-theme/`**, our publication theme. It provides all CSS styling, interactive components (sticky header, author reveal, citation modal), and assets like the citation style file. This extension is maintained in the [notebook-pub-theme](https://github.com/Arcadia-Science/notebook-pub-theme) repository.
+The `_extensions/` directory contains Quarto extensions. Quarto's extension system works through vendoring. When you run `quarto add`, it downloads the extension and copies it into your project's `_extensions/` directory. There is no global installation; each project contains its own copy of its extensions checked into the repository. This means when you clone a pub from this template repo, it already has all the extensions it needs.
+
+**The contents in `_extensions/` should not be edited directly**. Most important is **`Arcadia-Science/arcadia-pub-theme/`**, our publication theme. It provides all CSS styling, interactive components (sticky header, author reveal, citation modal), and assets like the citation style file. This extension is maintained in the [notebook-pub-theme](https://github.com/Arcadia-Science/notebook-pub-theme) repository.
 
 To update the Arcadia theme, see [notebook-pub-theme](https://github.com/Arcadia-Science/notebook-pub-theme) for detailed instructions.
 

@@ -35,3 +35,7 @@ execute-demo:
 	# This command is only necessary when changes are made to the demo notebook
 	# for development of the notebook pub template.
 	quarto render examples/demo.ipynb --execute
+
+.PHONY: update-theme
+update-theme:
+	quarto update extension Arcadia-Science/notebook-pub-theme --no-prompt
