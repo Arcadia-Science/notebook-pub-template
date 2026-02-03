@@ -27,7 +27,7 @@ Instructions are provided for:
 
     ```
     - text: 'Demo'
-      href: demo.ipynb
+      href: /examples/demo.html
     ```
 
     This will remove the *"Demo"* link from the navigation bar.
@@ -73,7 +73,7 @@ Instructions are provided for:
 
     Like all other pubs, follow the [AirTable toolkit guide](https://airtable.com/appN7KQ55bT6HHfog/pagm69ti1kZK1GhBx) through to the final step, "*Submit your pub for release*".
 
-    * Once all contributor roles have been assigned, populate `_authors.yml` accordingly.
+    * Once all contributor roles have been assigned, populate `authors.yml` accordingly.
     * Once all required authors sign the *AI methods form*, paste the following lines at the end of your section with the heading `## Abstract`:
 
         ```

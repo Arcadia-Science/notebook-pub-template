@@ -4,10 +4,12 @@ This directory contains documentation for developers who maintain or use the not
 
 ## Contents
 
-- [Environment Setup Guide](ENVIRONMENT_SETUP.md) - How to set up your development environment
-- [Publishing Guide](PUBLISHING_GUIDE.md) - How to publish your notebook publication
-- [Template Architecture](TEMPLATE_ARCHITECTURE.md) - Understanding the template's structure and components
-
+- [Quickstart Guide](QUICKSTART.md): **The most efficient way to get started** is to follow this guide.
+- [Environment Setup Guide](ENVIRONMENT_SETUP.md): How to set up your development environment.
+- [Publishing Guide](PUBLISHING_GUIDE.md): How to publish your notebook publication.
+- [Template Architecture](TEMPLATE_ARCHITECTURE.md): Technical details about the structure and components of this template repository.
+- [GitHub Actions](GITHUB_ACTIONS.md): Technical details about the GitHub Actions workflows that are used to build and publish the notebook publications.
+  
 ## Purpose
 
 These documents are intended to provide clarity on:
