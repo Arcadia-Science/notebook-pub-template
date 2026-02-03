@@ -78,7 +78,7 @@ These files are generated and should not be edited directly.
 
 ## Theme/Styling
 
-Any style changes should be made in the notebook-pub-theme repo and added into this repo using Quarto's extension management system (see *Extensions* above). This separation allows styling improvements to be made in the extension and then propagated to all pub repos.
+Any style changes should be made in the [`notebook-pub-theme`](https://github.com/Arcadia-Science/notebook-pub-theme) repo and added into this repo using Quarto's extension management system (see *Extensions* above). This separation allows styling improvements to be made in the extension and then propagated to all pub repos.
 
 ## Setup/Publishing
 
