@@ -27,7 +27,7 @@ Instructions are provided for:
 
     ```
     - text: 'Demo'
-      href: demo.ipynb
+      href: /examples/demo.html
     ```
 
     This will remove the *"Demo"* link from the navigation bar.
@@ -73,7 +73,7 @@ Instructions are provided for:
 
     Like all other pubs, follow the [AirTable toolkit guide](https://airtable.com/appN7KQ55bT6HHfog/pagm69ti1kZK1GhBx) through to the final step, "*Submit your pub for release*".
 
-    * Once all contributor roles have been assigned, populate `_authors.yml` accordingly.
+    * Once all contributor roles have been assigned, populate `authors.yml` accordingly.
     * Once all required authors sign the *AI methods form*, paste the following lines at the end of your section with the heading `## Abstract`:
 
         ```
@@ -83,6 +83,10 @@ Instructions are provided for:
         This is a placeholder for the AI usage disclosure. Once all authors sign the AI code form on AirTable, SlackBot will message you an AI disclosure that you should place here.
         :::
         ```
+
+1. **Add your Google Analytics ID to `_variables.yml`**
+
+    Add the Google Analytics ID provided by the Publishing Team to the `google_analytics_id` field in `_variables.yml`. This ID is used to track visits to the publication.
 
 1. **Create a tagged release of your repo**
 
