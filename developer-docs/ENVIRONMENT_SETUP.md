@@ -47,4 +47,3 @@ The Makefile provides several useful commands for development:
 - `make format`: Automatically format code using ruff
 - `make pre-commit`: Run all pre-commit hooks
 - `make test`: Run pytest tests, if they exist
-- `make bump-version`: Update version number

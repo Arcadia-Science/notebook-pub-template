@@ -2,4 +2,5 @@ pub:
   org: "Arcadia-Science"
   repo: "notebook-pub-template"
   title: "This is the title for the notebook pub template"
+  # Before publishing, add your Google Analytics ID here (see PUBLISHING_GUIDE.md).
   google_analytics_id: ""
