@@ -9,9 +9,9 @@
 2. **Configure your publication**
 
     * Replace the variables in `_variables.yml`
-      - For `google_analytics_id`, contact the Publishing Team with your repo name to receive a tracking ID
-    * Feel free to edit the variables in `authors.yml`
-      - Ultimately, Publishing Team will provide you with an `authors.yml` based on the contributor roles they assign for the publication, so this isn't necessary
+      - The `google_analytics_id` field can be left blank during development, but should be populated before publishing. See the [Publishing Guide](PUBLISHING_GUIDE.md) for more details.
+    * Feel free to edit the variables in `authors.yml`.
+      - Ultimately, Publishing Team will provide you with an `authors.yml` based on the contributor roles they assign for the publication, so this isn't necessary.
 
 3. **Install Quarto**
 
@@ -37,10 +37,9 @@
 
     As you work, please be careful to avoid modifying any files in the following directories:
 
-      - `_extensions/` (Quarto extensions)
-      - `_freeze/` (Generated execution results)
-      - `_site/` (Generated website files)
-      - `assets/` (Template styling)
+      - `/_extensions` (Quarto extensions)
+      - `/_freeze` (Generated execution results)
+      - `/_site` (Generated website files)
 
     These files are all either necessary to build the publication or are automatically generated during the publication process.
 

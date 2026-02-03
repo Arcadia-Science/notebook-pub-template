@@ -84,6 +84,10 @@ Instructions are provided for:
         :::
         ```
 
+1. **Add your Google Analytics ID to `_variables.yml`**
+
+    Add the Google Analytics ID provided by the Publishing Team to the `google_analytics_id` field in `_variables.yml`. This ID is used to track visits to the publication.
+
 1. **Create a tagged release of your repo**
 
     Follow the instructions on Notion [here](https://www.notion.so/arcadiascience/How-to-archive-a-GitHub-repository-on-Zenodo-at-time-of-publication-1cd6202af5bb4b5ba8464caaba8e9bed) to link your repo to Zenodo and create a new tagged release. (Note: this step is the same one you would follow for a "normal" non-notebook pub.)
