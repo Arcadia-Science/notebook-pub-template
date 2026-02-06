@@ -17,16 +17,16 @@ Instructions are provided for:
 
 1. **Populate the publication information in the `README.md`**
 
-1. **[If necessary] Remove the placeholder package**
+1. **Finalize the publication title**
 
-    If you did not populate `src/analysis` with your own content, remove it using `rm -rf src/analysis`.
+    Update the `title` field in `_variables.yml` to the final publication title. If you later change the title, be sure to also update it in `README.md`.
 
 1. **Remove references to the demo notebook from `_quarto.yml`**
 
     Remove the following lines from `_quarto.yml`:
 
     ```
-    - text: 'Demo'
+    - text: Demo
       href: /examples/demo.html
     ```
 
@@ -73,7 +73,7 @@ Instructions are provided for:
 
     Like all other pubs, follow the [AirTable toolkit guide](https://airtable.com/appN7KQ55bT6HHfog/pagm69ti1kZK1GhBx) through to the final step, "*Submit your pub for release*".
 
-    * Once all contributor roles have been assigned, populate `authors.yml` accordingly.
+    * Once all contributor roles have been assigned by the Publishing Team, generate `CITATION.cff` and `authors.yml` in the Release Center of the AirTable dashboard. Replace the template `CITATION.cff` and `authors.yml` with these files.
     * Once all required authors sign the *AI methods form*, paste the following lines at the end of your section with the heading `## Abstract`:
 
         ```

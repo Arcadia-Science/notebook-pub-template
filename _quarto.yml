@@ -62,11 +62,15 @@ website:
   cookie-consent:
     type: implied
     style: simple
-format: Arcadia-Science/arcadia-pub-theme-html
+format:
+  Arcadia-Science/arcadia-pub-theme-html:
+    html-math-method: katex
 shortcodes:
 - _extensions/mcanouil/iconify/iconify.lua
 filters:
 - _extensions/pandoc-ext/abstract-section/abstract-section.lua
+- _extensions/mcanouil/collapse-output/collapse-output.lua
+- _extensions/filter-warnings/filter-warnings.lua
 comments:
   giscus:
     repo: Arcadia-Science/notebook-pub-template
