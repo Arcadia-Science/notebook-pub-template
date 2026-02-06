@@ -19,7 +19,7 @@ All the learning resources for this template can be found in `developer-docs/`.
 
 This code repository contains or points to all materials required for creating and hosting the publication entitled, *"[PUB-TITLE]"*.
 
-The publication is hosted at [this URL]([PUB-URL]).
+The publication is hosted at [this URL](https://arcadia-science.github.io/[REPO-NAME]/).
 
 ## Data Description
 
