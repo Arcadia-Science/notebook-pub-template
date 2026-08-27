@@ -43,6 +43,44 @@
 
     These files are all either necessary to build the publication or are automatically generated during the publication process.
 
-7. **Publishing**
+7. **Link your additional assets**
+
+    Pubs on [The Stacks](https://thestacks.org) show a row of "Additional assets." The code, data, protocols, and other artifacts that accompany the work. To get
+    the same row on your pub, list them in the YAML front matter of `index.ipynb`
+    (the first cell, alongside `title` and `date`):
+
+    ```yaml
+    additional-assets:
+      - type: code
+        url: https://github.com/Arcadia-Science/my-pub
+      - type: protocol
+        url: https://www.protocols.io/view/...
+        name: Cell culture protocol
+
+    ```
+
+    Each entry needs a `type` and a `url`. The available
+    types, matching The Stacks:
+
+    | `type` | Renders as |
+    | --- | --- |
+    | `code` | Code |
+    | `data` | Data |
+    | `code-and-data` | Code + data |
+    | `material` | Material |
+    | `protocol` | Protocol |
+    | `3d-printing` | 3D printing design |
+    | `companion-pub` | Companion pub |
+    | `other` | Other |
+
+    Add an optional `name` to label an asset yourself. You'll want this whenever a
+    pub links more than one asset of the same type, so that readers can tell two
+    protocols apart. Omit `additional-assets` entirely and no row is rendered.
+
+    Write each `url` out in full. Quarto's `{{< var >}}` shortcodes are **not**
+    expanded in these values, so `https://github.com/{{< var pub.org >}}/...`
+    would render a broken link.
+
+8. **Publishing**
 
     See the [Publishing Guide](PUBLISHING_GUIDE.md) for complete instructions on the publishing process.
