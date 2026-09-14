@@ -7,5 +7,8 @@ on:
 
 jobs:
   check:
+    permissions:
+      contents: write
+      pull-requests: write
     uses: Arcadia-Science/notebook-pub-theme/.github/workflows/check-theme-updates.yml@main
     secrets: inherit

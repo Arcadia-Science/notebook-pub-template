@@ -8,5 +8,7 @@ on:
 
 jobs:
   publish:
+    permissions:
+      contents: write
     uses: Arcadia-Science/notebook-pub-theme/.github/workflows/publish-theme-change.yml@main
     secrets: inherit
